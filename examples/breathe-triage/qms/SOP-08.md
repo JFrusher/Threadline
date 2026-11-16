@@ -4,7 +4,7 @@ type: document
 doc_type: sop
 title: Management Review
 rev: 1
-status: draft
+status: effective
 ---
 # SOP-08 Management Review
 

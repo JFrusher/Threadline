@@ -4,7 +4,7 @@ type: document
 doc_type: intended_use
 title: Intended Use
 rev: 1
-status: draft
+status: effective
 ---
 # Intended use — Breathe-Triage (FICTIONAL)
 

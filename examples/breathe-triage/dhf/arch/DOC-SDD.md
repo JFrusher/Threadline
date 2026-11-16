@@ -4,7 +4,7 @@ type: document
 doc_type: detailed_design
 title: Software Detailed Design
 rev: 1
-status: draft
+status: effective
 ---
 # Software Detailed Design — class C units
 

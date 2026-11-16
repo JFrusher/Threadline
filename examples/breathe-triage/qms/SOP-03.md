@@ -4,7 +4,7 @@ type: document
 doc_type: sop
 title: Risk Management
 rev: 1
-status: draft
+status: effective
 ---
 # SOP-03 Risk Management
 

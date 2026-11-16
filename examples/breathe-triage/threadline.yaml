@@ -81,3 +81,8 @@ risk:
       frequent: unacceptable
   software_p1_rule: P1 for a software failure is set to 'certain' unless a risk control external to the 
     failing software item is cited. Illustrative policy choice; it is not quoted from IEC 62304.
+signers:
+  ann: {name: Ann Author (demo), roles: [author]}
+  quinn: {name: Quinn QA (demo), roles: [qa, reviewer]}
+approvals_required:
+  '*': [authored, approved_as_qa]
