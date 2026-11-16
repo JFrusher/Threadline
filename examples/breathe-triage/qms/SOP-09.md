@@ -4,7 +4,7 @@ type: document
 doc_type: sop
 title: Training
 rev: 1
-status: draft
+status: effective
 ---
 # SOP-09 Training
 

@@ -4,7 +4,7 @@ type: document
 doc_type: sdp
 title: Software Development Plan
 rev: 1
-status: draft
+status: effective
 ---
 # Software Development Plan — Breathe-Triage
 

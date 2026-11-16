@@ -4,7 +4,7 @@ type: document
 doc_type: clinical_evaluation
 title: Clinical Evaluation (ILLUSTRATIVE)
 rev: 1
-status: draft
+status: effective
 ---
 # Clinical evaluation — Breathe-Triage (ILLUSTRATIVE, fictional device)
 

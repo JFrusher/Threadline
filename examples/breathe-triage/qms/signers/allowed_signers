@@ -1,0 +1,4 @@
+# Demo signer keys for the fictional example (root of trust). Private keys were discarded after signing.
+ann ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAukUCyulv95i9tpS/FmqfOStia942BhivUai9PIfQms
+quinn ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBDGtnVnuUdl9cR1pDRAUKLuYL0rt+HNytaCM2EP+5Y6
+rita ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP3/HDP4381hIZ0JsmsIAnt/CeFcEEaaA9uqLZMJZPpm

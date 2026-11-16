@@ -4,7 +4,7 @@ type: document
 doc_type: sop
 title: Corrective and Preventive Action
 rev: 1
-status: draft
+status: effective
 ---
 # SOP-04 CAPA
 

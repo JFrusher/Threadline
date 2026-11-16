@@ -4,7 +4,7 @@ type: document
 doc_type: sop
 title: Complaints and Vigilance
 rev: 1
-status: draft
+status: effective
 ---
 # SOP-05 Complaints and Vigilance
 

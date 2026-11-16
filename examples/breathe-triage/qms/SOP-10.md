@@ -4,7 +4,7 @@ type: document
 doc_type: sop
 title: Tool Validation
 rev: 1
-status: draft
+status: effective
 ---
 # SOP-10 Tool Validation
 

@@ -4,7 +4,7 @@ type: document
 doc_type: sop
 title: Post-Market Surveillance
 rev: 1
-status: draft
+status: effective
 ---
 # SOP-06 Post-Market Surveillance
 

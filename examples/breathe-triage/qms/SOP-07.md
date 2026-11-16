@@ -4,7 +4,7 @@ type: document
 doc_type: sop
 title: Supplier and SOUP Control
 rev: 1
-status: draft
+status: effective
 ---
 # SOP-07 Supplier and SOUP Control
 

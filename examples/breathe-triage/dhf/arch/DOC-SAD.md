@@ -4,7 +4,7 @@ type: document
 doc_type: sad
 title: Software Architecture
 rev: 1
-status: draft
+status: effective
 ---
 # Software Architecture — Breathe-Triage
 

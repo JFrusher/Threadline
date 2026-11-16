@@ -4,7 +4,7 @@ type: document
 doc_type: sop
 title: Software Lifecycle
 rev: 1
-status: draft
+status: effective
 ---
 # SOP-02 Software Lifecycle
 
