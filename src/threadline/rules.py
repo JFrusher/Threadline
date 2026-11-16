@@ -23,6 +23,7 @@ class Context:
     sbom: list[dict] | None = None  # CycloneDX components; None = no SBOM given
     advisories: dict[str, list[str]] | None = None  # "name@version" -> advisory IDs
     base_ref: str | None = None  # git ref to diff documents against
+    git_root: Path | None = None  # set when the project is in a git work tree
 
     def passing(self, item_id: str) -> list[TestCase]:
         return [t for t in (self.evidence or {}).get(item_id, []) if t.passed]
@@ -33,7 +34,7 @@ class Rule:
     id: str
     clause: str
     title: str
-    needs: str | None  # "evidence" | "sbom" | "advisories" | "base_ref" | None
+    needs: str | None  # Context field that must not be None
     fn: Callable[[Context], Iterator[Finding]]
 
 

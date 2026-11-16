@@ -40,5 +40,6 @@ def build_project(tmp: Path, files: dict) -> rules.Context:
     ctx.sbom = files.get("sbom")
     ctx.advisories = files.get("advisories")
     if "git" in files:
+        ctx.git_root = tmp
         ctx.base_ref = "HEAD~1"
     return ctx

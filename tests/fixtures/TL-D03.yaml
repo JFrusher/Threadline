@@ -1,0 +1,14 @@
+pass:
+  git: |
+    git init -q && git config user.name t && git config user.email t@x && git config commit.gpgsign false && git config gpg.format ssh && git config gpg.ssh.program ssh-keygen
+    mkdir -p qms/signers records && ssh-keygen -q -t ed25519 -N "" -f ann.key && ssh-keygen -q -t ed25519 -N "" -f eve.key
+    echo "ann $(cat ann.key.pub)" > qms/signers/allowed_signers && git add qms && git commit -qm signers
+    printf 'id: %s\ntype: approval\ntitle: A\nsubject: SOP-01\nsubject_rev: 1\nsubject_sha256: x\nmeaning: authored\nsigner: %s\nsigned_at: "2026-11-16T10:00:00Z"\n' APR-1 ann > records/APR-1.yaml && git add records && git -c user.signingkey=$PWD/ann.key commit -qS -m approve
+fail:
+  git: |
+    git init -q && git config user.name t && git config user.email t@x && git config commit.gpgsign false && git config gpg.format ssh && git config gpg.ssh.program ssh-keygen
+    mkdir -p qms/signers records && ssh-keygen -q -t ed25519 -N "" -f ann.key && ssh-keygen -q -t ed25519 -N "" -f eve.key
+    echo "ann $(cat ann.key.pub)" > qms/signers/allowed_signers && git add qms && git commit -qm signers
+    printf 'id: %s\ntype: approval\ntitle: A\nsubject: SOP-01\nsubject_rev: 1\nsubject_sha256: x\nmeaning: authored\nsigner: %s\nsigned_at: "2026-11-16T10:00:00Z"\n' APR-1 ann > records/APR-1.yaml && git add records && git commit -qm unsigned
+    printf 'id: %s\ntype: approval\ntitle: A\nsubject: SOP-01\nsubject_rev: 1\nsubject_sha256: x\nmeaning: authored\nsigner: %s\nsigned_at: "2026-11-16T10:00:00Z"\n' APR-2 ann > records/APR-2.yaml && git add records && git -c user.signingkey=$PWD/eve.key commit -qS -m wrong-key
+    printf 'id: %s\ntype: approval\ntitle: A\nsubject: SOP-01\nsubject_rev: 1\nsubject_sha256: x\nmeaning: authored\nsigner: %s\nsigned_at: "2026-11-16T10:00:00Z"\n' APR-3 ann > records/APR-3.yaml
