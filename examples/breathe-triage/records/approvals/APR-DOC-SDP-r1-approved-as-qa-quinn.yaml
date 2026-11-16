@@ -1,0 +1,9 @@
+id: APR-DOC-SDP-r1-approved-as-qa-quinn
+type: approval
+title: DOC-SDP rev 1 approved_as_qa
+subject: DOC-SDP
+subject_rev: 1
+subject_sha256: 976765d8691615c421ef9a8237ca149dc7b42dca7ec9df7966ec0f8f81e938e0
+meaning: approved_as_qa
+signer: quinn
+signed_at: '2026-11-16T12:29:09Z'
