@@ -19,6 +19,7 @@ def _context(args) -> rules.Context:
         if ctx.git_root is None:
             raise SystemExit("--base needs the project to be in a git work tree")
         ctx.base_ref = args.base
+    ctx.release = args.release
     if args.junit:
         ctx.tests = [c for f in args.junit for c in junit.parse(f)]
         ctx.evidence = junit.by_item(ctx.tests)
@@ -61,7 +62,6 @@ def cmd_build(args) -> int:
     from threadline import build
 
     ctx = _context(args)
-    ctx.release = args.release
     result = rules.run(ctx)
     if args.release:
         # D02 needs a base branch, which a tag build has none of
@@ -277,6 +277,7 @@ def main(argv: list[str] | None = None) -> int:
         p.add_argument("--sbom", type=Path, help="CycloneDX JSON SBOM (e.g. from Syft)")
         p.add_argument("--osv", action="store_true", help="query OSV.dev for advisories against SBOM components")
         p.add_argument("--base", help="git ref to diff documents against (e.g. origin/main)")
+        p.add_argument("--release", help="release version: needs its approved baseline (TL-D05)")
         if name == "check":
             p.add_argument("--format", choices=["text", "github"], default="text")
         p.set_defaults(fn=fn)
@@ -285,7 +286,6 @@ def main(argv: list[str] | None = None) -> int:
             p.add_argument("--version", help="release version (default: git describe)")
             p.add_argument("--tool-validation", type=Path, help="JUnit of Threadline's own fixture suite")
             p.add_argument("--chromium", help="Chromium executable for mermaid-cli")
-            p.add_argument("--release", help="release version: requires an approved baseline and no skipped rules")
     p = sub.add_parser("init", help="create a new QMS repository from the template")
     p.add_argument("target", type=Path)
     p.set_defaults(fn=cmd_init)

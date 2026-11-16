@@ -418,8 +418,8 @@ def section_qms(ctx):
         signer = cfg.signers.get(a.signer)
         commit = ""
         if ctx.git_root:
-            commits = git.signed_commits(ctx.git_root, ctx.project.root, a.path)
-            commit = commits[0][0][:10] if commits else "uncommitted"
+            commits = git.commits_touching(ctx.git_root, a.path)
+            commit = commits[-1][:10] if commits else "uncommitted"
         rows.append(
             [link(ctx, a.subject), a.subject_rev, signer.name if signer else a.signer, a.meaning, a.signed_at, commit]
         )
