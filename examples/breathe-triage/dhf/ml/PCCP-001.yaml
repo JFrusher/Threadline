@@ -1,0 +1,11 @@
+id: PCCP-001
+type: pccp
+title: Retraining on field-collected tap data
+models: [MODEL-001]
+planned_changes: Retrain MODEL-001 on de-identified field tap sequences; same features, same model form.
+modification_protocol: >-
+  New dataset item with hashes; retrain with ml/train.py; the SRS-016 test must pass on a held-out test split with
+  the same acceptance criteria per age band; MODEL-001 weights hash updated in the same PR.
+impact_assessment: >-
+  The model can only add a recount prompt (ARCH-003); a worse model raises recount burden or misses irregular
+  tapping, which RC-003 (plausibility range) and RC-005 (full count) still bound.

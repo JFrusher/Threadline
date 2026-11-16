@@ -1,0 +1,6 @@
+id: RC-011
+type: risk_control
+title: Per-subgroup acceptance criteria
+kind: inherent_safety_by_design
+text: Model released only if sensitivity >= 0.95 and specificity >= 0.90 in every age band on held-out data.
+new_risk_review: 'Reviewed: higher recount rate is a burden, not a hazard.'

@@ -1,0 +1,7 @@
+id: ARCH-003
+type: architecture_item
+title: Tap-quality model
+text: Logistic model over tap-interval features; returns whether to prompt a recount.
+software_class: B
+implements: [SRS-015, SRS-016]
+segregation: Called by the UI shell after counting; its output is never passed to classify().

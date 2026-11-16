@@ -1,0 +1,5 @@
+id: SRS-015
+type: software_requirement
+title: Recount prompt on irregular tapping
+text: needs_recount(taps) shall return True when the tap-quality probability is >= 0.5.
+derives_from: [SYS-005]

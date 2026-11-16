@@ -1,0 +1,13 @@
+id: HAZ-009
+type: hazard
+title: Tap-quality model misses irregular counts in a subgroup
+category: ml
+hazard: Model under-performs for one age band (BS/AAMI 34971 data bias)
+sequence_of_events: Model trained on data unrepresentative of infants misses irregular infant tapping
+hazardous_situation: Miscounted rate accepted without recount prompt
+harm: Fast breathing missed; untreated pneumonia
+severity: catastrophic
+p1: medium
+p2: medium
+controls: [RC-011, RC-003]
+residual: {p1: very_low, p2: low}
