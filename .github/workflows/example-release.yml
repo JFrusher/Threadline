@@ -28,6 +28,7 @@ jobs:
       - run: >-
           threadline build examples/breathe-triage --release "$GITHUB_REF_NAME" --junit junit.xml --sbom sbom.cdx.json
           --osv --tool-validation tool-validation.xml --version "$GITHUB_REF_NAME" --out dist/technical-file.pdf
+          --trust-root 87785d9a6e5fd9fa56d7f36ca3256c91d349238a
       - run: cp junit.xml sbom.cdx.json tool-validation.xml dist/
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4
         with:

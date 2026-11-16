@@ -28,3 +28,4 @@ jobs:
         with:
           path: examples/breathe-triage
           junit: junit.xml
+          trust-root: 87785d9a6e5fd9fa56d7f36ca3256c91d349238a  # example registry anchor (see tests/test_example.py)

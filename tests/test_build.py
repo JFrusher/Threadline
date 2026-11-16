@@ -50,6 +50,8 @@ def test_pdf_builds(example_ctx, tmp_path):
     _, j = example_ctx
     out = tmp_path / "tf.pdf"
     chromium = next(Path("/opt/pw-browsers").glob("chromium-*/chrome-linux64/chrome"), None)
-    args = ["build", str(EXAMPLE), "--junit", str(j), "--out", str(out)]
+    from test_example import EXAMPLE_TRUST_ROOT
+
+    args = ["build", str(EXAMPLE), "--junit", str(j), "--out", str(out), "--trust-root", EXAMPLE_TRUST_ROOT]
     assert main(args + (["--chromium", str(chromium)] if chromium else [])) == 0
     assert out.read_bytes()[:4] == b"%PDF"

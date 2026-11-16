@@ -31,5 +31,5 @@ adopting manufacturer must still do, and what is out of scope. Mechanism: ADR-00
 2. Revoking a key: remove it in a QA-signed registry commit (TL-D04). Earlier approvals stay valid because each is
    verified against the registry of its own time; `valid-after`/`valid-before` options are honoured by ssh-keygen
    but not checked separately by Threadline.
-3. The registry's first commit is a root of trust that Threadline cannot verify; it is shown in git history and
-   must be reviewed when the QMS is set up.
+3. The root of trust (`THREADLINE_TRUST_ROOT`) is a procedural control: Threadline verifies everything after it,
+   not the admin decision that set it. GitHub's organisation audit log records who changed the variable.

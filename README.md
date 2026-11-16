@@ -25,7 +25,7 @@ threadline check --junit junit.xml          # red until your design file is comp
 | Command | What it does |
 |---|---|
 | `threadline init <dir>` | New QMS repo: SOPs, workflows, PR template, CODEOWNERS, editor schema |
-| `threadline check [root] --junit J --sbom S --osv --base REF [--release V] [--format github]` | Run every rule; exit 1 on any finding; per-rule summary; inline PR annotations |
+| `threadline check [root] --junit J --sbom S --osv --base REF --trust-root C [--release V] [--format github]` | Run every rule; exit 1 on any finding; per-rule summary; inline PR annotations |
 | `threadline rtm [root] --junit J` | Print the requirements traceability matrix |
 | `threadline build [root] --junit J --sbom S --osv --tool-validation T --release V` | Technical file PDF + DCB0129 hazard log (refuses on findings; `--release` also refuses skipped rules) |
 | `threadline approve ID... --meaning M --signer S` | Write approval records and commit them in one SSH-signed commit |
@@ -35,6 +35,9 @@ threadline check --junit junit.xml          # red until your design file is comp
 
 Releasing: `threadline baseline v1.2.0`, commit, `threadline approve BL-v1.2.0 --meaning released --signer <you>`,
 then tag `v1.2.0`. The release workflow rebuilds the evidence on the tag and refuses if anything changed.
+
+Trust: set the repository variable `THREADLINE_TRUST_ROOT` to the commit that created your signer registry. Signer
+changes after it must be SSH-signed by an existing QA signer; releases refuse to build without it.
 
 Link tests to items with `@pytest.mark.verifies("SRS-001", "RC-002")` and set `junit_family = xunit1`
 (ADR-002). Sign approvals with SSH-signed commits (ADR-003, `docs/guides/branch-protection.md`).
