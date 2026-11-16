@@ -1,0 +1,8 @@
+id: SRS-013
+type: software_requirement
+title: Result contrast
+text: Every classification's foreground/background colour pair shall have a WCAG contrast ratio >= 7.0.
+derives_from:
+- SYS-008
+implements:
+- RC-007

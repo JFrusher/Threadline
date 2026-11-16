@@ -1,0 +1,13 @@
+id: USE-002
+type: use_scenario
+title: Answer danger-sign questions
+task: Answer danger-sign questions
+text: CHW answers each of the five danger-sign questions.
+user_groups:
+- UG-001
+environments:
+- ENV-001
+- ENV-002
+hazards:
+- HAZ-004
+- HAZ-008

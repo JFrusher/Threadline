@@ -1,0 +1,5 @@
+pass:
+  dhf/USE-001.yaml: {id: USE-001, type: use_scenario, title: U, task: Count breaths, text: x, hazards: [HAZ-001], user_groups: [UG-001]}
+  dhf/USE-002.yaml: {id: USE-002, type: use_scenario, title: U, task: Count breaths, text: x, hazard_related: false}
+fail:
+  dhf/USE-001.yaml: {id: USE-001, type: use_scenario, title: U, task: Count breaths, text: x}

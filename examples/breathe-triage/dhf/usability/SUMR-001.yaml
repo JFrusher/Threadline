@@ -1,0 +1,22 @@
+id: SUMR-001
+type: summative_report
+title: Summative evaluation report (ILLUSTRATIVE DATA)
+illustrative: true
+protocol:
+- SUMP-001
+results:
+- scenario: USE-001
+  outcome: pass
+  use_errors: 1
+  notes: One age entered in years; caught at read-back confirmation (RC-006).
+- scenario: USE-002
+  outcome: pass
+  use_errors: 0
+- scenario: USE-003
+  outcome: pass
+  use_errors: 0
+- scenario: USE-004
+  outcome: pass
+  use_errors: 2
+  notes: Two counts stopped early; refused (RC-005).
+conclusion: Illustrative data only. Acceptance criteria met; residual use-related risk acceptable.

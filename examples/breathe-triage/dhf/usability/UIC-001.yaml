@@ -1,0 +1,6 @@
+id: UIC-001
+type: ui_characteristic
+title: Result screen contrast
+text: Result colours and text must be legible in direct sunlight.
+related_scenarios:
+- USE-003

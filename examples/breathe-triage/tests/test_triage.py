@@ -94,3 +94,27 @@ def test_no_network_imports():
         for node in ast.walk(ast.parse(path.read_text())):
             names = [a.name for a in getattr(node, "names", [])] + [getattr(node, "module", None) or ""]
             assert not {n.split(".")[0] for n in names} & banned, path
+
+
+@pytest.mark.verifies("SRS-012", "RC-006")
+@pytest.mark.parametrize("age,text", [(3, "0 years 3 months"), (36, "3 years 0 months"), (59, "4 years 11 months")])
+def test_age_readback(age, text):
+    from breathe_triage.triage import age_readback
+    assert age_readback(age) == text
+
+
+@pytest.mark.verifies("SRS-013", "RC-007")
+def test_result_contrast_meets_aaa():
+    from breathe_triage.triage import RESULT_COLOURS, contrast_ratio
+    assert set(RESULT_COLOURS) == set(ACTIONS)
+    assert contrast_ratio("#FFFFFF", "#000000") == pytest.approx(21.0)
+    for fg, bg in RESULT_COLOURS.values():
+        assert contrast_ratio(fg, bg) >= 7.0, (fg, bg)
+
+
+@pytest.mark.verifies("RC-008")
+@pytest.mark.parametrize("missing", DANGER_SIGNS)
+def test_every_danger_sign_must_be_answered(missing):
+    answers = {s: False for s in DANGER_SIGNS if s != missing}
+    with pytest.raises(ValueError):
+        classify(30, 30, answers)

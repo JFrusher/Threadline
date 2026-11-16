@@ -46,3 +46,28 @@ def classify(age_months: int, respiratory_rate: int, danger_signs: dict[str, boo
         return "REFER_URGENTLY"
     threshold = 50 if age_months < 12 else 40
     return "FAST_BREATHING" if respiratory_rate >= threshold else "NO_FAST_BREATHING"
+
+
+# Result colours (foreground, background) as sRGB hex; SRS-013 requires contrast >= 7:1 in sunlight.
+RESULT_COLOURS = {
+    "REFER_URGENTLY": ("#FFFFFF", "#8B0000"),
+    "FAST_BREATHING": ("#000000", "#FFD700"),
+    "NO_FAST_BREATHING": ("#FFFFFF", "#004D00"),
+}
+
+
+def contrast_ratio(fg: str, bg: str) -> float:
+    """WCAG 2.x contrast ratio between two sRGB hex colours."""
+
+    def luminance(hex_: str) -> float:
+        rgb = [int(hex_[i:i + 2], 16) / 255 for i in (1, 3, 5)]
+        lin = [c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4 for c in rgb]
+        return 0.2126 * lin[0] + 0.7152 * lin[1] + 0.0722 * lin[2]
+
+    hi, lo = sorted((luminance(fg), luminance(bg)), reverse=True)
+    return (hi + 0.05) / (lo + 0.05)
+
+
+def age_readback(age_months: int) -> str:
+    years, months = divmod(age_months, 12)
+    return f"{years} years {months} months"

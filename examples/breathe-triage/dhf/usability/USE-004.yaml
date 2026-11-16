@@ -1,0 +1,13 @@
+id: USE-004
+type: use_scenario
+title: Count breaths
+task: Count breaths
+text: CHW taps once per breath for the 60-second count while the child moves.
+user_groups:
+- UG-001
+environments:
+- ENV-001
+- ENV-002
+hazards:
+- HAZ-003
+- HAZ-005

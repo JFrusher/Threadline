@@ -1,0 +1,7 @@
+pass:
+  dhf/SUMP-001.yaml: {id: SUMP-001, type: summative_protocol, title: P, method: simulated use, participants_per_group: 15, acceptance_criteria: no use error leading to harm, scenarios: [USE-001]}
+  dhf/SUMR-001.yaml: {id: SUMR-001, type: summative_report, title: R, illustrative: true, protocol: [SUMP-001], conclusion: ok, results: [{scenario: USE-001, outcome: pass}]}
+fail:
+  dhf/SUMP-001.yaml: {id: SUMP-001, type: summative_protocol, title: P, method: simulated use, participants_per_group: 15, acceptance_criteria: no use error leading to harm, scenarios: [USE-001, USE-002]}
+  dhf/SUMP-002.yaml: {id: SUMP-002, type: summative_protocol, title: P, method: simulated use, participants_per_group: 15, acceptance_criteria: no use error leading to harm, scenarios: [USE-001]}
+  dhf/SUMR-001.yaml: {id: SUMR-001, type: summative_report, title: R, illustrative: true, protocol: [SUMP-001], conclusion: ok, results: [{scenario: USE-001, outcome: pass}]}

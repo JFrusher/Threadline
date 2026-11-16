@@ -1,0 +1,6 @@
+id: UIC-002
+type: ui_characteristic
+title: Age entry in months
+text: Age is entered in months and read back in years and months for confirmation.
+related_scenarios:
+- USE-001
