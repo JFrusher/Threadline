@@ -1,0 +1,7 @@
+id: UKER-11
+type: requirement
+title: Protection against radiation
+source: UK MHRA (Great Britain) — UK MDR 2002
+clause: ER 11
+applicable: false
+justification: Emits no radiation.

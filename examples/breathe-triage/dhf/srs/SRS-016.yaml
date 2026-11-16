@@ -1,0 +1,6 @@
+id: SRS-016
+type: software_requirement
+title: Tap-quality model performance by age band
+text: On the DS-001 test split, the released weights shall give sensitivity >= 0.95 and specificity >= 0.90 for each age band.
+derives_from: [SYS-005]
+implements: [RC-011]

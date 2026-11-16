@@ -71,7 +71,7 @@ Reference device **Breathe-Triage** grows phase by phase in `examples/breathe-tr
 | 6.1 | `templates/project/` skeleton + `threadline init` | `init` → `check` fails red with clause-cited messages |
 | 6.2 | Composite GitHub Action `action.yml` | Used by example's CI |
 | 6.3 | Template workflows: `check.yml`, PR template, CODEOWNERS | Fresh init repo runs CI on GitHub |
-| 6.4 | Publish to PyPI (trusted publishing) as 0.1.0 | `pip install threadline` works |
+| 6.4 | `publish.yml`: PyPI trusted publishing on `v*` tags | Wheel builds with template; **owner** registers the trusted publisher on pypi.org |
 
 ## Phase 7 — QMS (ISO 13485)
 | # | Step | Done when |
@@ -145,7 +145,7 @@ Reference device **Breathe-Triage** grows phase by phase in `examples/breathe-tr
 | 15.2 | `power-loss` (atomic writes, resume, battery-state UI) with WHO 2023 citation | Pack + test stubs |
 | 15.3 | `offline-queue` (durable queue, idempotent sync, conflict rule) with GSMA citation | Same |
 | 15.4 | `low-bandwidth-telemetry` | Same |
-| 15.5 | `clock-drift`, `shared-device`, `sunlight-legibility` — **only once evidence found** | Source cited or step dropped |
+| 15.5 | `clock-drift`, `shared-device`, `sunlight-legibility` — **only once evidence found** | Not shipped in v1: no source found yet. `ml-34971` preset added (11.3) |
 
 ## Phase 16 — Tool validation and v1.0
 | # | Step | Done when |
@@ -153,8 +153,8 @@ Reference device **Breathe-Triage** grows phase by phase in `examples/breathe-tr
 | 16.1 | Threadline intended use + risk assessment of the tool itself (ISO/TR 80002-2) | Doc effective |
 | 16.2 | Tool validation report = JUnit of the fixture suite, rendered by `threadline build` | Report in release |
 | 16.3 | README quickstart + rule reference table generated from rule registry | Table in README |
-| 16.4 | External QA/RA review of example PDF; fix findings | Review notes closed |
-| 16.5 | Tag v1.0.0 | All PRD §10 criteria met |
+| 16.4 | External QA/RA review of example PDF; fix findings | **Owner action** — needs a qualified reviewer |
+| 16.5 | Tag v1.0.0 | **Owner action** — after 16.4 and PyPI trusted publisher set up |
 
 ---
 

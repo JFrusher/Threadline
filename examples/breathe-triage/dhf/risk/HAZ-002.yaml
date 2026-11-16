@@ -1,0 +1,16 @@
+id: HAZ-002
+type: hazard
+title: Device used on young infant
+category: software
+hazard: Age not checked
+sequence_of_events: Infant under 2 months assessed with older-child thresholds
+hazardous_situation: Serious illness in young infant missed
+harm: Death or severe illness
+severity: catastrophic
+p1: high
+p2: medium
+controls:
+- RC-002
+residual:
+  p1: very_low
+  p2: low

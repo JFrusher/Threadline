@@ -1,0 +1,16 @@
+id: HAZ-007
+type: hazard
+title: Result misread in sunlight
+category: use
+hazard: Low-contrast result screen
+sequence_of_events: CHW reads result at midday; glare
+hazardous_situation: REFER_URGENTLY read as a non-urgent result
+harm: Referral delayed
+severity: catastrophic
+p1: medium
+p2: medium
+controls:
+- RC-007
+residual:
+  p1: very_low
+  p2: low

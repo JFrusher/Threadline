@@ -1,0 +1,6 @@
+id: SRS-011
+type: software_requirement
+title: No network calls
+text: The assessment package shall not import network libraries.
+derives_from:
+- SYS-006

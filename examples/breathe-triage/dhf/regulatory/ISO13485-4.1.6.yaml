@@ -1,0 +1,7 @@
+id: ISO13485-4.1.6
+type: requirement
+title: Validation of QMS software
+source: ISO 13485:2016 clause map
+clause: 4.1.6
+evidence:
+- SOP-10

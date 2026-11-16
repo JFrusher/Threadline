@@ -1,0 +1,38 @@
+name: example-release
+on:
+  push:
+    tags: ["example-v*"]
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+jobs:
+  technical-file:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends pandoc texlive-xetex texlive-latex-recommended fonts-dejavu-core
+      - run: npm install -g @mermaid-js/mermaid-cli@11.4.2
+      - run: pip install . pytest
+      - run: pytest tests --junitxml=tool-validation.xml
+      - run: pytest examples/breathe-triage --junitxml=junit.xml
+      - uses: anchore/sbom-action@v0
+        with:
+          path: examples/breathe-triage
+          format: cyclonedx-json
+          output-file: sbom.cdx.json
+      - run: >-
+          threadline build examples/breathe-triage --junit junit.xml --sbom sbom.cdx.json --osv
+          --tool-validation tool-validation.xml --version "$GITHUB_REF_NAME" --out dist/technical-file.pdf
+      - run: cp junit.xml sbom.cdx.json tool-validation.xml dist/
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: dist/*
+      - run: gh release create "$GITHUB_REF_NAME" dist/* --prerelease --title "Breathe-Triage example $GITHUB_REF_NAME" --notes "Fictional example device. Illustrative data."
+        env:
+          GH_TOKEN: ${{ github.token }}

@@ -1,0 +1,5 @@
+id: LBT-RC-001
+type: risk_control
+title: End-to-end payload checksum
+kind: inherent_safety_by_design
+text: Every payload carries a checksum the receiver verifies before accepting it.

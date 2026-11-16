@@ -1,0 +1,6 @@
+pass:
+  dhf/USE-001.yaml: {id: USE-001, type: use_scenario, title: U, task: Count breaths, text: x, hazards: [HAZ-001], user_groups: [UG-001]}
+  dhf/SUMP-001.yaml: {id: SUMP-001, type: summative_protocol, title: P, method: simulated use, participants_per_group: 15, acceptance_criteria: no use error leading to harm, scenarios: [USE-001]}
+fail:
+  dhf/USE-001.yaml: {id: USE-001, type: use_scenario, title: U, task: Count breaths, text: x, hazards: [HAZ-001], user_groups: [UG-001]}
+  dhf/SUMP-001.yaml: {id: SUMP-001, type: summative_protocol, title: P, method: simulated use, participants_per_group: 15, acceptance_criteria: no use error leading to harm, scenarios: []}

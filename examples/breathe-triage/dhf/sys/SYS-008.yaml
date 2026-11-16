@@ -1,0 +1,7 @@
+id: SYS-008
+type: system_requirement
+title: Clear result display
+text: The system shall show one classification with a plain-language action.
+derives_from:
+- UN-002
+- UN-003

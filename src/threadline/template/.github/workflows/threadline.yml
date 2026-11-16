@@ -1,0 +1,21 @@
+name: threadline
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # TL-D02 diffs against the base branch; TL-D03 reads signatures from history
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install threadline pytest
+      - run: pytest --junitxml=junit.xml
+      - uses: JFrusher/threadline@v1
+        with:
+          junit: junit.xml
+          base: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || '' }}

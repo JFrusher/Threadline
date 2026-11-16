@@ -1,0 +1,15 @@
+id: SUMP-001
+type: summative_protocol
+title: Summative evaluation protocol
+method: Simulated use with child mannequin video and scripted caregiver answers, outdoors and in a darkened 
+  room
+participants_per_group: 15
+acceptance_criteria: No use error on a hazard-related scenario that leads to a wrong classification; all close
+  calls analysed for root cause.
+scenarios:
+- USE-001
+- USE-002
+- USE-003
+- USE-004
+user_groups:
+- UG-001

@@ -1,0 +1,88 @@
+product: Breathe-Triage (fictional example device)
+lifecycle_profile: iec62304-ed1
+software_class: C
+regulatory_profiles:
+- uk-mhra
+- au-model-law
+risk:
+  severity:
+  - negligible
+  - minor
+  - serious
+  - critical
+  - catastrophic
+  p1:
+  - very_low
+  - low
+  - medium
+  - high
+  - certain
+  p2:
+  - very_low
+  - low
+  - medium
+  - high
+  probability:
+    very_low:
+      very_low: improbable
+      low: improbable
+      medium: improbable
+      high: remote
+    low:
+      very_low: improbable
+      low: improbable
+      medium: remote
+      high: occasional
+    medium:
+      very_low: improbable
+      low: remote
+      medium: occasional
+      high: probable
+    high:
+      very_low: remote
+      low: occasional
+      medium: probable
+      high: frequent
+    certain:
+      very_low: occasional
+      low: probable
+      medium: frequent
+      high: frequent
+  acceptability:
+    negligible:
+      improbable: acceptable
+      remote: acceptable
+      occasional: acceptable
+      probable: acceptable
+      frequent: acceptable
+    minor:
+      improbable: acceptable
+      remote: acceptable
+      occasional: acceptable
+      probable: acceptable
+      frequent: unacceptable
+    serious:
+      improbable: acceptable
+      remote: acceptable
+      occasional: acceptable
+      probable: unacceptable
+      frequent: unacceptable
+    critical:
+      improbable: acceptable
+      remote: acceptable
+      occasional: unacceptable
+      probable: unacceptable
+      frequent: unacceptable
+    catastrophic:
+      improbable: acceptable
+      remote: unacceptable
+      occasional: unacceptable
+      probable: unacceptable
+      frequent: unacceptable
+  software_p1_rule: P1 for a software failure is set to 'certain' unless a risk control external to the 
+    failing software item is cited. Illustrative policy choice; it is not quoted from IEC 62304.
+signers:
+  ann: {name: Ann Author (demo), roles: [author]}
+  quinn: {name: Quinn QA (demo), roles: [qa, reviewer]}
+approvals_required:
+  '*': [authored, approved_as_qa]

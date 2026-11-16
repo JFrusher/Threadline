@@ -1,0 +1,6 @@
+id: SRS-008
+type: software_requirement
+title: Count from taps
+text: Respiratory rate shall equal the number of breath taps inside the 60-second window.
+derives_from:
+- SYS-001

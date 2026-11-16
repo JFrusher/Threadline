@@ -1,0 +1,16 @@
+id: HAZ-004
+type: hazard
+title: Danger sign ignored
+category: software
+hazard: Classification uses RR only
+sequence_of_events: Child with convulsions classified as fast breathing only
+hazardous_situation: Urgent referral not made
+harm: Death
+severity: catastrophic
+p1: certain
+p2: high
+controls:
+- RC-004
+residual:
+  p1: very_low
+  p2: very_low

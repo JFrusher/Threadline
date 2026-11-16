@@ -1,0 +1,6 @@
+id: SRS-010
+type: software_requirement
+title: Action text
+text: Each classification shall map to one fixed plain-language action string.
+derives_from:
+- SYS-008

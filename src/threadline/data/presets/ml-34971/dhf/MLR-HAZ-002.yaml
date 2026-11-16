@@ -1,0 +1,13 @@
+id: MLR-HAZ-002
+type: hazard
+title: Data drift in deployment
+category: ml
+hazard: Data drift in deployment
+sequence_of_events: Field population or devices differ from training conditions
+hazardous_situation: Model performance degrades unnoticed
+harm: Wrong outputs at scale
+controls:
+- MLR-RC-002
+references:
+- 'BS/AAMI 34971:2023 Application of ISO 14971 to machine learning in artificial intelligence (hazard areas: data
+  quality, bias, over-trust, adaptive systems). https://knowledge.bsigroup.com/articles/how-to-tackle-hazards-in-ai-medical-devices-using-bs-aami-34971'

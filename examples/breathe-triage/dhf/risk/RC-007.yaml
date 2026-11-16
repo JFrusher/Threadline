@@ -1,0 +1,6 @@
+id: RC-007
+type: risk_control
+title: High-contrast result
+kind: inherent_safety_by_design
+text: Result text/background contrast ratio of at least 7:1 (WCAG 2.x AAA level) for every classification.
+new_risk_review: 'Reviewed: no new hazards introduced.'

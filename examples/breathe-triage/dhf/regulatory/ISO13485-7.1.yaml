@@ -1,0 +1,8 @@
+id: ISO13485-7.1
+type: requirement
+title: Planning of product realization (incl. risk management)
+source: ISO 13485:2016 clause map
+clause: '7.1'
+evidence:
+- SOP-03
+- DOC-SDP

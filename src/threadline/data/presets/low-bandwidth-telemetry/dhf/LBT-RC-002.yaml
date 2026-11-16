@@ -1,0 +1,5 @@
+id: LBT-RC-002
+type: risk_control
+title: Bounded exponential backoff
+kind: inherent_safety_by_design
+text: Retries back off exponentially up to a cap.

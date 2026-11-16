@@ -1,0 +1,13 @@
+id: MLR-HAZ-004
+type: hazard
+title: Test data leakage
+category: ml
+hazard: Test data leakage
+sequence_of_events: Test records also present in training data
+hazardous_situation: Reported performance overstates real performance
+harm: Unsafe model released
+controls:
+- MLR-RC-004
+references:
+- 'BS/AAMI 34971:2023 Application of ISO 14971 to machine learning in artificial intelligence (hazard areas: data
+  quality, bias, over-trust, adaptive systems). https://knowledge.bsigroup.com/articles/how-to-tackle-hazards-in-ai-medical-devices-using-bs-aami-34971'

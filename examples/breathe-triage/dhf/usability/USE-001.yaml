@@ -1,0 +1,13 @@
+id: USE-001
+type: use_scenario
+title: Enter age
+task: Enter age
+text: CHW enters the child's age; caregiver gives age in years.
+user_groups:
+- UG-001
+environments:
+- ENV-001
+- ENV-002
+hazards:
+- HAZ-002
+- HAZ-006

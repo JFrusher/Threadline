@@ -1,0 +1,15 @@
+name: African Union Model Law on Medical Products Regulation — WHO GMRF baseline
+note: >-
+  The Model Law is domesticated nationally; record the national law applied per country. Essential principles
+  follow the WHO Global Model Regulatory Framework, which builds on IMDRF essential principles. Grouping here is
+  by topic, not IMDRF N47 clause numbers (not verified for this release).
+classification_schemes: [who-gmrf]
+checklist:
+  - {id: AUEP-GEN, clause: "EP general", title: "Safety and performance; risk management through the lifecycle"}
+  - {id: AUEP-CLIN, clause: "EP clinical", title: "Clinical evidence supports safety and performance"}
+  - {id: AUEP-SW, clause: "EP software", title: "Software developed and validated per the state of the art (lifecycle, risk, V&V, security)"}
+  - {id: AUEP-USE, clause: "EP usability", title: "Reduce use-error risk for intended users and environment"}
+  - {id: AUEP-LABEL, clause: "EP labelling", title: "Labelling and instructions for use"}
+  - {id: AUEP-QMS, clause: "Model Law (QMS)", title: "Quality management system appropriate to the device"}
+  - {id: AUEP-VIG, clause: "Model Law (vigilance)", title: "Post-market surveillance and adverse event reporting to the national authority"}
+  - {id: AUEP-REG, clause: "Model Law (registration)", title: "National marketing authorisation per domesticated law"}

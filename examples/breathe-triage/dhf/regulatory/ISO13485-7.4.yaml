@@ -1,0 +1,7 @@
+id: ISO13485-7.4
+type: requirement
+title: Purchasing (incl. SOUP)
+source: ISO 13485:2016 clause map
+clause: '7.4'
+evidence:
+- SOP-07

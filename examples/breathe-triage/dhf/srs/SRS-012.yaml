@@ -1,0 +1,8 @@
+id: SRS-012
+type: software_requirement
+title: Age read-back text
+text: age_readback(age_months) shall return '<y> years <m> months' for confirmation.
+derives_from:
+- SYS-007
+implements:
+- RC-006

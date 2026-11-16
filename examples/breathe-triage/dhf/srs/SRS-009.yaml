@@ -1,0 +1,6 @@
+id: SRS-009
+type: software_requirement
+title: Classification set
+text: classify() shall return exactly one of REFER_URGENTLY, FAST_BREATHING, NO_FAST_BREATHING.
+derives_from:
+- SYS-008

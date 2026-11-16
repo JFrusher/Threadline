@@ -1,0 +1,13 @@
+id: MODEL-001
+type: model
+title: Tap-quality classifier
+training_code: ml/train.py
+datasets: [DS-001]
+hyperparameters: {learning_rate: 0.5, epochs: 3000, threshold: 0.5}
+weights_path: model/tap-quality.json
+weights_sha256: 5a258de1d4439934801d2c5887272c38071817282ebf78f4a564d9dc1e7758bf
+metrics: {sensitivity: 0.98, specificity: 1.0}
+acceptance_criteria: Sensitivity >= 0.95 and specificity >= 0.90 in every age band on the DS-001 test split.
+subgroup_metrics:
+  infant: {sensitivity: 0.98, specificity: 1.0}
+  child: {sensitivity: 0.98, specificity: 1.0}

@@ -1,0 +1,6 @@
+id: RC-008
+type: risk_control
+title: Every danger sign answered
+kind: inherent_safety_by_design
+text: Classification refuses to run unless all five danger-sign questions are answered yes or no.
+new_risk_review: 'Reviewed: no new hazards introduced.'

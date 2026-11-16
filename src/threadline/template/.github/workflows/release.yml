@@ -1,0 +1,36 @@
+name: release
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write       # create the GitHub Release
+  id-token: write       # build provenance attestation
+  attestations: write
+jobs:
+  technical-file:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # signatures and history are evidence
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends pandoc texlive-xetex texlive-latex-recommended fonts-dejavu-core
+      - run: npm install -g @mermaid-js/mermaid-cli@11.4.2
+      - run: pip install threadline pytest
+      # the verification record: the full suite re-run on the tagged commit
+      - run: pytest --junitxml=junit.xml
+      - uses: anchore/sbom-action@v0
+        with:
+          path: .
+          format: cyclonedx-json
+          output-file: sbom.cdx.json
+      - run: threadline build --junit junit.xml --sbom sbom.cdx.json --osv --version "$GITHUB_REF_NAME" --out dist/technical-file.pdf
+      - run: cp junit.xml sbom.cdx.json dist/
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: dist/*
+      - run: gh release create "$GITHUB_REF_NAME" dist/* --title "$GITHUB_REF_NAME" --notes "Technical file, hazard log, JUnit evidence and SBOM for $GITHUB_REF_NAME."
+        env:
+          GH_TOKEN: ${{ github.token }}

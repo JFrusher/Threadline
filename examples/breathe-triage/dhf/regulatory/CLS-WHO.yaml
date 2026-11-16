@@ -1,0 +1,8 @@
+id: CLS-WHO
+type: classification
+title: WHO GMRF risk class
+scheme: who-gmrf
+result: C (provisional)
+rule: WHO GMRF / IMDRF risk-based classification
+rationale: Supports referral decisions where a wrong output can contribute to death of a child. PROVISIONAL — 
+  confirm against the national rules of each target country.

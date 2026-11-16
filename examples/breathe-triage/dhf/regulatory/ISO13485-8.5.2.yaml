@@ -1,0 +1,8 @@
+id: ISO13485-8.5.2
+type: requirement
+title: Corrective action
+source: ISO 13485:2016 clause map
+clause: 8.5.2
+evidence:
+- SOP-04
+- CAPA-001

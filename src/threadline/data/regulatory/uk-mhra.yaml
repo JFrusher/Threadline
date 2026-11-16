@@ -1,0 +1,23 @@
+name: UK MHRA (Great Britain) — UK MDR 2002
+note: >-
+  Essential requirements are those of Annex I to Directive 93/42/EEC as applied by Part II of the UK MDR 2002.
+  Titles are summaries; verify wording against legislation.gov.uk before submission. Classification uses the
+  Annex IX rules as applied in GB. Northern Ireland follows EU MDR and is out of scope.
+classification_schemes: [uk-mhra]
+checklist:
+  - {id: UKER-1, clause: "ER 1", title: "Safe in intended use; risks acceptable; reduce use error (ergonomics, use environment)"}
+  - {id: UKER-2, clause: "ER 2", title: "Design solutions follow safety principles and the state of the art"}
+  - {id: UKER-3, clause: "ER 3", title: "Achieves the performance intended by the manufacturer"}
+  - {id: UKER-4, clause: "ER 4", title: "Characteristics and performance maintained over the lifetime"}
+  - {id: UKER-5, clause: "ER 5", title: "Not adversely affected by transport and storage"}
+  - {id: UKER-6, clause: "ER 6", title: "Undesirable side-effects acceptable against performance"}
+  - {id: UKER-6a, clause: "ER 6a", title: "Clinical evaluation"}
+  - {id: UKER-7, clause: "ER 7", title: "Chemical, physical and biological properties"}
+  - {id: UKER-8, clause: "ER 8", title: "Infection and microbial contamination"}
+  - {id: UKER-9, clause: "ER 9", title: "Construction and environmental properties"}
+  - {id: UKER-10, clause: "ER 10", title: "Devices with a measuring function"}
+  - {id: UKER-11, clause: "ER 11", title: "Protection against radiation"}
+  - {id: UKER-12.1a, clause: "ER 12.1a", title: "Software validated per the state of the art (lifecycle, risk management, verification, validation)"}
+  - {id: UKER-12, clause: "ER 12", title: "Devices connected to or equipped with an energy source"}
+  - {id: UKER-13, clause: "ER 13", title: "Information supplied by the manufacturer"}
+  - {id: UK-PMS, clause: "Part 4A", title: "Post-market surveillance system, plan and reporting (SI 2024/1368)"}

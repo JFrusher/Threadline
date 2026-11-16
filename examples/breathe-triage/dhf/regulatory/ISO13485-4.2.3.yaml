@@ -1,0 +1,9 @@
+id: ISO13485-4.2.3
+type: requirement
+title: Medical device file
+source: ISO 13485:2016 clause map
+clause: 4.2.3
+evidence:
+- DOC-IU
+- DOC-SDP
+- DOC-SAD

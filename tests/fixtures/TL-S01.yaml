@@ -1,0 +1,11 @@
+pass:
+  dhf/UN-001.yaml: {id: UN-001, type: user_need, title: Need, text: A need}
+fail:
+  dhf/UN-001.yaml: {id: UN-002, type: user_need, title: Wrong filename, text: x}
+  dhf/UN-003.yaml: {id: UN-003, type: no_such_type, title: Bad type}
+  dhf/UN-004.yaml: {id: UN-004, type: user_need, title: Missing text}
+  dhf/UN_005.yaml:
+    id: UN_005
+    type: user_need
+    title: Underscore id
+    text: x

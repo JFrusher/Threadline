@@ -1,0 +1,6 @@
+id: SYS-002
+type: system_requirement
+title: Danger-sign capture
+text: The system shall capture each general danger sign as yes/no before classifying.
+derives_from:
+- UN-002

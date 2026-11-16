@@ -1,0 +1,10 @@
+id: FORM-001
+type: formative_evaluation
+title: Paper prototype walkthrough (ILLUSTRATIVE)
+date: '2026-08-12'
+method: Cognitive walkthrough, paper prototype
+participants: 5
+findings: Illustrative. 3 of 5 entered age in years into the months field (led to HAZ-006, RC-006).
+scenarios:
+- USE-001
+- USE-002

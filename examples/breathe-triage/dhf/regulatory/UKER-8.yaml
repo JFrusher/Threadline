@@ -1,0 +1,7 @@
+id: UKER-8
+type: requirement
+title: Infection and microbial contamination
+source: UK MHRA (Great Britain) — UK MDR 2002
+clause: ER 8
+applicable: false
+justification: Standalone software; no infection or contamination pathway.

@@ -1,0 +1,5 @@
+id: PWR-RC-001
+type: risk_control
+title: Atomic record writes
+kind: inherent_safety_by_design
+text: Write each record to a temporary file, flush to storage, then rename into place.

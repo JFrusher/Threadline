@@ -1,0 +1,10 @@
+id: THR-001
+type: threat
+title: Child data exposed on a shared phone
+stride: information_disclosure
+asset: Assessment records in the offline queue
+entry_point: Phone shared between CHWs or lost
+assessment: >-
+  Likely in the use environment (shared devices). Impact is privacy harm to the child's family. Mitigated by data
+  minimisation: records carry no direct identifiers.
+controls: [RC-009]

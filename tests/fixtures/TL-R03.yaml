@@ -1,0 +1,6 @@
+pass:
+  dhf/RC-001.yaml: {id: RC-001, type: risk_control, title: C, kind: protective_measure, text: x, new_risk_review: none introduced}
+  dhf/RC-002.yaml: {id: RC-002, type: risk_control, title: Label, kind: information_for_safety, text: x}
+  dhf/SRS-001.yaml: {id: SRS-001, type: software_requirement, title: R, text: x, implements: [RC-001]}
+fail:
+  dhf/RC-001.yaml: {id: RC-001, type: risk_control, title: C, kind: protective_measure, text: x, new_risk_review: none introduced}

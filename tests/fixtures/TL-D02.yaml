@@ -1,0 +1,10 @@
+pass:
+  git: |
+    git init -q && git config user.name t && git config user.email t@x && git config commit.gpgsign false
+    mkdir qms && printf -- '---\nid: SOP-01\ntype: document\ndoc_type: sop\ntitle: T\nrev: %s\nstatus: effective\n---\n%s\n' 1 'Old text.' > qms/SOP-01.md && git add -A && git commit -qm v1
+    printf -- '---\nid: SOP-01\ntype: document\ndoc_type: sop\ntitle: T\nrev: %s\nstatus: effective\n---\n%s\n' 2 'New text.' > qms/SOP-01.md && git add -A && git commit -qm v2
+fail:
+  git: |
+    git init -q && git config user.name t && git config user.email t@x && git config commit.gpgsign false
+    mkdir qms && printf -- '---\nid: SOP-01\ntype: document\ndoc_type: sop\ntitle: T\nrev: %s\nstatus: effective\n---\n%s\n' 1 'Old text.' > qms/SOP-01.md && git add -A && git commit -qm v1
+    printf -- '---\nid: SOP-01\ntype: document\ndoc_type: sop\ntitle: T\nrev: %s\nstatus: effective\n---\n%s\n' 1 'New text.' > qms/SOP-01.md && git add -A && git commit -qm v2

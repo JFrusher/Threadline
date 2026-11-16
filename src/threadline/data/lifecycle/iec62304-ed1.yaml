@@ -1,0 +1,19 @@
+standard: IEC 62304:2006+A1:2015
+draft: false
+note: >-
+  Clause-to-class applicability transcribed from IEC 62304 Annex A Table A.1 without access to the licensed text
+  during authoring. Verify against your copy of the standard before relying on it. UK designates EN 62304:2006 (no A1).
+# requires: item_type (>=1 live item), doc_type (>=1 document), document (that ID exists)
+activities:
+  - {clause: "4.3", title: Software safety classification, classes: [A, B, C], requires: {item_type: classification}}
+  - {clause: "5.1", title: Software development planning, classes: [A, B, C], requires: {doc_type: sdp}}
+  - {clause: "5.2", title: Software requirements analysis, classes: [A, B, C], requires: {item_type: software_requirement}}
+  - {clause: "5.3", title: Software architectural design, classes: [B, C], requires: {doc_type: sad}}
+  - {clause: "5.3.1", title: Architecture items identified, classes: [B, C], requires: {item_type: architecture_item}}
+  - {clause: "5.4", title: Software detailed design, classes: [C], requires: {doc_type: detailed_design}}
+  - {clause: "5.8", title: Software release, classes: [A, B, C], requires: {document: SOP-02}}
+  - {clause: "6", title: Software maintenance process, classes: [A, B, C], requires: {document: SOP-02}}
+  - {clause: "7", title: Software risk management process, classes: [B, C], requires: {item_type: hazard}}
+  - {clause: "7", title: Risk management procedure, classes: [B, C], requires: {document: SOP-03}}
+  - {clause: "8", title: Software configuration management (SOUP), classes: [A, B, C], requires: {document: SOP-07}}
+  - {clause: "9", title: Software problem resolution, classes: [A, B, C], requires: {document: SOP-04}}

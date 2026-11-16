@@ -1,0 +1,8 @@
+id: COMP-001
+type: complaint
+title: Short count accepted (ILLUSTRATIVE)
+received: "2026-09-02"
+description: Illustrative record. Tester reported a classification after a count stopped at 59 s.
+reportable: false
+reportability_rationale: Pre-market finding in a test build; no patient involved; not a serious incident.
+markets: [uk, africa]

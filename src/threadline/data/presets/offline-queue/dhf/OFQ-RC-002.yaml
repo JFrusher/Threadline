@@ -1,0 +1,5 @@
+id: OFQ-RC-002
+type: risk_control
+title: Delete only after acknowledgement
+kind: inherent_safety_by_design
+text: Records leave the queue only after the server acknowledges them.

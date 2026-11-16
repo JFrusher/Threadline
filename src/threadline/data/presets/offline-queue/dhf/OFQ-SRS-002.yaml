@@ -1,0 +1,6 @@
+id: OFQ-SRS-002
+type: software_requirement
+title: Delete only after acknowledgement
+text: A queued record shall be removed only after an acknowledgement naming its UUID is received.
+implements:
+- OFQ-RC-002

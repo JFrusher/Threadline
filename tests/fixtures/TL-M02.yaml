@@ -1,0 +1,9 @@
+pass:
+  dhf/MODEL-001.yaml: {id: MODEL-001, type: model, title: M, training_code: train.py, datasets: [DS-001], weights_path: w.bin, metrics: {auc: 0.9}, acceptance_criteria: sens >= 0.9, subgroup_metrics: {infant: {sens: 0.9}}, weights_sha256: 50e721e49c013f00c62cf59f2163542a9d8df02464efeb615d31051b0fddc326}
+  dhf/DS-001.yaml: {id: DS-001, type: dataset, title: D, source: synthetic, licence: CC0, consent_basis: none (synthetic), sites: none, demographics: n/a, splits: {train: train.csv}, sha256: {train: 5be08c9684a1d25efcee09318204824278b08bbfb4aef973ffefd0b9d7478313}}
+  w.bin: "w"
+  train.csv: "a,b\n"
+fail:
+  dhf/MODEL-001.yaml: {id: MODEL-001, type: model, title: M, training_code: train.py, datasets: [DS-001], weights_path: w.bin, metrics: {auc: 0.9}, acceptance_criteria: sens >= 0.9, subgroup_metrics: {infant: {sens: 0.9}}, weights_sha256: 50e721e49c013f00c62cf59f2163542a9d8df02464efeb615d31051b0fddc326}
+  dhf/DS-001.yaml: {id: DS-001, type: dataset, title: D, source: synthetic, licence: CC0, consent_basis: none (synthetic), sites: none, demographics: n/a, splits: {train: train.csv}, sha256: {train: 5be08c9684a1d25efcee09318204824278b08bbfb4aef973ffefd0b9d7478313}}
+  w.bin: "tampered"

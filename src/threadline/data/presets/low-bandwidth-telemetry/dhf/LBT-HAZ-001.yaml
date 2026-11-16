@@ -1,0 +1,13 @@
+id: LBT-HAZ-001
+type: hazard
+title: Truncated payload accepted
+category: software
+hazard: Truncated payload accepted
+sequence_of_events: Connection drops mid-upload
+hazardous_situation: Partial payload stored as complete
+harm: Corrupted clinical data at the facility
+controls:
+- LBT-RC-001
+references:
+- 'GSMA. The State of Mobile Internet Connectivity 2025: 25% mobile internet use and a 10% coverage gap in sub-Saharan
+  Africa. https://www.gsma.com/somic/wp-content/uploads/2025/09/The-State-of-Mobile-Internet-Connectivity-2025-Trends-in-Mobile-Internet-Connectivity.pdf'

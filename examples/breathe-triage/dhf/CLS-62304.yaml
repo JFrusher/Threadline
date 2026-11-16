@@ -1,0 +1,9 @@
+id: CLS-62304
+type: classification
+title: IEC 62304 software safety class
+scheme: iec62304-ed1
+result: C
+rule: IEC 62304 4.3
+rationale: >-
+  A classifier failure can lead to a missed danger sign or missed fast breathing (HAZ-001, HAZ-004); no risk
+  control external to the software reduces the resulting harm below serious injury or death.

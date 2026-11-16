@@ -1,0 +1,20 @@
+name: sbom
+on:
+  pull_request:
+  schedule:
+    - cron: "17 5 * * 1"  # weekly: new advisories appear without code changes
+jobs:
+  soup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: anchore/sbom-action@v0
+        with:
+          path: .
+          format: cyclonedx-json
+          output-file: sbom.cdx.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install threadline
+      - run: threadline check --sbom sbom.cdx.json --osv

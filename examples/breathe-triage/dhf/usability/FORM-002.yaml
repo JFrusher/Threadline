@@ -1,0 +1,10 @@
+id: FORM-002
+type: formative_evaluation
+title: Sunlight legibility test (ILLUSTRATIVE)
+date: '2026-09-20'
+method: Simulated use outdoors, working build
+participants: 6
+findings: Illustrative. Amber 'fast breathing' label unreadable at midday (led to HAZ-007, RC-007).
+scenarios:
+- USE-003
+- USE-004

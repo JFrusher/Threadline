@@ -1,0 +1,5 @@
+id: PWR-RC-002
+type: risk_control
+title: No partial results after restart
+kind: inherent_safety_by_design
+text: On restart, an incomplete assessment is discarded with an explicit notice; no partial result is shown.

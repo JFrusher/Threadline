@@ -1,0 +1,11 @@
+id: USE-003
+type: use_scenario
+title: Read result
+task: Read result
+text: CHW reads the classification and action outdoors at midday.
+user_groups:
+- UG-001
+environments:
+- ENV-001
+hazards:
+- HAZ-007

@@ -1,0 +1,6 @@
+id: MLR-SRS-001
+type: software_requirement
+title: Per-subgroup acceptance criteria
+text: Model release tests shall check acceptance criteria separately for each defined subgroup.
+implements:
+- MLR-RC-001

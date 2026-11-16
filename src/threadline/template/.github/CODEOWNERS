@@ -1,0 +1,5 @@
+# Replace @org/... with your teams. See Threadline docs/guides/branch-protection.md
+/threadline.yaml      @org/qa
+/qms/                 @org/qa
+/records/approvals/   @org/qa
+/dhf/risk/            @org/qa @org/dev

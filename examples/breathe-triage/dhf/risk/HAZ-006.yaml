@@ -1,0 +1,16 @@
+id: HAZ-006
+type: hazard
+title: Age entered in years
+category: use
+hazard: Unit confusion at age entry
+sequence_of_events: Caregiver says '3', CHW enters 3 months for a 3-year-old
+hazardous_situation: Infant threshold (50) applied to a 3-year-old
+harm: Fast breathing at 40–49 missed; untreated pneumonia
+severity: catastrophic
+p1: high
+p2: medium
+controls:
+- RC-006
+residual:
+  p1: low
+  p2: low

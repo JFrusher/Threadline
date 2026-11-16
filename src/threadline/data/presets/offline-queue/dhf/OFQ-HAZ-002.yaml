@@ -1,0 +1,13 @@
+id: OFQ-HAZ-002
+type: hazard
+title: Records lost before sync
+category: software
+hazard: Records lost before sync
+sequence_of_events: Record deleted from the device before the server confirms receipt
+hazardous_situation: Assessment never reaches the facility
+harm: Follow-up of a referred child missed
+controls:
+- OFQ-RC-002
+references:
+- 'GSMA. The State of Mobile Internet Connectivity 2025: 25% mobile internet use and a 10% coverage gap in sub-Saharan
+  Africa. https://www.gsma.com/somic/wp-content/uploads/2025/09/The-State-of-Mobile-Internet-Connectivity-2025-Trends-in-Mobile-Internet-Connectivity.pdf'

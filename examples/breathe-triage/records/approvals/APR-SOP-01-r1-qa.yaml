@@ -1,0 +1,9 @@
+id: APR-SOP-01-r1-qa
+type: approval
+title: SOP-01 rev 1 approved_as_qa
+subject: SOP-01
+subject_rev: 1
+subject_sha256: 99f99fe1c534b980d34f13c99816e027c2d3db14a6dbfea0282e3481db8914f7
+meaning: approved_as_qa
+signer: quinn
+signed_at: '2026-11-16T12:17:36Z'

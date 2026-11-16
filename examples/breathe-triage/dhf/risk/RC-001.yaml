@@ -1,0 +1,6 @@
+id: RC-001
+type: risk_control
+title: Exact age-banded thresholds
+kind: inherent_safety_by_design
+text: Implement thresholds per SRS-002/003 with boundary tests at 11/12 months and 49/50, 39/40 breaths.
+new_risk_review: 'Reviewed: no new hazards introduced.'

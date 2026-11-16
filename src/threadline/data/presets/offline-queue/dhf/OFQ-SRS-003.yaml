@@ -1,0 +1,6 @@
+id: OFQ-SRS-003
+type: software_requirement
+title: Queue age warning
+text: The system shall show a warning when the oldest unsynced record is older than the configured age.
+implements:
+- OFQ-RC-003

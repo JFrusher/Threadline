@@ -1,0 +1,6 @@
+id: MLR-SRS-002
+type: software_requirement
+title: Drift monitoring in PMS
+text: The PMS plan shall define drift metrics, thresholds and the action taken when a threshold is crossed.
+implements:
+- MLR-RC-002

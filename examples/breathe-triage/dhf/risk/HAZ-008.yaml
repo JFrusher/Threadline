@@ -1,0 +1,16 @@
+id: HAZ-008
+type: hazard
+title: Danger-sign question skipped
+category: use
+hazard: Incomplete danger-sign assessment
+sequence_of_events: CHW skips questions to save time
+hazardous_situation: Child with danger sign assessed on breathing rate only
+harm: Urgent referral not made
+severity: catastrophic
+p1: high
+p2: high
+controls:
+- RC-008
+residual:
+  p1: very_low
+  p2: low

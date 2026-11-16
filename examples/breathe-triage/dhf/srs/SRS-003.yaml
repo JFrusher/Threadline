@@ -1,0 +1,8 @@
+id: SRS-003
+type: software_requirement
+title: Fast breathing threshold 12–59 months
+text: Fast breathing shall be respiratory_rate >= 40 for 12 <= age_months < 60.
+derives_from:
+- SYS-003
+implements:
+- RC-001

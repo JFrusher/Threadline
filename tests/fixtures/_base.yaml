@@ -1,0 +1,16 @@
+# threadline.yaml shared by every rule fixture; a fixture may override top-level keys.
+product: Fixture
+lifecycle_profile: iec62304-ed1
+software_class: C
+risk:
+  severity: [minor, serious, catastrophic]
+  p1: [low, high]
+  p2: [low, high]
+  probability:
+    low: {low: remote, high: occasional}
+    high: {low: occasional, high: frequent}
+  acceptability:
+    minor: {remote: acceptable, occasional: acceptable, frequent: unacceptable}
+    serious: {remote: acceptable, occasional: unacceptable, frequent: unacceptable}
+    catastrophic: {remote: unacceptable, occasional: unacceptable, frequent: unacceptable}
+  software_p1_rule: P1 for a software failure is set to high unless an external control is cited.

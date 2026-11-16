@@ -1,0 +1,5 @@
+pass:
+  dhf/SRS-001.yaml: {id: SRS-001, type: software_requirement, title: R, text: x, derives_from: [SYS-001]}
+  dhf/SRS-002.yaml: {id: SRS-002, type: software_requirement, title: R, text: x, implements: [RC-001]}
+fail:
+  dhf/SRS-001.yaml: {id: SRS-001, type: software_requirement, title: Orphan, text: x}

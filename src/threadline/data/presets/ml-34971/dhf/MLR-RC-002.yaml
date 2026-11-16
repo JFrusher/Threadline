@@ -1,0 +1,5 @@
+id: MLR-RC-002
+type: risk_control
+title: Drift monitoring in PMS
+kind: inherent_safety_by_design
+text: Post-market surveillance tracks input distributions and outcome agreement.

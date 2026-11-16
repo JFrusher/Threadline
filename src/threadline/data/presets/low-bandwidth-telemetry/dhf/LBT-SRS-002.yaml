@@ -1,0 +1,7 @@
+id: LBT-SRS-002
+type: software_requirement
+title: Bounded exponential backoff
+text: Upload retries shall use exponential backoff with a maximum interval and a maximum number of attempts 
+  per hour.
+implements:
+- LBT-RC-002

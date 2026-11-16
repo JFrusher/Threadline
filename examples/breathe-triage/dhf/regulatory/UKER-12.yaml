@@ -1,0 +1,7 @@
+id: UKER-12
+type: requirement
+title: Devices connected to or equipped with an energy source
+source: UK MHRA (Great Britain) — UK MDR 2002
+clause: ER 12
+applicable: false
+justification: Hardware energy source is the general-purpose phone; software aspects covered by ER 12.1a.

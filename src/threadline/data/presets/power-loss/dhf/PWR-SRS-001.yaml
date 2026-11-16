@@ -1,0 +1,7 @@
+id: PWR-SRS-001
+type: software_requirement
+title: Atomic record writes
+text: Records shall be written atomically (temp file, fsync, rename); a crash at any point leaves either the 
+  old or the new record, never a partial one.
+implements:
+- PWR-RC-001

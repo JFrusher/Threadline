@@ -1,0 +1,2 @@
+# One line per signer key: <principal> <key-type> <public-key>
+# The principal must match a key under `signers:` in threadline.yaml. Changes need QA approval (CODEOWNERS).

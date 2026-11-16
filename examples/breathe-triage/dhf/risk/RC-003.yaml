@@ -1,0 +1,6 @@
+id: RC-003
+type: risk_control
+title: Plausibility range
+kind: inherent_safety_by_design
+text: Reject respiratory rates outside 10–120 and require a recount.
+new_risk_review: 'Reviewed: no new hazards introduced.'

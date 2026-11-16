@@ -1,0 +1,13 @@
+id: OFQ-HAZ-001
+type: hazard
+title: Duplicate records after sync retry
+category: software
+hazard: Duplicate records after sync retry
+sequence_of_events: Upload succeeds but acknowledgement is lost; record re-sent
+hazardous_situation: Same assessment counted twice at the facility
+harm: Wrong caseload or duplicate follow-up
+controls:
+- OFQ-RC-001
+references:
+- 'GSMA. The State of Mobile Internet Connectivity 2025: 25% mobile internet use and a 10% coverage gap in sub-Saharan
+  Africa. https://www.gsma.com/somic/wp-content/uploads/2025/09/The-State-of-Mobile-Internet-Connectivity-2025-Trends-in-Mobile-Internet-Connectivity.pdf'

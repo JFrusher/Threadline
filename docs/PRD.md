@@ -113,7 +113,7 @@ signer: jdoe
 signed_at: 2026-11-16T10:42:00Z
 ```
 
-It must arrive in a **signed commit** (SSH or GPG) by the signer. CI checks:
+It must arrive in an **SSH-signed commit** by the signer (ADR-003). CI checks:
 1. Signature valid against `qms/signers/allowed_signers` (controlled signer registry: key → person → roles → effective dates).
 2. Signer holds the role the `meaning` needs.
 3. Signer ≠ author for review/approval meanings (independence).
@@ -138,11 +138,12 @@ GitHub PR approvals and branch protection are **process controls**, not the sign
 ### 6.1 CLI
 | Command | Does |
 |---|---|
+| `threadline hash <file>` | Content hash of a document, or SHA-256 of a data/weights file. |
 | `threadline init` | Scaffold a new QMS repo from the template. |
 | `threadline check` | Load items, validate schemas, run all rules. Non-zero exit on any failure. |
 | `threadline check --junit results.xml` | Also run evidence rules. |
 | `threadline rtm` | Write RTM (Markdown). |
-| `threadline sbom-audit sbom.cdx.json` | Diff SBOM vs SOUP register; query OSV.dev. |
+| `threadline check --sbom sbom.cdx.json --osv` | Also diff SBOM vs SOUP register and query OSV.dev. |
 | `threadline build` | Compile technical file PDF (Pandoc + LaTeX). |
 | `threadline preset add <name>` | Copy a low-resource preset pack into the DHF. |
 
@@ -262,6 +263,7 @@ Presets marked "evidence needed" do not ship until a source is found.
 | AMDF harmonises on WHO GMRF; no AMDF SaMD guidance found | Verified (absence = not found, not proof) | [AMDF](https://www.nepad.org/microsite/africa-medical-devices-forum-amdf), [WHO GMRF](https://www.who.int/publications/i/item/9789241512350) |
 | MHRA draft regs: reliance route, PCCP, cyber; adoption ~Dec 2026 | **Unverified — secondary only.** Profile must not cite until made law | [meddeviceguide](https://meddeviceguide.com/blog/uk-mhra-international-reliance-pathway-draft-regulation-2026-guide), [Covington](https://www.insideeulifesciences.com/2026/10/21/uk-medical-device-update-developments-in-ai-and-proposed-gb-licensing-framework/) |
 | UK PMS regulations (SI 2024/1368, new Part 4A of UK MDR 2002) in force 16 June 2025 | Verified | [GOV.UK](https://www.gov.uk/government/news/first-major-overhaul-of-medical-device-regulation-comes-into-force-across-great-britain), [BSI](https://compliancenavigator.bsigroup.com/en/medicaldeviceblog/great-britains-updated-post-market-surveillance-requirements-now-in-force-what-manufacturers-need-to-know/) |
+| UK serious-incident report: 15 days general; 2-day / 10-day tiers for public health threat / death or serious deterioration | 15 days: multiple secondary sources. **2/10 days: Unverified** (single non-authoritative page) — SOP-05 does not state them | [CMS](https://cms.law/en/gbr/legal-updates/new-post-market-medical-device-surveillance-regulations-take-effect-in-great-britain), [GOV.UK](https://www.gov.uk/government/news/mhra-guidance-on-new-medical-devices-post-market-surveillance-requirements) |
 | DCB0129 current (v4.2); national review consultation closed Sep 2026 | Partly verified (NHS standards page active; v4.2 from vendor). Hazard log fields: take from NHS England template | [NHS standards](https://standards.nhs.uk/published-standards/clinical-risk-management-its-application-in-the-manufacture-of-health-it-systems), [NHS Engage](https://www.engage.england.nhs.uk/patient-safety/national-review-of-clinical-risk-management-standa/) |
 | UK designated standards (list of 17 Jan 2026): EN ISO 13485:2016+A11:2021, EN ISO 14971:2019+A11:2021, EN 62366-1:2015+A1:2020, **EN 62304:2006 (no A1)** | **Verified — primary** (parsed consolidated ODS) | [GOV.UK list](https://www.gov.uk/government/publications/designated-standards-medical-devices) |
 | IEC 81001-5-1 / IEC 82304-1 UK designated | **Refuted** — not on the list. Used as state-of-the-art, not presumption of conformity | Same |

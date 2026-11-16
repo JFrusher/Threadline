@@ -1,0 +1,8 @@
+id: ISO13485-7.3.7
+type: requirement
+title: Design and development validation
+source: ISO 13485:2016 clause map
+clause: 7.3.7
+evidence:
+- SUMR-001
+- DOC-CER

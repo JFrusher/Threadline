@@ -1,0 +1,5 @@
+id: PWR-RC-003
+type: risk_control
+title: Low-battery start warning
+kind: inherent_safety_by_design
+text: Warn before starting an assessment when battery is below the level needed to finish it.
