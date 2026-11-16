@@ -113,7 +113,7 @@ signer: jdoe
 signed_at: 2026-11-16T10:42:00Z
 ```
 
-It must arrive in a **signed commit** (SSH or GPG) by the signer. CI checks:
+It must arrive in an **SSH-signed commit** by the signer (ADR-003). CI checks:
 1. Signature valid against `qms/signers/allowed_signers` (controlled signer registry: key → person → roles → effective dates).
 2. Signer holds the role the `meaning` needs.
 3. Signer ≠ author for review/approval meanings (independence).
