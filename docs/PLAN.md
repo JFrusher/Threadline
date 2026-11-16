@@ -12,7 +12,7 @@ Reference device **Breathe-Triage** grows phase by phase in `examples/breathe-tr
 |---|---|---|
 | 0.1 | Close every **Unverified** row in PRD §11 (read primary sources: Model Law text, legislation.gov.uk, NHS DCB0129, WHO IMCI booklet, ISO/TR 24971, MHRA designated standards) | Ledger rows all Verified or Removed, with links |
 | 0.2 | Repo skeleton: `pyproject.toml`, `src/threadline/`, ruff, pytest, CI on PR | `pytest` green in CI on empty package |
-| 0.3 | Licences (Apache-2.0 code, CC-BY-4.0 `templates/` + `docs/`), README with disclaimer, CONTRIBUTING | Licence files + REUSE-style headers |
+| 0.3 | Licences (Apache-2.0 code, CC-BY-4.0 `templates/` + `docs/`), README with disclaimer, CONTRIBUTING | Licence texts in `LICENSES/`; README maps paths to licences |
 | 0.4 | `docs/adr/` + ADR-001 "one YAML per item", ADR-002 "JUnit property is the only test link", ADR-003 "signed approval records" | 3 ADRs merged |
 
 ## Phase 1 — Item model
