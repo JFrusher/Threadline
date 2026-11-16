@@ -37,7 +37,7 @@ Developers already have the right primitives: git history, code review, CI, sign
 **Non-goals (v1)**
 - eQMS web UI. Git + PDF only.
 - FDA or EU MDR profiles (schema allows them later).
-- IVD-specific rules (AU Model Law device scope note — see §11).
+- IVD-specific rules (performance evaluation, specimen handling). Model Law covers IVD; deferred for scope only.
 - Hosting, SaaS, multi-tenant anything.
 - Language-specific dependency parsers (SBOM comes from Syft for all ecosystems).
 
@@ -258,16 +258,17 @@ Presets marked "evidence needed" do not ship until a source is found.
 | IEC 62304 Ed2 unpublished; CD2 Aug 2026; forecast Oct 2028; PRL I/II replaces A/B/C | Verified (multiple sources; one outlier claims publication — rejected) | [Jama](https://www.jamasoftware.com/requirements-management-guide/medical-devices/iec-62304/), [MD Regulatory](https://mdregulatory.com/iec-62304/), [VDE](https://www.vde.com/topics-en/health/expertise/iec-62304-edition-2-changes), [QuickBird](https://quickbirdmedical.com/en/news/iec-62304-edition-2-august-2026/) |
 | AU Model Law endorsed Jan 2016; domesticated nationally | Verified | [PMC9922692](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9922692/), [Frontiers 2026](https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2026.1763261/pdf) |
 | AMA operational Oct 2025, HQ Kigali, advisory role | Partly verified (press release + single blog for "advisory") | [APO](https://www.africa-newsroom.com/press/african-medicines-agency-marks-first-year-of-operations-with-new-platforms-to-strengthen-regulation-and-support-manufacturing?lang=en), [ghmap](https://www.ghmap.io/blog/africa-medical-device-regulation-acceleration-2026) |
-| AU Model Law device scope excludes IVD | **Unverified** (single industry blog) | Read Model Law text |
+| AU Model Law device scope excludes IVD | **Refuted** — Art. 4 "medical device" includes in vitro reagents/calibrators and software | [AU Model Law (EN copy)](https://kyokuhp.jihs.go.jp/library/regulation/PDF_JPG/AUmodellaw_e.pdf), [AUDA-NEPAD guidance](https://adphealth.org/upload/resource/au-model-law-guidance-20221011.pdf) |
 | AMDF harmonises on WHO GMRF; no AMDF SaMD guidance found | Verified (absence = not found, not proof) | [AMDF](https://www.nepad.org/microsite/africa-medical-devices-forum-amdf), [WHO GMRF](https://www.who.int/publications/i/item/9789241512350) |
-| MHRA draft regs: reliance route, PCCP, cyber; adoption ~Dec 2026 | **Unverified** (secondary blogs) | Check legislation.gov.uk / MHRA |
-| UK PMS regulations in force June 2025 | **Unverified** (memory) | Check legislation.gov.uk |
-| DCB0129 still current, wording | **Unverified** (memory) | Check NHS England |
-| IEC 81001-5-1 UK designated status | **Unverified** | MHRA designated standards list |
+| MHRA draft regs: reliance route, PCCP, cyber; adoption ~Dec 2026 | **Unverified — secondary only.** Profile must not cite until made law | [meddeviceguide](https://meddeviceguide.com/blog/uk-mhra-international-reliance-pathway-draft-regulation-2026-guide), [Covington](https://www.insideeulifesciences.com/2026/10/21/uk-medical-device-update-developments-in-ai-and-proposed-gb-licensing-framework/) |
+| UK PMS regulations (SI 2024/1368, new Part 4A of UK MDR 2002) in force 16 June 2025 | Verified | [GOV.UK](https://www.gov.uk/government/news/first-major-overhaul-of-medical-device-regulation-comes-into-force-across-great-britain), [BSI](https://compliancenavigator.bsigroup.com/en/medicaldeviceblog/great-britains-updated-post-market-surveillance-requirements-now-in-force-what-manufacturers-need-to-know/) |
+| DCB0129 current (v4.2); national review consultation closed Sep 2026 | Partly verified (NHS standards page active; v4.2 from vendor). Hazard log fields: take from NHS England template | [NHS standards](https://standards.nhs.uk/published-standards/clinical-risk-management-its-application-in-the-manufacture-of-health-it-systems), [NHS Engage](https://www.engage.england.nhs.uk/patient-safety/national-review-of-clinical-risk-management-standa/) |
+| UK designated standards (list of 17 Jan 2026): EN ISO 13485:2016+A11:2021, EN ISO 14971:2019+A11:2021, EN 62366-1:2015+A1:2020, **EN 62304:2006 (no A1)** | **Verified — primary** (parsed consolidated ODS) | [GOV.UK list](https://www.gov.uk/government/publications/designated-standards-medical-devices) |
+| IEC 81001-5-1 / IEC 82304-1 UK designated | **Refuted** — not on the list. Used as state-of-the-art, not presumption of conformity | Same |
 | BS/AAMI 34971:2023 content | Verified | [BSI](https://knowledge.bsigroup.com/articles/how-to-tackle-hazards-in-ai-medical-devices-using-bs-aami-34971) |
 | ~50% SSA facilities unreliable power | Verified | [WHO](https://www.who.int/news/item/14-01-2023-close-to-one-billion-people-globally-are-served-by-health-care-facilities-with-no-electricity-access-or-with-unreliable-electricity) |
 | SSA 25% mobile internet use, 10% coverage gap | Verified | [GSMA SOMIC 2025](https://www.gsma.com/somic/wp-content/uploads/2025/09/The-State-of-Mobile-Internet-Connectivity-2025-Trends-in-Mobile-Internet-Connectivity.pdf) |
-| IMCI fast-breathing thresholds | **Unverified** (memory) | WHO IMCI chart booklet |
-| Software P1 = 1 convention | **Unverified wording** (memory of 62304/24971) | Read 24971 |
+| Fast breathing: ≥50/min (2–11 mo), ≥40/min (12–59 mo), ≥60/min (<2 mo) | Verified via peer-reviewed sources; WHO chart booklet still to read before clinical text ships | [WHO Bulletin 2003](https://scielosp.org/pdf/bwho/2003.v81n4/298-300/en), [BMJ Open Resp Res 2018](https://pmc.ncbi.nlm.nih.gov/articles/PMC6307622/table/T1) |
+| Software P1 = 1 convention | **Not verified.** 62304 A1 classifies on whether failure *can* contribute to a hazardous situation, not likelihood. Policy default stays configurable, cites no clause | [62304 A1 sample](https://cdn.standards.iteh.ai/samples/21252/f7905e39d6514a4da0bb6592596afd44/IEC-62304-2006-AMD1-2015.pdf) |
 
-Every **Unverified** row is a task in Phase 0 of the plan. Nothing unverified ships in a template.
+Rule: nothing **Unverified** or **Refuted** is cited as fact in a template. The UK profile cites UK-designated editions; IEC 62304 A1 is used (state of the art) with a note that only the 2006 edition is designated.
