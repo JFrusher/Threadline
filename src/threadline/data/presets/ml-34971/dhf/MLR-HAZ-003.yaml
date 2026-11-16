@@ -1,0 +1,13 @@
+id: MLR-HAZ-003
+type: hazard
+title: Over-trust in model output
+category: ml
+hazard: Over-trust in model output
+sequence_of_events: Users treat model output as certain
+hazardous_situation: Clinical judgement overridden by a wrong output
+harm: Harm from an unchallenged error
+controls:
+- MLR-RC-003
+references:
+- 'BS/AAMI 34971:2023 Application of ISO 14971 to machine learning in artificial intelligence (hazard areas: data
+  quality, bias, over-trust, adaptive systems). https://knowledge.bsigroup.com/articles/how-to-tackle-hazards-in-ai-medical-devices-using-bs-aami-34971'

@@ -1,0 +1,6 @@
+id: MLR-SRS-004
+type: software_requirement
+title: Split integrity check
+text: Release tests shall confirm no record appears in both training and test splits.
+implements:
+- MLR-RC-004

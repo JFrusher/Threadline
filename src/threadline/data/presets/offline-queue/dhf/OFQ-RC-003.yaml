@@ -1,0 +1,5 @@
+id: OFQ-RC-003
+type: risk_control
+title: Queue age warning
+kind: inherent_safety_by_design
+text: Warn the user when the oldest unsynced record is older than a set number of days.

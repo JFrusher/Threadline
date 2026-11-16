@@ -1,0 +1,5 @@
+id: OFQ-RC-001
+type: risk_control
+title: Idempotent sync
+kind: inherent_safety_by_design
+text: Each record carries a UUID; the server ignores repeats.

@@ -1,0 +1,7 @@
+id: PWR-SRS-002
+type: software_requirement
+title: No partial results after restart
+text: After restart, an assessment without a completed classification shall be discarded and the user told to 
+  start again.
+implements:
+- PWR-RC-002

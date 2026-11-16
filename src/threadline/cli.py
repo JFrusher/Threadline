@@ -67,6 +67,28 @@ def cmd_build(args) -> int:
     return 0
 
 
+def cmd_preset(args) -> int:
+    import shutil
+    from importlib.resources import files
+
+    presets = files("threadline") / "data" / "presets"
+    names = sorted(p.name for p in presets.iterdir())
+    if args.name not in names:
+        raise SystemExit(f"unknown preset {args.name!r}; available: {', '.join(names)}")
+    src = presets / args.name
+    dhf, tests = args.root / "dhf" / "presets" / args.name, args.root / "tests" / "presets"
+    if dhf.exists():
+        raise SystemExit(f"{dhf} exists; preset already added")
+    shutil.copytree(src / "dhf", dhf)
+    tests.mkdir(parents=True, exist_ok=True)
+    for t in (src).iterdir():
+        if t.name.startswith("test_"):
+            shutil.copyfile(t, tests / t.name)
+    print(f"added {args.name}: estimate severity/P1/P2 for each hazard (TL-R01), review controls for new risks "
+          f"(TL-R06), then implement the failing test stubs in {tests}")
+    return 0
+
+
 def cmd_hash(args) -> int:
     """Content hash of a document (body only), or SHA-256 of any other file (datasets, model weights)."""
     from threadline.checks.documents import content_hash
@@ -119,6 +141,11 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("init", help="create a new QMS repository from the template")
     p.add_argument("target", type=Path)
     p.set_defaults(fn=cmd_init)
+    p = sub.add_parser("preset", help="add a low-resource or ML risk preset pack")
+    p.add_argument("action", choices=["add"])
+    p.add_argument("name")
+    p.add_argument("root", nargs="?", type=Path, default=Path("."))
+    p.set_defaults(fn=cmd_preset)
     p = sub.add_parser("hash", help="hash a document's content or a data file")
     p.add_argument("file", type=Path)
     p.set_defaults(fn=cmd_hash)

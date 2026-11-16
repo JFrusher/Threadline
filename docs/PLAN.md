@@ -145,7 +145,7 @@ Reference device **Breathe-Triage** grows phase by phase in `examples/breathe-tr
 | 15.2 | `power-loss` (atomic writes, resume, battery-state UI) with WHO 2023 citation | Pack + test stubs |
 | 15.3 | `offline-queue` (durable queue, idempotent sync, conflict rule) with GSMA citation | Same |
 | 15.4 | `low-bandwidth-telemetry` | Same |
-| 15.5 | `clock-drift`, `shared-device`, `sunlight-legibility` — **only once evidence found** | Source cited or step dropped |
+| 15.5 | `clock-drift`, `shared-device`, `sunlight-legibility` — **only once evidence found** | Not shipped in v1: no source found yet. `ml-34971` preset added (11.3) |
 
 ## Phase 16 — Tool validation and v1.0
 | # | Step | Done when |

@@ -85,6 +85,7 @@ class Hazard(Item):
     controls: Ids = []
     residual: Residual | None = None
     benefit_risk: str | None = None  # justification when residual risk is not acceptable
+    references: list[str] = []  # published evidence for the hazard (e.g. preset sources)
 
 
 class RiskControl(Item):

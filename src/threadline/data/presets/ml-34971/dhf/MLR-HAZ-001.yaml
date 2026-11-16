@@ -1,0 +1,13 @@
+id: MLR-HAZ-001
+type: hazard
+title: Unrepresentative training data (bias)
+category: ml
+hazard: Unrepresentative training data (bias)
+sequence_of_events: Training data under-represents a patient subgroup
+hazardous_situation: Model performs worse for that subgroup
+harm: Missed or wrong output for those patients
+controls:
+- MLR-RC-001
+references:
+- 'BS/AAMI 34971:2023 Application of ISO 14971 to machine learning in artificial intelligence (hazard areas: data
+  quality, bias, over-trust, adaptive systems). https://knowledge.bsigroup.com/articles/how-to-tackle-hazards-in-ai-medical-devices-using-bs-aami-34971'

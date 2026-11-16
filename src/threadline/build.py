@@ -188,6 +188,9 @@ def risk_report(ctx) -> str:
             rows,
         )
     )
+    refs = [(h.id, r) for h in _items(ctx, "hazard") for r in h.references]
+    if refs:
+        out.append("\n**Hazard references.**\n\n" + "\n".join(f"- {link(ctx, i)}: {r}" for i, r in refs) + "\n")
     out.append("## Risk controls\n")
     out.append(
         table(

@@ -1,0 +1,13 @@
+id: LBT-HAZ-002
+type: hazard
+title: Retry storm drains battery or data
+category: software
+hazard: Retry storm drains battery or data
+sequence_of_events: Failed uploads retried immediately and forever
+hazardous_situation: Device battery or data bundle exhausted
+harm: Device unavailable for assessments
+controls:
+- LBT-RC-002
+references:
+- 'GSMA. The State of Mobile Internet Connectivity 2025: 25% mobile internet use and a 10% coverage gap in sub-Saharan
+  Africa. https://www.gsma.com/somic/wp-content/uploads/2025/09/The-State-of-Mobile-Internet-Connectivity-2025-Trends-in-Mobile-Internet-Connectivity.pdf'

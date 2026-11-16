@@ -1,0 +1,5 @@
+id: MLR-RC-001
+type: risk_control
+title: Per-subgroup acceptance criteria
+kind: inherent_safety_by_design
+text: Release only if acceptance criteria are met in every defined subgroup.

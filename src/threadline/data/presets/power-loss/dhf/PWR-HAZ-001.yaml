@@ -1,0 +1,14 @@
+id: PWR-HAZ-001
+type: hazard
+title: Assessment lost on power failure
+category: software
+hazard: Assessment lost on power failure
+sequence_of_events: Battery dies mid-assessment
+hazardous_situation: Completed classification lost before it is recorded
+harm: Referral not documented; follow-up missed
+controls:
+- PWR-RC-001
+- PWR-RC-002
+references:
+- 'WHO, World Bank, IRENA, SEforALL. Energizing Health: Accelerating Electricity Access in Health-Care Facilities
+  (2023): about half of health facilities in sub-Saharan Africa have unreliable electricity. https://www.who.int/news/item/14-01-2023-close-to-one-billion-people-globally-are-served-by-health-care-facilities-with-no-electricity-access-or-with-unreliable-electricity'

@@ -1,0 +1,5 @@
+id: MLR-RC-003
+type: risk_control
+title: Output framed as advisory
+kind: inherent_safety_by_design
+text: The UI presents model output as advice with its limits.

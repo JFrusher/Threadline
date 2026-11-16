@@ -1,0 +1,7 @@
+id: PWR-SRS-003
+type: software_requirement
+title: Low-battery start warning
+text: The system shall warn before an assessment starts when the battery level is below the configured 
+  threshold.
+implements:
+- PWR-RC-003

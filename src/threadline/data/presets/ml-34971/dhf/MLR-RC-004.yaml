@@ -1,0 +1,5 @@
+id: MLR-RC-004
+type: risk_control
+title: Split integrity check
+kind: inherent_safety_by_design
+text: Training and test splits are hashed and checked for overlap.

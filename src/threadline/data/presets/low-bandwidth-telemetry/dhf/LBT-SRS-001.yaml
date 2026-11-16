@@ -1,0 +1,7 @@
+id: LBT-SRS-001
+type: software_requirement
+title: End-to-end payload checksum
+text: Each upload shall include a SHA-256 of the payload; the receiver shall reject payloads whose hash does 
+  not match.
+implements:
+- LBT-RC-001

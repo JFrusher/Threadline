@@ -1,0 +1,6 @@
+id: MLR-SRS-003
+type: software_requirement
+title: Output framed as advisory
+text: Model outputs shall be shown with a statement of what they do and do not decide.
+implements:
+- MLR-RC-003

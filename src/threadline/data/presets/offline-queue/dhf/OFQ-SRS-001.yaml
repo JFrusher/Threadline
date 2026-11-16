@@ -1,0 +1,7 @@
+id: OFQ-SRS-001
+type: software_requirement
+title: Idempotent sync
+text: Each record shall carry a UUID generated at creation; sync shall send it so the receiver can drop 
+  duplicates.
+implements:
+- OFQ-RC-001
