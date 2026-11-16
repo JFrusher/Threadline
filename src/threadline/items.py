@@ -14,7 +14,7 @@ class Item(BaseModel):
     # field name -> item types the IDs in that field may point at
     LINKS: ClassVar[dict[str, tuple[str, ...]]] = {}
 
-    id: str
+    id: str = Field(pattern=r"^[A-Za-z0-9][A-Za-z0-9.-]*$")  # also a filename and a PDF anchor
     type: str
     title: str
     rev: int = 1

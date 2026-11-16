@@ -47,6 +47,26 @@ def cmd_rtm(args) -> int:
     return 0
 
 
+def cmd_build(args) -> int:
+    from threadline import build
+
+    ctx = _context(args)
+    result = rules.run(ctx)
+    if result.findings:
+        for f in result.findings:
+            print(f"{f.rule} {f.item}: {f.message}")
+        raise SystemExit(f"refusing to build: {len(result.findings)} finding(s)")
+    commit = git._git(ctx.git_root, "rev-parse", "HEAD").strip() if ctx.git_root else "uncommitted"
+    version = args.version or (git._git(ctx.git_root, "describe", "--tags", "--always").strip()
+                               if ctx.git_root else "unversioned")
+    args.out.parent.mkdir(parents=True, exist_ok=True)
+    md = build.assemble(ctx, result, args.junit or [], args.tool_validation, version, commit)
+    build.to_pdf(md, args.out, ctx.project.config.product, version, commit, args.out.parent / "build", args.chromium)
+    (args.out.parent / "hazard-log.md").write_text(build.hazard_log(ctx))
+    print(f"wrote {args.out} and {args.out.parent / 'hazard-log.md'}")
+    return 0
+
+
 def cmd_hash(args) -> int:
     """Content hash of a document (body only), or SHA-256 of any other file (datasets, model weights)."""
     from threadline.checks.documents import content_hash
@@ -81,7 +101,9 @@ def cmd_init(args) -> int:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="threadline")
     sub = parser.add_subparsers(dest="cmd", required=True)
-    for name, fn, help_ in [("check", cmd_check, "run all rules"), ("rtm", cmd_rtm, "print the RTM")]:
+    commands = [("check", cmd_check, "run all rules"), ("rtm", cmd_rtm, "print the RTM"),
+                ("build", cmd_build, "build the technical file PDF (refuses on any finding)")]
+    for name, fn, help_ in commands:
         p = sub.add_parser(name, help=help_)
         p.add_argument("root", nargs="?", type=Path, default=Path("."))
         p.add_argument("--junit", type=Path, action="append", help="JUnit XML with verification evidence")
@@ -89,6 +111,11 @@ def main(argv: list[str] | None = None) -> int:
         p.add_argument("--osv", action="store_true", help="query OSV.dev for advisories against SBOM components")
         p.add_argument("--base", help="git ref to diff documents against (e.g. origin/main)")
         p.set_defaults(fn=fn)
+        if name == "build":
+            p.add_argument("--out", type=Path, default=Path("dist/technical-file.pdf"))
+            p.add_argument("--version", help="release version (default: git describe)")
+            p.add_argument("--tool-validation", type=Path, help="JUnit of Threadline's own fixture suite")
+            p.add_argument("--chromium", help="Chromium executable for mermaid-cli")
     p = sub.add_parser("init", help="create a new QMS repository from the template")
     p.add_argument("target", type=Path)
     p.set_defaults(fn=cmd_init)

@@ -5,6 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # TL-D03 reads approval signatures from history
       - uses: astral-sh/setup-uv@v6
       - run: uv sync
       - run: uv run ruff check
@@ -13,6 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # TL-D03 reads approval signatures from history
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
