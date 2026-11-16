@@ -1,0 +1,7 @@
+id: UKER-7
+type: requirement
+title: Chemical
+source: UK MHRA (Great Britain) — UK MDR 2002
+clause: ER 7
+applicable: false
+justification: Standalone software; no materials in contact with the body.

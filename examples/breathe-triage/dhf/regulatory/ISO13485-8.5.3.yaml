@@ -1,0 +1,7 @@
+id: ISO13485-8.5.3
+type: requirement
+title: Preventive action
+source: ISO 13485:2016 clause map
+clause: 8.5.3
+evidence:
+- SOP-04

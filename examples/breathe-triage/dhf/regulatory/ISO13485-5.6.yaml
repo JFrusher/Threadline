@@ -1,0 +1,8 @@
+id: ISO13485-5.6
+type: requirement
+title: Management review
+source: ISO 13485:2016 clause map
+clause: '5.6'
+evidence:
+- SOP-08
+- MR-2026

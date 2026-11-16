@@ -1,0 +1,8 @@
+id: ISO13485-8.2.2
+type: requirement
+title: Complaint handling
+source: ISO 13485:2016 clause map
+clause: 8.2.2
+evidence:
+- SOP-05
+- COMP-001

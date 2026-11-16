@@ -1,0 +1,9 @@
+id: UKER-3
+type: requirement
+title: Achieves the performance intended by the manufacturer
+source: UK MHRA (Great Britain) — UK MDR 2002
+clause: ER 3
+evidence:
+- SRS-002
+- SRS-003
+- SRS-016

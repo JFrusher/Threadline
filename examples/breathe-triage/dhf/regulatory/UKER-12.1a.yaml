@@ -1,0 +1,9 @@
+id: UKER-12.1a
+type: requirement
+title: Software validated per the state of the art (lifecycle
+source: UK MHRA (Great Britain) — UK MDR 2002
+clause: ER 12.1a
+evidence:
+- SOP-02
+- DOC-SDP
+- CLS-62304

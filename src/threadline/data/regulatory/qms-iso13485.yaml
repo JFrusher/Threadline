@@ -1,0 +1,26 @@
+name: ISO 13485:2016 clause map
+note: Always active. Each clause needs a `requirement` item with the same ID, linked to evidence or justified as not applicable.
+classification_schemes: []
+checklist:
+  - {id: ISO13485-4.1, clause: "4.1", title: QMS general requirements}
+  - {id: ISO13485-4.1.6, clause: "4.1.6", title: Validation of QMS software}
+  - {id: ISO13485-4.2.3, clause: "4.2.3", title: Medical device file}
+  - {id: ISO13485-4.2.4, clause: "4.2.4", title: Control of documents}
+  - {id: ISO13485-4.2.5, clause: "4.2.5", title: Control of records}
+  - {id: ISO13485-5.6, clause: "5.6", title: Management review}
+  - {id: ISO13485-6.2, clause: "6.2", title: Human resources}
+  - {id: ISO13485-7.1, clause: "7.1", title: Planning of product realization (incl. risk management)}
+  - {id: ISO13485-7.3.2, clause: "7.3.2", title: Design and development planning}
+  - {id: ISO13485-7.3.3, clause: "7.3.3", title: Design and development inputs}
+  - {id: ISO13485-7.3.4, clause: "7.3.4", title: Design and development outputs}
+  - {id: ISO13485-7.3.6, clause: "7.3.6", title: Design and development verification}
+  - {id: ISO13485-7.3.7, clause: "7.3.7", title: Design and development validation}
+  - {id: ISO13485-7.3.9, clause: "7.3.9", title: Control of design and development changes}
+  - {id: ISO13485-7.3.10, clause: "7.3.10", title: Design and development files}
+  - {id: ISO13485-7.4, clause: "7.4", title: Purchasing (incl. SOUP)}
+  - {id: ISO13485-7.5.6, clause: "7.5.6", title: Validation of processes (software used in production)}
+  - {id: ISO13485-8.2.1, clause: "8.2.1", title: Feedback}
+  - {id: ISO13485-8.2.2, clause: "8.2.2", title: Complaint handling}
+  - {id: ISO13485-8.2.3, clause: "8.2.3", title: Reporting to regulatory authorities}
+  - {id: ISO13485-8.5.2, clause: "8.5.2", title: Corrective action}
+  - {id: ISO13485-8.5.3, clause: "8.5.3", title: Preventive action}

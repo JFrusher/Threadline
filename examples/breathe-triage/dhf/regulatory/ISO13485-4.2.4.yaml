@@ -1,0 +1,7 @@
+id: ISO13485-4.2.4
+type: requirement
+title: Control of documents
+source: ISO 13485:2016 clause map
+clause: 4.2.4
+evidence:
+- SOP-01

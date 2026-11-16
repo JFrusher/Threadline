@@ -1,0 +1,8 @@
+id: CLS-UK
+type: classification
+title: UK MDR 2002 classification
+scheme: uk-mhra
+result: IIa (provisional)
+rule: Annex IX rule 10 (as applied in GB)
+rationale: Active device intended to support diagnosis via a vital physiological parameter. PROVISIONAL — rule
+  applicability to software to be confirmed with an Approved Body.

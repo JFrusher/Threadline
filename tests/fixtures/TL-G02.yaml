@@ -1,0 +1,18 @@
+pass:
+  threadline.yaml:
+    regulatory_profiles:
+    - uk-mhra
+  dhf/CLS-UK.yaml: &id001
+    id: CLS-UK
+    type: classification
+    title: UK
+    scheme: uk-mhra
+    result: IIa
+    rule: Rule 10
+    rationale: x
+fail:
+  threadline.yaml:
+    regulatory_profiles:
+    - uk-mhra
+    - au-model-law
+  dhf/CLS-UK.yaml: *id001

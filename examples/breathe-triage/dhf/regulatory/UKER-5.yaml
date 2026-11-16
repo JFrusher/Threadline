@@ -1,0 +1,7 @@
+id: UKER-5
+type: requirement
+title: Not adversely affected by transport and storage
+source: UK MHRA (Great Britain) — UK MDR 2002
+clause: ER 5
+applicable: false
+justification: Standalone software; no physical product to transport or store.

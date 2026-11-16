@@ -16,3 +16,12 @@ def lifecycle(name: str) -> dict:
             for a in base["activities"]
         ]
     return data
+
+
+@cache
+def regulatory(name: str) -> dict:
+    return YAML(typ="safe").load((files("threadline") / "data" / "regulatory" / f"{name}.yaml").read_text())
+
+
+def active_regulatory(cfg) -> list[dict]:
+    return [regulatory("qms-iso13485")] + [regulatory(n) for n in cfg.regulatory_profiles]

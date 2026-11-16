@@ -1,0 +1,9 @@
+id: ISO13485-7.3.4
+type: requirement
+title: Design and development outputs
+source: ISO 13485:2016 clause map
+clause: 7.3.4
+evidence:
+- SRS-001
+- DOC-SAD
+- DOC-SDD

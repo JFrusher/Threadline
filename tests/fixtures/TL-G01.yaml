@@ -1,0 +1,209 @@
+pass:
+  dhf/reg/ISO13485-4.1.yaml:
+    id: ISO13485-4.1
+    type: requirement
+    title: ISO13485-4.1
+    source: iso13485
+    clause: '4.1'
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-4.1.6.yaml:
+    id: ISO13485-4.1.6
+    type: requirement
+    title: ISO13485-4.1.6
+    source: iso13485
+    clause: 4.1.6
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-4.2.3.yaml: &id001
+    id: ISO13485-4.2.3
+    type: requirement
+    title: ISO13485-4.2.3
+    source: iso13485
+    clause: 4.2.3
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-4.2.4.yaml:
+    id: ISO13485-4.2.4
+    type: requirement
+    title: ISO13485-4.2.4
+    source: iso13485
+    clause: 4.2.4
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-4.2.5.yaml:
+    id: ISO13485-4.2.5
+    type: requirement
+    title: ISO13485-4.2.5
+    source: iso13485
+    clause: 4.2.5
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-5.6.yaml: &id002
+    id: ISO13485-5.6
+    type: requirement
+    title: ISO13485-5.6
+    source: iso13485
+    clause: '5.6'
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-6.2.yaml: &id003
+    id: ISO13485-6.2
+    type: requirement
+    title: ISO13485-6.2
+    source: iso13485
+    clause: '6.2'
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-7.1.yaml: &id004
+    id: ISO13485-7.1
+    type: requirement
+    title: ISO13485-7.1
+    source: iso13485
+    clause: '7.1'
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-7.3.2.yaml: &id005
+    id: ISO13485-7.3.2
+    type: requirement
+    title: ISO13485-7.3.2
+    source: iso13485
+    clause: 7.3.2
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-7.3.3.yaml: &id006
+    id: ISO13485-7.3.3
+    type: requirement
+    title: ISO13485-7.3.3
+    source: iso13485
+    clause: 7.3.3
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-7.3.4.yaml: &id007
+    id: ISO13485-7.3.4
+    type: requirement
+    title: ISO13485-7.3.4
+    source: iso13485
+    clause: 7.3.4
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-7.3.6.yaml: &id008
+    id: ISO13485-7.3.6
+    type: requirement
+    title: ISO13485-7.3.6
+    source: iso13485
+    clause: 7.3.6
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-7.3.7.yaml: &id009
+    id: ISO13485-7.3.7
+    type: requirement
+    title: ISO13485-7.3.7
+    source: iso13485
+    clause: 7.3.7
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-7.3.9.yaml: &id010
+    id: ISO13485-7.3.9
+    type: requirement
+    title: ISO13485-7.3.9
+    source: iso13485
+    clause: 7.3.9
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-7.3.10.yaml: &id011
+    id: ISO13485-7.3.10
+    type: requirement
+    title: ISO13485-7.3.10
+    source: iso13485
+    clause: 7.3.10
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-7.4.yaml: &id012
+    id: ISO13485-7.4
+    type: requirement
+    title: ISO13485-7.4
+    source: iso13485
+    clause: '7.4'
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-7.5.6.yaml: &id013
+    id: ISO13485-7.5.6
+    type: requirement
+    title: ISO13485-7.5.6
+    source: iso13485
+    clause: 7.5.6
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-8.2.1.yaml: &id014
+    id: ISO13485-8.2.1
+    type: requirement
+    title: ISO13485-8.2.1
+    source: iso13485
+    clause: 8.2.1
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-8.2.2.yaml: &id015
+    id: ISO13485-8.2.2
+    type: requirement
+    title: ISO13485-8.2.2
+    source: iso13485
+    clause: 8.2.2
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-8.2.3.yaml: &id016
+    id: ISO13485-8.2.3
+    type: requirement
+    title: ISO13485-8.2.3
+    source: iso13485
+    clause: 8.2.3
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-8.5.2.yaml: &id017
+    id: ISO13485-8.5.2
+    type: requirement
+    title: ISO13485-8.5.2
+    source: iso13485
+    clause: 8.5.2
+    evidence:
+    - SOP-01
+  dhf/reg/ISO13485-8.5.3.yaml: &id018
+    id: ISO13485-8.5.3
+    type: requirement
+    title: ISO13485-8.5.3
+    source: iso13485
+    clause: 8.5.3
+    applicable: false
+    justification: No preventive actions open; covered by CAPA.
+fail:
+  dhf/reg/ISO13485-4.2.3.yaml: *id001
+  dhf/reg/ISO13485-4.2.4.yaml:
+    id: ISO13485-4.2.4
+    type: requirement
+    title: ISO13485-4.2.4
+    source: iso13485
+    clause: 4.2.4
+  dhf/reg/ISO13485-4.2.5.yaml:
+    id: ISO13485-4.2.5
+    type: requirement
+    title: ISO13485-4.2.5
+    source: iso13485
+    clause: 4.2.5
+    applicable: false
+  dhf/reg/ISO13485-5.6.yaml: *id002
+  dhf/reg/ISO13485-6.2.yaml: *id003
+  dhf/reg/ISO13485-7.1.yaml: *id004
+  dhf/reg/ISO13485-7.3.2.yaml: *id005
+  dhf/reg/ISO13485-7.3.3.yaml: *id006
+  dhf/reg/ISO13485-7.3.4.yaml: *id007
+  dhf/reg/ISO13485-7.3.6.yaml: *id008
+  dhf/reg/ISO13485-7.3.7.yaml: *id009
+  dhf/reg/ISO13485-7.3.9.yaml: *id010
+  dhf/reg/ISO13485-7.3.10.yaml: *id011
+  dhf/reg/ISO13485-7.4.yaml: *id012
+  dhf/reg/ISO13485-7.5.6.yaml: *id013
+  dhf/reg/ISO13485-8.2.1.yaml: *id014
+  dhf/reg/ISO13485-8.2.2.yaml: *id015
+  dhf/reg/ISO13485-8.2.3.yaml: *id016
+  dhf/reg/ISO13485-8.5.2.yaml: *id017
+  dhf/reg/ISO13485-8.5.3.yaml: *id018

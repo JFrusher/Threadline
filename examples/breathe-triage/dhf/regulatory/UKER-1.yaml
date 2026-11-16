@@ -1,0 +1,9 @@
+id: UKER-1
+type: requirement
+title: Safe in intended use; risks acceptable; reduce use error (ergonomics
+source: UK MHRA (Great Britain) — UK MDR 2002
+clause: ER 1
+evidence:
+- SOP-03
+- HAZ-001
+- SUMR-001

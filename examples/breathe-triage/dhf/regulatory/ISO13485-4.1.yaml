@@ -1,0 +1,9 @@
+id: ISO13485-4.1
+type: requirement
+title: QMS general requirements
+source: ISO 13485:2016 clause map
+clause: '4.1'
+evidence:
+- SOP-01
+- SOP-02
+- SOP-03

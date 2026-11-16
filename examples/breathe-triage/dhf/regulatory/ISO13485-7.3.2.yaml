@@ -1,0 +1,7 @@
+id: ISO13485-7.3.2
+type: requirement
+title: Design and development planning
+source: ISO 13485:2016 clause map
+clause: 7.3.2
+evidence:
+- DOC-SDP

@@ -1,0 +1,7 @@
+id: ISO13485-8.2.1
+type: requirement
+title: Feedback
+source: ISO 13485:2016 clause map
+clause: 8.2.1
+evidence:
+- SOP-06

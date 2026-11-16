@@ -1,0 +1,8 @@
+id: ISO13485-6.2
+type: requirement
+title: Human resources
+source: ISO 13485:2016 clause map
+clause: '6.2'
+evidence:
+- SOP-09
+- TR-ann-SOP-01

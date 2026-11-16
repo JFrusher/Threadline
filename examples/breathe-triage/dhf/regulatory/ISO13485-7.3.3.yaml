@@ -1,0 +1,8 @@
+id: ISO13485-7.3.3
+type: requirement
+title: Design and development inputs
+source: ISO 13485:2016 clause map
+clause: 7.3.3
+evidence:
+- UN-001
+- SYS-001

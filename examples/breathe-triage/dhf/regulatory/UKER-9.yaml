@@ -1,0 +1,7 @@
+id: UKER-9
+type: requirement
+title: Construction and environmental properties
+source: UK MHRA (Great Britain) — UK MDR 2002
+clause: ER 9
+applicable: false
+justification: Standalone software; runs on general-purpose hardware not supplied by the manufacturer.

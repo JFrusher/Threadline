@@ -1,0 +1,7 @@
+id: ISO13485-7.3.6
+type: requirement
+title: Design and development verification
+source: ISO 13485:2016 clause map
+clause: 7.3.6
+evidence:
+- SOP-02

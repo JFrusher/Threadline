@@ -1,0 +1,7 @@
+id: ISO13485-7.3.9
+type: requirement
+title: Control of design and development changes
+source: ISO 13485:2016 clause map
+clause: 7.3.9
+evidence:
+- SOP-02
