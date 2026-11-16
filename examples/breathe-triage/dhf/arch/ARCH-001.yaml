@@ -1,0 +1,7 @@
+id: ARCH-001
+type: architecture_item
+title: Classifier
+text: Pure function classify(age_months, respiratory_rate, danger_signs) -> classification.
+software_class: C
+implements: [SRS-001, SRS-002, SRS-003, SRS-004, SRS-005, SRS-006, SRS-009, SRS-010]
+segregation: Standard library only; no I/O.

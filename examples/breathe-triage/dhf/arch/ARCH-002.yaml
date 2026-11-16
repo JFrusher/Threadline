@@ -1,0 +1,7 @@
+id: ARCH-002
+type: architecture_item
+title: Breath counter
+text: Turns timed taps into a respiratory rate; rejects counts shorter than 60 s.
+software_class: C
+implements: [SRS-007, SRS-008]
+segregation: Standard library only; no I/O.

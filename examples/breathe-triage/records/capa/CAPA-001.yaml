@@ -1,0 +1,9 @@
+id: CAPA-001
+type: capa
+title: Count accepted after 59 s in field trial (ILLUSTRATIVE)
+status: effective
+problem: Illustrative record. A pre-release build accepted counts shorter than 60 s.
+root_cause: Duration compared with > instead of >=, and no boundary test existed.
+action: Added SRS-007/RC-005 and boundary test test_incomplete_count_rejected.
+effectiveness_check: Test passes on every release; no recurrence in later formative evaluation.
+sources: [COMP-001]
