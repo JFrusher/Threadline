@@ -1,0 +1,24 @@
+[project]
+name = "threadline"
+version = "0.0.1"
+description = "QMS-as-code for Software as a Medical Device: traceability, risk, SOUP and technical file in git."
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.12"
+dependencies = ["pydantic>=2.7", "ruamel.yaml>=0.18"]
+
+[project.scripts]
+threadline = "threadline.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
