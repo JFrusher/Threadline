@@ -21,3 +21,5 @@ jobs:
         with:
           junit: junit.xml
           base: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || '' }}
+          # Settings → Variables: the commit that created (or re-rooted) qms/signers/allowed_signers
+          trust-root: ${{ vars.THREADLINE_TRUST_ROOT }}

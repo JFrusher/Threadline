@@ -27,7 +27,9 @@ jobs:
           format: cyclonedx-json
           output-file: sbom.cdx.json
       # --release: needs an approved baseline (threadline baseline / approve) and refuses skipped rules
-      - run: threadline build --release "$GITHUB_REF_NAME" --junit junit.xml --sbom sbom.cdx.json --osv --version "$GITHUB_REF_NAME" --out dist/technical-file.pdf
+      - run: threadline build --release "$GITHUB_REF_NAME" --junit junit.xml --sbom sbom.cdx.json --osv --version "$GITHUB_REF_NAME" --trust-root "$TRUST_ROOT" --out dist/technical-file.pdf
+        env:
+          TRUST_ROOT: ${{ vars.THREADLINE_TRUST_ROOT }}
       - run: cp junit.xml sbom.cdx.json dist/
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4
         with:

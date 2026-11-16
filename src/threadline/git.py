@@ -32,6 +32,17 @@ def commits_touching(git_root: Path, path: Path) -> list[str]:
     return _git(git_root, "log", "--format=%H", "--", rel(git_root, path)).split()
 
 
+def resolve(git_root: Path, ref: str) -> str | None:
+    try:
+        return _git(git_root, "rev-parse", "--verify", f"{ref}^{{commit}}").strip()
+    except subprocess.CalledProcessError:
+        return None
+
+
+def is_ancestor(git_root: Path, a: str, b: str) -> bool:
+    return subprocess.run(["git", "-C", str(git_root), "merge-base", "--is-ancestor", a, b]).returncode == 0
+
+
 def parent(git_root: Path, sha: str) -> str | None:
     try:
         return _git(git_root, "rev-parse", f"{sha}^").strip()

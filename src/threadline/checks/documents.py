@@ -158,6 +158,18 @@ def registry_chain(ctx: Context):
     shas = set(git.commits_touching(ctx.git_root, keys_path)) | set(git.commits_touching(ctx.git_root, cfg_path))
     ordered = [s for s in git._git(ctx.git_root, "log", "--format=%H").split() if s in shas][::-1]
     seen_root = False
+    if ctx.trust_root:
+        # an admin-set anchor outside the repo: the registry at that commit is trusted, later changes are checked
+        root_sha = git.resolve(ctx.git_root, ctx.trust_root)
+        if root_sha is None or not git.is_ancestor(ctx.git_root, root_sha, "HEAD"):
+            yield Finding("TL-D04", ctx.trust_root, "trust root is not a commit in this branch's history")
+            return
+        if git.show(ctx.git_root, root_sha, keys_path) is None:
+            yield Finding("TL-D04", ctx.trust_root, "trust root commit has no signer registry")
+            return
+        later = set(git._git(ctx.git_root, "rev-list", f"{root_sha}..HEAD").split())
+        ordered = [s for s in ordered if s in later]
+        seen_root = True
     for sha in ordered:
         before = git.parent(ctx.git_root, sha)
         keys_before, keys_after = git.show(ctx.git_root, before, keys_path), git.show(ctx.git_root, sha, keys_path)

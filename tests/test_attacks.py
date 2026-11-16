@@ -112,3 +112,18 @@ def test_images_cannot_pull_in_runner_files(tmp_path):
             build.check_images(md, tmp_path)
     (tmp_path / "ok.png").write_bytes(b"x")
     build.check_images("![ok](ok.png)", tmp_path)
+
+
+def test_lost_qa_key_recovery_needs_an_external_trust_root(tmp_path):
+    # quinn's key is lost; the team re-roots the registry with a new key in an unsigned commit
+    script = SETUP + """
+ssh-keygen -q -t ed25519 -N "" -f new.key && echo "quinn $(cat new.key.pub)" > qms/signers/allowed_signers
+git add qms threadline.yaml && git commit -qm "re-root after key loss" && git rev-parse HEAD > .reroot
+"""
+    ctx = build_project(tmp_path, {"git": script, "threadline.yaml": {"signers": {
+        "quinn": {"name": "Q", "roles": ["qa"]}}}})
+    assert _findings(ctx, {"TL-D04"}), "in-repo re-root accepted without an external anchor"
+    ctx.trust_root = (tmp_path / ".reroot").read_text().strip()
+    assert _findings(ctx, {"TL-D04"}) == []  # the admin anchored the new root outside the repo
+    ctx.trust_root = "0" * 40
+    assert _findings(ctx, {"TL-D04"}), "unknown trust root accepted"

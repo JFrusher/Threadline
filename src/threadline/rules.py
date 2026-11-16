@@ -25,6 +25,7 @@ class Context:
     base_ref: str | None = None  # git ref to diff documents against
     git_root: Path | None = None  # set when the project is in a git work tree
     release: str | None = None  # version being released; enables the baseline rule
+    trust_root: str | None = None  # commit whose signer registry is trusted; set outside the repo (CI variable)
 
     def verification(self, item_id: str) -> str | None:
         """None if verified: at least one test, and every test verifying the item passed."""

@@ -20,6 +20,7 @@ def _context(args) -> rules.Context:
             raise SystemExit("--base needs the project to be in a git work tree")
         ctx.base_ref = args.base
     ctx.release = args.release
+    ctx.trust_root = args.trust_root
     if args.junit:
         ctx.tests = [c for f in args.junit for c in junit.parse(f)]
         ctx.evidence = junit.by_item(ctx.tests)
@@ -32,6 +33,8 @@ def cmd_check(args) -> int:
 
     prof = profiles.lifecycle(ctx.project.config.lifecycle_profile)
     print(("DRAFT STANDARD: " if prof["draft"] else "NOTE: ") + prof["note"])
+    if ctx.git_root and not ctx.trust_root:
+        print("NOTE: no --trust-root: the signer registry's first commit is trusted. Anchor it with a CI variable.")
     result = rules.run(ctx)
     by_rule = {r.id: r for r in rules.RULES.values()}
     items = ctx.project.items
@@ -63,6 +66,8 @@ def cmd_build(args) -> int:
 
     ctx = _context(args)
     result = rules.run(ctx)
+    if args.release and not args.trust_root:
+        raise SystemExit("--release needs --trust-root: anchor the signer registry outside the repo (CI variable)")
     if args.release:
         # D02 needs a base branch, which a tag build has none of
         missing = [r.id for r in result.skipped if r.id != "TL-D02"]
@@ -278,6 +283,7 @@ def main(argv: list[str] | None = None) -> int:
         p.add_argument("--osv", action="store_true", help="query OSV.dev for advisories against SBOM components")
         p.add_argument("--base", help="git ref to diff documents against (e.g. origin/main)")
         p.add_argument("--release", help="release version: needs its approved baseline (TL-D05)")
+        p.add_argument("--trust-root", help="commit whose signer registry is trusted (set from a CI variable)")
         if name == "check":
             p.add_argument("--format", choices=["text", "github"], default="text")
         p.set_defaults(fn=fn)
