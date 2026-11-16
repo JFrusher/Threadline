@@ -1,0 +1,11 @@
+pass:
+  threadline.yaml: {software_class: A}
+  dhf/CLS-1.yaml: {id: CLS-1, type: classification, title: C, scheme: iec62304-ed1, result: A, rule: "4.3", rationale: x}
+  dhf/SRS-001.yaml: {id: SRS-001, type: software_requirement, title: R, text: x}
+  qms/SDP.md: "---\nid: SDP\ntype: document\ndoc_type: sdp\ntitle: SDP\n---\nx\n"
+  qms/SOP-02.md: "---\nid: SOP-02\ntype: document\ndoc_type: sop\ntitle: S\n---\nx\n"
+  qms/SOP-04.md: "---\nid: SOP-04\ntype: document\ndoc_type: sop\ntitle: S\n---\nx\n"
+  qms/SOP-07.md: "---\nid: SOP-07\ntype: document\ndoc_type: sop\ntitle: S\n---\nx\n"
+fail:
+  threadline.yaml: {lifecycle_profile: iec62304-ed2-draft, software_class: PRL-II}
+  dhf/CLS-1.yaml: {id: CLS-1, type: classification, title: C, scheme: iec62304-ed1, result: A, rule: "4.3", rationale: x}

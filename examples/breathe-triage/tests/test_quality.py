@@ -3,7 +3,6 @@ import json
 from pathlib import Path
 
 import pytest
-
 from breathe_triage.quality import WEIGHTS, irregular_probability, needs_recount
 
 ROOT = Path(__file__).parents[1]

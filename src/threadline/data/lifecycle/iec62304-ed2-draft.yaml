@@ -1,0 +1,7 @@
+standard: IEC 62304 Ed. 2 — Committee Draft 2 (62A/1761/CD, Aug 2026). NOT PUBLISHED.
+draft: true
+note: >-
+  DRAFT STANDARD. Provisional mapping from secondary sources: PRL-I takes the Ed1 class A activities, PRL-II takes
+  every activity required for Ed1 class B or C. Clause numbers are Ed1 numbers. Replace when Ed2 is published.
+derive_from: iec62304-ed1
+class_map: {PRL-I: [A], PRL-II: [B, C]}

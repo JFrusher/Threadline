@@ -26,6 +26,10 @@ def _context(args) -> rules.Context:
 
 def cmd_check(args) -> int:
     ctx = _context(args)
+    from threadline import profiles
+
+    prof = profiles.lifecycle(ctx.project.config.lifecycle_profile)
+    print(("DRAFT STANDARD: " if prof["draft"] else "NOTE: ") + prof["note"])
     result = rules.run(ctx)
     by_rule = {r.id: r for r in rules.RULES.values()}
     for f in result.findings:
