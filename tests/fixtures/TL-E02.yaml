@@ -1,0 +1,5 @@
+pass:
+  dhf/SRS-001.yaml: {id: SRS-001, type: software_requirement, title: R, text: x}
+  junit.xml: '<testsuite><testcase classname="t" name="ok"><properties><property name="verifies" value="SRS-001"/></properties></testcase></testsuite>'
+fail:
+  junit.xml: '<testsuite><testcase classname="t" name="ok"><properties><property name="verifies" value="SRS-001"/></properties></testcase></testsuite>'

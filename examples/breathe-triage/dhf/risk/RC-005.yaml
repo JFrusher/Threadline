@@ -1,0 +1,6 @@
+id: RC-005
+type: risk_control
+title: Full 60-second count
+kind: inherent_safety_by_design
+text: Only accept counts with timed duration >= 60 s.
+new_risk_review: 'Reviewed: no new hazards introduced.'

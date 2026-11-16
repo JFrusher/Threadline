@@ -1,0 +1,5 @@
+pass:
+  dhf/HAZ-001.yaml: {id: HAZ-001, type: hazard, title: H, hazard: h, hazardous_situation: s, harm: d, severity: minor, p1: low, p2: low}
+fail:
+  dhf/HAZ-001.yaml: {id: HAZ-001, type: hazard, title: H, hazard: h, hazardous_situation: s, harm: d, severity: minor}
+  dhf/HAZ-002.yaml: {id: HAZ-002, type: hazard, title: H, hazard: h, hazardous_situation: s, harm: d, severity: deadly, p1: low, p2: low}

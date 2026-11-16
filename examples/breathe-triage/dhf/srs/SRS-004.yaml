@@ -1,0 +1,8 @@
+id: SRS-004
+type: software_requirement
+title: Danger-sign override
+text: Any danger sign true shall yield REFER_URGENTLY regardless of respiratory rate.
+derives_from:
+- SYS-004
+implements:
+- RC-004

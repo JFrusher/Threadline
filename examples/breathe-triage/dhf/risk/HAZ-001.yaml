@@ -1,0 +1,16 @@
+id: HAZ-001
+type: hazard
+title: Fast breathing missed in infant
+category: software
+hazard: Wrong threshold applied to age band
+sequence_of_events: Infant 2–11 months with RR 50–59 classified as no fast breathing
+hazardous_situation: CHW does not treat or refer
+harm: Untreated pneumonia progresses
+severity: catastrophic
+p1: certain
+p2: medium
+controls:
+- RC-001
+residual:
+  p1: very_low
+  p2: low

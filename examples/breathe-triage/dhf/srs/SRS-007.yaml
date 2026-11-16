@@ -1,0 +1,8 @@
+id: SRS-007
+type: software_requirement
+title: Full count only
+text: A count shall be accepted only when the timed duration is >= 60.0 seconds.
+derives_from:
+- SYS-001
+implements:
+- RC-005

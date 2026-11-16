@@ -1,0 +1,6 @@
+pass:
+  dhf/HAZ-001.yaml: {id: HAZ-001, type: hazard, title: H, controls: [RC-001]}
+  dhf/RC-001.yaml: {id: RC-001, type: risk_control, title: C, kind: protective_measure, text: x}
+fail:
+  dhf/HAZ-001.yaml: {id: HAZ-001, type: hazard, title: H, controls: [RC-001]}
+  dhf/RC-001.yaml: {id: RC-001, type: risk_control, title: C, kind: protective_measure, text: x, new_hazards: [HAZ-001]}

@@ -1,0 +1,6 @@
+id: SYS-001
+type: system_requirement
+title: Guided 60-second count
+text: The system shall time a full 60-second breath count and record the count.
+derives_from:
+- UN-001

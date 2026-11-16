@@ -1,0 +1,16 @@
+id: HAZ-005
+type: hazard
+title: Truncated count
+category: software
+hazard: Count stopped early
+sequence_of_events: Rate from <60 s count under-reads
+hazardous_situation: Fast breathing missed
+harm: Untreated pneumonia
+severity: catastrophic
+p1: medium
+p2: medium
+controls:
+- RC-005
+residual:
+  p1: very_low
+  p2: low

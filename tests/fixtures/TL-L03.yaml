@@ -1,0 +1,4 @@
+pass:
+  dhf/SYS-001.yaml: {id: SYS-001, type: system_requirement, title: S, text: x, derives_from: [UN-001]}
+fail:
+  dhf/SYS-001.yaml: {id: SYS-001, type: system_requirement, title: Orphan, text: x}

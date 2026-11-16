@@ -1,0 +1,6 @@
+id: SYS-005
+type: system_requirement
+title: Plausibility check
+text: The system shall reject implausible respiratory rates and ask for a recount.
+derives_from:
+- UN-001

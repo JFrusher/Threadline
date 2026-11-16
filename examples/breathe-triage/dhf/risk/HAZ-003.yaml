@@ -1,0 +1,16 @@
+id: HAZ-003
+type: hazard
+title: Miscounted breathing rate
+category: software
+hazard: CHW mis-taps or child moves
+sequence_of_events: Implausible rate accepted
+hazardous_situation: Wrong classification
+harm: Delayed treatment
+severity: critical
+p1: high
+p2: medium
+controls:
+- RC-003
+residual:
+  p1: low
+  p2: low

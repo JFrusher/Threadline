@@ -1,0 +1,8 @@
+id: SRS-006
+type: software_requirement
+title: Plausible rate range
+text: Respiratory rates < 10 or > 120 shall raise ImplausibleRate.
+derives_from:
+- SYS-005
+implements:
+- RC-003

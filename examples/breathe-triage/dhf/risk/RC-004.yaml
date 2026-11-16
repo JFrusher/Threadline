@@ -1,0 +1,6 @@
+id: RC-004
+type: risk_control
+title: Danger signs override
+kind: inherent_safety_by_design
+text: Any danger sign forces REFER_URGENTLY.
+new_risk_review: 'Reviewed: no new hazards introduced.'

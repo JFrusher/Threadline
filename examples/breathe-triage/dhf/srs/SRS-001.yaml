@@ -1,0 +1,8 @@
+id: SRS-001
+type: software_requirement
+title: Age validation
+text: classify() shall raise OutOfScope for age_months < 2 or >= 60.
+derives_from:
+- SYS-007
+implements:
+- RC-002

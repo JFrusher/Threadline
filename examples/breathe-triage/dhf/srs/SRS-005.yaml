@@ -1,0 +1,6 @@
+id: SRS-005
+type: software_requirement
+title: Danger sign list
+text: 'The danger signs shall be: unable_to_drink, vomits_everything, convulsions, lethargic_or_unconscious, stridor.'
+derives_from:
+- SYS-002

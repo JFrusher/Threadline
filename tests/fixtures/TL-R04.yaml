@@ -1,0 +1,6 @@
+pass:
+  dhf/RC-001.yaml: {id: RC-001, type: risk_control, title: C, kind: protective_measure, text: x, new_risk_review: none introduced}
+  junit.xml: '<testsuite><testcase classname="t" name="ok"><properties><property name="verifies" value="RC-001"/></properties></testcase></testsuite>'
+fail:
+  dhf/RC-001.yaml: {id: RC-001, type: risk_control, title: C, kind: protective_measure, text: x, new_risk_review: none introduced}
+  junit.xml: '<testsuite><testcase classname="t" name="skipped"><properties><property name="verifies" value="RC-001"/></properties><skipped/></testcase></testsuite>'

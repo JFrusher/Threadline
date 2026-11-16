@@ -1,0 +1,6 @@
+id: SYS-003
+type: system_requirement
+title: Age-banded fast breathing
+text: The system shall classify fast breathing using age-banded thresholds.
+derives_from:
+- UN-003

@@ -1,0 +1,6 @@
+id: SYS-004
+type: system_requirement
+title: Danger signs take priority
+text: The system shall classify urgent referral whenever any danger sign is present.
+derives_from:
+- UN-002

@@ -1,0 +1,6 @@
+id: SYS-007
+type: system_requirement
+title: Scope enforcement
+text: The system shall refuse to classify children outside 2–59 months.
+derives_from:
+- UN-005

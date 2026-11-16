@@ -1,0 +1,6 @@
+id: SYS-006
+type: system_requirement
+title: Offline operation
+text: The system shall perform every assessment function without network access.
+derives_from:
+- UN-004
