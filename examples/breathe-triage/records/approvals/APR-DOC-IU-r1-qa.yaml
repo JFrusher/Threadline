@@ -1,0 +1,9 @@
+id: APR-DOC-IU-r1-qa
+type: approval
+title: DOC-IU rev 1 approved_as_qa
+subject: DOC-IU
+subject_rev: 1
+subject_sha256: 2b54ca5d08e1b9758bcf940d236e1892ef20bb6b828138283875567149510dd5
+meaning: approved_as_qa
+signer: quinn
+signed_at: '2026-11-16T12:17:36Z'

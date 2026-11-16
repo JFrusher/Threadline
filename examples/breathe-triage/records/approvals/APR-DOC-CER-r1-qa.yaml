@@ -1,0 +1,9 @@
+id: APR-DOC-CER-r1-qa
+type: approval
+title: DOC-CER rev 1 approved_as_qa
+subject: DOC-CER
+subject_rev: 1
+subject_sha256: d87bd389e286ca34f0e1ae26ed8d8109a1e2d1fb67fc7f8fda0c910168232814
+meaning: approved_as_qa
+signer: quinn
+signed_at: '2026-11-16T12:17:36Z'
