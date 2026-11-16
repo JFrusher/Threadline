@@ -24,3 +24,13 @@ def test_plugin_refuses_xunit2(tmp_path):
                         f"--junitxml={tmp_path / 'j.xml'}", "-o", "junit_family=xunit2"],
                        capture_output=True, text=True)
     assert r.returncode != 0 and "junit_family = xunit1" in r.stderr
+
+
+def test_github_annotations(tmp_path, capsys):
+    from conftest import build_project
+    build_project(tmp_path, {"dhf/SYS-001.yaml": {"id": "SYS-001", "type": "system_requirement", "title": "S",
+                                                  "text": "x"}})
+    assert main(["check", str(tmp_path), "--format", "github"]) == 1
+    out = capsys.readouterr().out
+    assert "::error file=dhf/SYS-001.yaml,title=TL-L03" in out
+    assert "by rule: " in out and "TL-L03 1 (" in out

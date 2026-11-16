@@ -11,6 +11,8 @@ from pathlib import Path
 from threadline import git, profiles, rtm
 from threadline.rules import RULES, Context, Result
 
+# Item text is untrusted: no raw LaTeX/HTML may reach the PDF engine (it could \\input runner files)
+PANDOC_FROM = "markdown-raw_tex-raw_attribute-raw_html"
 DESIGN_DOC_TYPES = ("intended_use", "sdp", "sad", "detailed_design", "clinical_evaluation")
 ILLUSTRATIVE = re.compile(r"ILLUSTRATIVE|FICTIONAL", re.I)
 
@@ -541,12 +543,47 @@ def footer(product: str, version: str, commit: str) -> str:
     )
 
 
-def to_pdf(markdown: str, out: Path, product: str, version: str, commit: str, workdir: Path, chromium: str | None):
+def check_images(markdown: str, project_root: Path) -> None:
+    """Every image target must be a relative path to a file inside the project (no runner files, no URLs)."""
+
+    def walk(node):
+        if isinstance(node, dict):
+            if node.get("t") == "Image":
+                yield node["c"][2][0]
+            for v in node.values():
+                yield from walk(v)
+        elif isinstance(node, list):
+            for v in node:
+                yield from walk(v)
+
+    ast = json.loads(
+        subprocess.run(
+            ["pandoc", "-f", PANDOC_FROM, "-t", "json"], input=markdown, text=True, capture_output=True, check=True
+        ).stdout
+    )
+    root = project_root.resolve()
+    for target in walk(ast):
+        path = (root / target).resolve()
+        if "://" in target or Path(target).is_absolute() or not path.is_relative_to(root) or not path.is_file():
+            raise SystemExit(f"image {target!r}: images must be relative paths to files inside the project")
+
+
+def to_pdf(
+    markdown: str,
+    out: Path,
+    product: str,
+    version: str,
+    commit: str,
+    workdir: Path,
+    chromium: str | None,
+    project_root: Path,
+):
     workdir.mkdir(parents=True, exist_ok=True)
     if chromium:
         (workdir / "puppeteer.json").write_text(f'{{"executablePath": "{chromium}", "args": ["--no-sandbox"]}}')
     else:
         (workdir / "puppeteer.json").write_text('{"args": ["--no-sandbox"]}')
+    check_images(markdown, project_root)
     md = render_mermaid(markdown, workdir)
     (workdir / "technical-file.md").write_text(md)
     (workdir / "footer.tex").write_text(footer(product, version, commit))
@@ -554,6 +591,9 @@ def to_pdf(markdown: str, out: Path, product: str, version: str, commit: str, wo
         [
             "pandoc",
             "technical-file.md",
+            "-f",
+            PANDOC_FROM,
+            f"--resource-path={workdir}:{project_root}",
             "-o",
             str(out.resolve()),
             "--pdf-engine=xelatex",

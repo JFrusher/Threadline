@@ -24,4 +24,4 @@ runs:
         args=("$TL_PATH")
         [ -n "$TL_JUNIT" ] && args+=(--junit "$TL_JUNIT")
         [ -n "$TL_BASE" ] && args+=(--base "$TL_BASE")
-        threadline check "${args[@]}"
+        threadline check --format github "${args[@]}"

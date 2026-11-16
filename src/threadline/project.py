@@ -1,5 +1,6 @@
 """Load a Threadline project: threadline.yaml + item files."""
 
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Literal
@@ -59,6 +60,13 @@ class Config(BaseModel):
     signers: dict[str, Signer] = {}
     # doc_type -> meanings an effective document needs; "*" is the default
     approvals_required: dict[str, list[Meaning]] = {"*": ["authored", "approved_as_qa"]}
+
+    @model_validator(mode="after")
+    def _signer_names(self):
+        bad = [n for n in self.signers if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9.-]*", n)]
+        if bad:
+            raise ValueError(f"signer names must be letters, digits, . or - (they appear in record IDs): {bad}")
+        return self
 
     @model_validator(mode="after")
     def _class_matches_profile(self):

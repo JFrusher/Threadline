@@ -4,8 +4,9 @@ pass:
       ann: {name: Ann Author, roles: [author]}
       quinn: {name: Quinn QA, roles: [qa, reviewer]}
   qms/SOP-01.md: "---\nid: SOP-01\ntype: document\ndoc_type: sop\ntitle: Document control\nrev: 2\nstatus: effective\n---\nApproved text.\n"
-  records/APR-SOP-01-r2-a.yaml: {id: APR-SOP-01-r2-a, type: approval, title: Authored, subject: SOP-01, subject_rev: 2, subject_sha256: 022c484c0a7fcb11c15e2ecbfd6e2a07f75003663f4db6e3f16e24e4dab470fe, meaning: authored, signer: ann, signed_at: "2026-11-16T10:00:00Z"}
-  records/APR-SOP-01-r2-q.yaml: {id: APR-SOP-01-r2-q, type: approval, title: QA approval, subject: SOP-01, subject_rev: 2, subject_sha256: 022c484c0a7fcb11c15e2ecbfd6e2a07f75003663f4db6e3f16e24e4dab470fe, meaning: approved_as_qa, signer: quinn, signed_at: "2026-11-16T11:00:00Z"}
+  records/APR-SOP-01-r2-a.yaml: {id: APR-SOP-01-r2-a, type: approval, title: Authored, subject: SOP-01, subject_rev: 2, subject_sha256: 16932f2f03898b153da4b7bae15f593efe68b1bbccc9a28865f0a90120db3a69, meaning: authored, signer: ann, signed_at: '2026-11-16T10:00:00Z'}
+  records/APR-SOP-01-r2-q.yaml: {id: APR-SOP-01-r2-q, type: approval, title: QA approval, subject: SOP-01, subject_rev: 2, subject_sha256: 16932f2f03898b153da4b7bae15f593efe68b1bbccc9a28865f0a90120db3a69, meaning: approved_as_qa, signer: quinn, 
+      signed_at: '2026-11-16T11:00:00Z'}
 fail:
   threadline.yaml:
     signers:
@@ -13,6 +14,8 @@ fail:
       bob: {name: Bob Dev, roles: [author]}
   qms/SOP-01.md: "---\nid: SOP-01\ntype: document\ndoc_type: sop\ntitle: Document control\nrev: 2\nstatus: effective\n---\nEdited after approval.\n"
   qms/SOP-02.md: "---\nid: SOP-02\ntype: document\ndoc_type: sop\ntitle: No approvals\nrev: 1\nstatus: effective\n---\nApproved text.\n"
-  records/APR-SOP-01-r2-a.yaml: {id: APR-SOP-01-r2-a, type: approval, title: Authored, subject: SOP-01, subject_rev: 2, subject_sha256: 022c484c0a7fcb11c15e2ecbfd6e2a07f75003663f4db6e3f16e24e4dab470fe, meaning: authored, signer: ann, signed_at: "2026-11-16T10:00:00Z"}
-  records/APR-SOP-01-r2-self.yaml: {id: APR-SOP-01-r2-self, type: approval, title: Self approval, subject: SOP-01, subject_rev: 2, subject_sha256: 022c484c0a7fcb11c15e2ecbfd6e2a07f75003663f4db6e3f16e24e4dab470fe, meaning: approved_as_qa, signer: ann, signed_at: "2026-11-16T11:00:00Z"}
-  records/APR-SOP-01-r2-bob.yaml: {id: APR-SOP-01-r2-bob, type: approval, title: Wrong role, subject: SOP-01, subject_rev: 2, subject_sha256: 022c484c0a7fcb11c15e2ecbfd6e2a07f75003663f4db6e3f16e24e4dab470fe, meaning: approved_as_qa, signer: bob, signed_at: "2026-11-16T11:00:00Z"}
+  records/APR-SOP-01-r2-a.yaml: {id: APR-SOP-01-r2-a, type: approval, title: Authored, subject: SOP-01, subject_rev: 2, subject_sha256: 16932f2f03898b153da4b7bae15f593efe68b1bbccc9a28865f0a90120db3a69, meaning: authored, signer: ann, signed_at: '2026-11-16T10:00:00Z'}
+  records/APR-SOP-01-r2-self.yaml: {id: APR-SOP-01-r2-self, type: approval, title: Self approval, subject: SOP-01, subject_rev: 2, subject_sha256: 16932f2f03898b153da4b7bae15f593efe68b1bbccc9a28865f0a90120db3a69, meaning: approved_as_qa, signer: ann, 
+      signed_at: '2026-11-16T11:00:00Z'}
+  records/APR-SOP-01-r2-bob.yaml: {id: APR-SOP-01-r2-bob, type: approval, title: Wrong role, subject: SOP-01, subject_rev: 2, subject_sha256: 16932f2f03898b153da4b7bae15f593efe68b1bbccc9a28865f0a90120db3a69, meaning: approved_as_qa, signer: bob, 
+      signed_at: '2026-11-16T11:00:00Z'}

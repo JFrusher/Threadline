@@ -1,0 +1,23 @@
+pass:
+  threadline.yaml:
+    signers: {quinn: {name: Q, roles: [qa]}, ann: {name: A, roles: [author]}}
+  git: |
+    git init -q && git config user.name t && git config user.email t@x && git config commit.gpgsign false
+    git config gpg.format ssh && git config gpg.ssh.program ssh-keygen
+    mkdir -p qms/signers && ssh-keygen -q -t ed25519 -N "" -f quinn.key && ssh-keygen -q -t ed25519 -N "" -f ann.key
+    echo "quinn $(cat quinn.key.pub)" > qms/signers/allowed_signers
+    git add qms threadline.yaml && git commit -qm root-of-trust
+    echo "ann $(cat ann.key.pub)" >> qms/signers/allowed_signers
+    git add qms && git -c user.signingkey=$PWD/quinn.key commit -qS -m "QA adds ann"
+fail:
+  threadline.yaml:
+    signers: {quinn: {name: Q, roles: [qa]}, ann: {name: A, roles: [author]}}
+  git: |
+    git init -q && git config user.name t && git config user.email t@x && git config commit.gpgsign false
+    git config gpg.format ssh && git config gpg.ssh.program ssh-keygen
+    mkdir -p qms/signers && ssh-keygen -q -t ed25519 -N "" -f quinn.key && ssh-keygen -q -t ed25519 -N "" -f ann.key
+    echo "quinn $(cat quinn.key.pub)" > qms/signers/allowed_signers
+    git add qms threadline.yaml && git commit -qm root-of-trust
+    echo "ann $(cat ann.key.pub)" >> qms/signers/allowed_signers
+    git add qms && git -c user.signingkey=$PWD/ann.key commit -qS -m "ann adds herself"
+    echo "# uncommitted" >> qms/signers/allowed_signers

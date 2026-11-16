@@ -23,6 +23,17 @@ def dangling(ctx: Context):
                 )
 
 
+@rule("TL-L05", "ISO 13485 4.2.4, 7.3.9", "No live item links to an obsolete item")
+def obsolete_links(ctx: Context):
+    items = ctx.project.items
+    for item in items.values():
+        if item.status == "obsolete":
+            continue
+        for field, target, _ in item.links():
+            if target in items and items[target].status == "obsolete":
+                yield Finding("TL-L05", item.id, f"{field} -> {target}: target is obsolete")
+
+
 @rule("TL-L02", "IEC 62304 5.2", "Every software requirement traces to a system requirement or risk control")
 def srs_upward(ctx: Context):
     for i in ctx.project.of_type("software_requirement"):
