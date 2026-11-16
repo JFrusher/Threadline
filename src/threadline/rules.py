@@ -72,3 +72,13 @@ def run(ctx: Context, only: set[str] | None = None) -> Result:
 
 def relpath(ctx: Context, path: Path | None) -> str:
     return str(path.relative_to(ctx.project.root)) if path else "?"
+
+
+def rule_table() -> str:
+    """Markdown table of every rule, for the README (kept in sync by tests/test_readme.py)."""
+    import threadline.checks  # noqa: F401
+
+    rows = [
+        f"| {r.id} | {r.clause} | {r.title} | {r.needs or ''} |" for r in sorted(RULES.values(), key=lambda r: r.id)
+    ]
+    return "\n".join(["| Rule | Clause | Check | Needs |", "|---|---|---|---|", *rows]) + "\n"
