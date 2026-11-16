@@ -153,8 +153,8 @@ Reference device **Breathe-Triage** grows phase by phase in `examples/breathe-tr
 | 16.1 | Threadline intended use + risk assessment of the tool itself (ISO/TR 80002-2) | Doc effective |
 | 16.2 | Tool validation report = JUnit of the fixture suite, rendered by `threadline build` | Report in release |
 | 16.3 | README quickstart + rule reference table generated from rule registry | Table in README |
-| 16.4 | External QA/RA review of example PDF; fix findings | Review notes closed |
-| 16.5 | Tag v1.0.0 | All PRD §10 criteria met |
+| 16.4 | External QA/RA review of example PDF; fix findings | **Owner action** — needs a qualified reviewer |
+| 16.5 | Tag v1.0.0 | **Owner action** — after 16.4 and PyPI trusted publisher set up |
 
 ---
 

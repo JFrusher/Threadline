@@ -75,3 +75,5 @@ def signatures(ctx: Context):
                 yield Finding("TL-D03", a.id, f"commit {sha[:10]} has no valid signature from an allowed signer")
             elif principal != a.signer:
                 yield Finding("TL-D03", a.id, f"commit {sha[:10]} signed by {principal}, record names {a.signer}")
+            elif git.show(ctx.git_root, sha, a.path) != a.path.read_text(encoding="utf-8"):
+                yield Finding("TL-D03", a.id, "file differs from the signed commit (edited after signing)")
