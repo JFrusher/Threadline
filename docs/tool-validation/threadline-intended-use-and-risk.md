@@ -15,7 +15,7 @@ not decide whether a device is safe, classify a device, or replace review by qua
 | A rule passes on bad input (false negative) | Incomplete trace / unverified risk control could ship | High | Every rule has a failing fixture that must fail (tests/test_rules.py); suite runs on every change and ships per release |
 | A rule fails on good input (false positive) | Wasted effort; pressure to bypass the tool | Low | Every rule has a passing fixture; dogfood test on the full example |
 | Evidence misread (JUnit) | Untested item reported as tested | High | Only `verifies` properties count; skipped/failed/errored cases are not passes (TL-R04 fixture uses a skipped test); xunit2 refused |
-| Signature mis-verified | Unauthorised approval accepted | High | Verification always via ssh-keygen with the repo's allowed_signers, ignoring user git config; unsigned, wrong-key and uncommitted fixtures |
+| Signature mis-verified | Unauthorised approval accepted | High | Verification always via ssh-keygen with the repo's allowed_signers, ignoring user git config; unsigned, wrong-key, uncommitted and edited-after-signing fixtures |
 | Wrong hash accepted | Approval or model weights not bound to content | High | Hash-mismatch fixtures for TL-D01 and TL-M02 |
 | Profile data wrong (clause mapping) | Missing deliverable not flagged | Medium | Profile data marked unverified where not checked against licensed text; parse-guard tests; QA review of profiles before use |
 | PDF omits content | Auditor sees incomplete file | Medium | Section presence test; build refuses on any finding; JUnit and SBOM attached raw next to the PDF |
