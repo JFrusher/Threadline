@@ -3,7 +3,7 @@ id: SOP-02
 type: document
 doc_type: sop
 title: Software Lifecycle
-rev: 1
+rev: 2
 status: effective
 ---
 # SOP-02 Software Lifecycle

@@ -3,7 +3,7 @@ id: SOP-03
 type: document
 doc_type: sop
 title: Risk Management
-rev: 1
+rev: 2
 status: effective
 ---
 # SOP-03 Risk Management

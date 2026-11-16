@@ -3,7 +3,7 @@ id: DOC-SDD
 type: document
 doc_type: detailed_design
 title: Software Detailed Design
-rev: 1
+rev: 2
 status: effective
 ---
 # Software Detailed Design — class C units
