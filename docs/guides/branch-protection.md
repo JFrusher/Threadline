@@ -30,7 +30,11 @@ Threadline simulates four roles. Use separate GitHub accounts (or a GitHub team 
 ```bash
 git config gpg.format ssh
 git config user.signingkey ~/.ssh/id_ed25519.pub
-sha256=$(threadline hash qms/SOP-01.md)
-# write records/approvals/APR-SOP-01-r2-qa.yaml with subject_sha256: $sha256, then:
-git add records/approvals/APR-SOP-01-r2-qa.yaml && git commit -S -m "approve SOP-01 r2 (QA)"
+threadline approve SOP-01 SOP-02 --meaning approved_as_qa --signer quinn   # one SSH-signed commit
 ```
+
+## Adding or revoking a signer
+Edit `qms/signers/allowed_signers` and `signers:` in `threadline.yaml` in one commit **signed by a current QA
+signer** (`git commit -S`). Any other change to the registry fails TL-D04. Revoke by removing the key line in such a
+commit; approvals signed before the revocation stay valid because each is checked against the registry of its own
+time.

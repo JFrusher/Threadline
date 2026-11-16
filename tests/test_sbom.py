@@ -41,3 +41,8 @@ def test_advisories_from_recorded_osv_response(monkeypatch):
 def test_advisories_refuses_component_without_purl():
     with pytest.raises(ValueError):
         sbom.advisories([{"name": "x", "version": "1"}])
+
+
+def test_advisories_for_no_components_makes_no_request(monkeypatch):
+    monkeypatch.setattr(sbom.urllib.request, "urlopen", lambda *a, **k: pytest.fail("no request expected"))
+    assert sbom.advisories([]) == {}
