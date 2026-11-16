@@ -1,0 +1,9 @@
+id: APR-DOC-SDP-r2-authored-ann
+type: approval
+title: DOC-SDP rev 2 authored
+subject: DOC-SDP
+subject_rev: 2
+subject_sha256: e58ada36c4730314ec269df52aa20df56f3908a9fa91af6177cf06d45c6f7d78
+meaning: authored
+signer: ann
+signed_at: '2026-11-16T12:34:37Z'
