@@ -71,7 +71,7 @@ Reference device **Breathe-Triage** grows phase by phase in `examples/breathe-tr
 | 6.1 | `templates/project/` skeleton + `threadline init` | `init` → `check` fails red with clause-cited messages |
 | 6.2 | Composite GitHub Action `action.yml` | Used by example's CI |
 | 6.3 | Template workflows: `check.yml`, PR template, CODEOWNERS | Fresh init repo runs CI on GitHub |
-| 6.4 | Publish to PyPI (trusted publishing) as 0.1.0 | `pip install threadline` works |
+| 6.4 | `publish.yml`: PyPI trusted publishing on `v*` tags | Wheel builds with template; **owner** registers the trusted publisher on pypi.org |
 
 ## Phase 7 — QMS (ISO 13485)
 | # | Step | Done when |

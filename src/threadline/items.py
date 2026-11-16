@@ -338,3 +338,15 @@ TYPES: dict[str, type[Item]] = {
     m.model_fields["type"].annotation.__args__[0]: m
     for m in Item.__subclasses__()
 }
+
+
+def json_schema() -> dict:
+    """JSON Schema for every YAML item type, keyed on `type` (for editor autocompletion)."""
+    from functools import reduce
+    from operator import or_
+    from typing import Annotated
+
+    from pydantic import TypeAdapter
+
+    yaml_types = [m for m in TYPES.values() if m is not Document]
+    return TypeAdapter(Annotated[reduce(or_, yaml_types), Field(discriminator="type")]).json_schema()

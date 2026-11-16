@@ -49,6 +49,25 @@ def cmd_hash(args) -> int:
     return 0
 
 
+def cmd_init(args) -> int:
+    import json
+    import shutil
+    from importlib.resources import files
+
+    from threadline.items import json_schema
+
+    if args.target.exists() and any(args.target.iterdir()):
+        raise SystemExit(f"{args.target} is not empty")
+    shutil.copytree(files("threadline") / "template", args.target, dirs_exist_ok=True)
+    (args.target / ".vscode").mkdir(exist_ok=True)
+    (args.target / ".vscode" / "item.schema.json").write_text(json.dumps(json_schema(), indent=1))
+    (args.target / ".vscode" / "settings.json").write_text(json.dumps(
+        {"yaml.schemas": {"./.vscode/item.schema.json": ["dhf/**/*.yaml", "qms/**/*.yaml", "records/**/*.yaml"]}},
+        indent=1))
+    print(f"created {args.target}. Next: git init; pytest --junitxml=junit.xml; threadline check --junit junit.xml")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="threadline")
     sub = parser.add_subparsers(dest="cmd", required=True)
@@ -58,6 +77,9 @@ def main(argv: list[str] | None = None) -> int:
         p.add_argument("--junit", type=Path, action="append", help="JUnit XML with verification evidence")
         p.add_argument("--base", help="git ref to diff documents against (e.g. origin/main)")
         p.set_defaults(fn=fn)
+    p = sub.add_parser("init", help="create a new QMS repository from the template")
+    p.add_argument("target", type=Path)
+    p.set_defaults(fn=cmd_init)
     p = sub.add_parser("hash", help="hash a document's content or a data file")
     p.add_argument("file", type=Path)
     p.set_defaults(fn=cmd_hash)
