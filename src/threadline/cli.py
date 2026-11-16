@@ -3,11 +3,17 @@ import hashlib
 import sys
 from pathlib import Path
 
-from threadline import git, junit, project, rtm, rules
+from threadline import git, junit, project, rtm, rules, sbom
 
 
 def _context(args) -> rules.Context:
     ctx = rules.Context(project.load(args.root), git_root=git.work_tree(args.root))
+    if args.sbom:
+        ctx.sbom = sbom.components(args.sbom)
+        if args.osv:
+            ctx.advisories = sbom.advisories(ctx.sbom)
+    elif args.osv:
+        raise SystemExit("--osv needs --sbom")
     if args.base:
         if ctx.git_root is None:
             raise SystemExit("--base needs the project to be in a git work tree")
@@ -75,6 +81,8 @@ def main(argv: list[str] | None = None) -> int:
         p = sub.add_parser(name, help=help_)
         p.add_argument("root", nargs="?", type=Path, default=Path("."))
         p.add_argument("--junit", type=Path, action="append", help="JUnit XML with verification evidence")
+        p.add_argument("--sbom", type=Path, help="CycloneDX JSON SBOM (e.g. from Syft)")
+        p.add_argument("--osv", action="store_true", help="query OSV.dev for advisories against SBOM components")
         p.add_argument("--base", help="git ref to diff documents against (e.g. origin/main)")
         p.set_defaults(fn=fn)
     p = sub.add_parser("init", help="create a new QMS repository from the template")

@@ -1,0 +1,8 @@
+pass:
+  dhf/soup/SOUP-numpy.yaml: {id: SOUP-numpy, type: soup, title: NumPy, name: numpy, supplier: NumPy developers, licence: BSD-3-Clause, purpose: array maths, software_class: B, functional_requirements: float64 arrays, system_requirements: CPython 3.12, anomaly_list_url: "https://github.com/numpy/numpy/issues", anomaly_review_date: "2026-11-01", anomaly_review_result: no anomalies affecting use, approver: quinn, version: 2.1.3, status: effective}
+  sbom: [{type: library, name: numpy, version: 2.1.3, purl: "pkg:pypi/numpy@2.1.3"}]
+fail:
+  dhf/soup/SOUP-numpy.yaml: {id: SOUP-numpy, type: soup, title: NumPy, name: numpy, supplier: NumPy developers, licence: BSD-3-Clause, purpose: array maths, software_class: B, functional_requirements: float64 arrays, system_requirements: CPython 3.12, anomaly_list_url: "https://github.com/numpy/numpy/issues", anomaly_review_date: "2026-11-01", anomaly_review_result: no anomalies affecting use, approver: quinn, version: 2.1.3, status: draft}
+  sbom:
+    - {type: library, name: numpy, version: 2.1.3, purl: "pkg:pypi/numpy@2.1.3"}
+    - {type: library, name: requests, version: 2.32.0, purl: "pkg:pypi/requests@2.32.0"}

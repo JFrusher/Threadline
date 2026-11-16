@@ -138,11 +138,12 @@ GitHub PR approvals and branch protection are **process controls**, not the sign
 ### 6.1 CLI
 | Command | Does |
 |---|---|
+| `threadline hash <file>` | Content hash of a document, or SHA-256 of a data/weights file. |
 | `threadline init` | Scaffold a new QMS repo from the template. |
 | `threadline check` | Load items, validate schemas, run all rules. Non-zero exit on any failure. |
 | `threadline check --junit results.xml` | Also run evidence rules. |
 | `threadline rtm` | Write RTM (Markdown). |
-| `threadline sbom-audit sbom.cdx.json` | Diff SBOM vs SOUP register; query OSV.dev. |
+| `threadline check --sbom sbom.cdx.json --osv` | Also diff SBOM vs SOUP register and query OSV.dev. |
 | `threadline build` | Compile technical file PDF (Pandoc + LaTeX). |
 | `threadline preset add <name>` | Copy a low-resource preset pack into the DHF. |
 
