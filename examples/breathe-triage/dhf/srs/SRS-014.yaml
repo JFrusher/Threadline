@@ -1,0 +1,6 @@
+id: SRS-014
+type: software_requirement
+title: Minimal assessment record
+text: An assessment record shall have exactly the fields age_months, respiratory_rate, danger_signs, classification, recorded_at.
+derives_from: [SYS-006]
+implements: [RC-009]

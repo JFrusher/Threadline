@@ -71,3 +71,17 @@ def contrast_ratio(fg: str, bg: str) -> float:
 def age_readback(age_months: int) -> str:
     years, months = divmod(age_months, 12)
     return f"{years} years {months} months"
+
+
+START_SCREEN = "Breathe-Triage. For trained community health workers only."
+
+
+@dataclass(frozen=True)
+class Record:
+    """What the offline queue stores. No names, IDs or locations (RC-009)."""
+
+    age_months: int
+    respiratory_rate: int
+    danger_signs: dict[str, bool]
+    classification: str
+    recorded_at: str  # ISO 8601, device clock

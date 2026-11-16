@@ -1,0 +1,9 @@
+id: THR-002
+type: threat
+title: Untrained person uses the device
+stride: spoofing
+asset: Classification and action
+entry_point: Unlocked phone handed to a caregiver
+assessment: Untrained users may misapply the result. Mitigated by a start-screen statement of intended users.
+controls: [RC-010]
+hazards: [HAZ-003]

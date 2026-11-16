@@ -118,3 +118,19 @@ def test_every_danger_sign_must_be_answered(missing):
     answers = {s: False for s in DANGER_SIGNS if s != missing}
     with pytest.raises(ValueError):
         classify(30, 30, answers)
+
+
+@pytest.mark.verifies("SRS-014", "RC-009")
+def test_record_has_no_identifiers():
+    import dataclasses
+
+    from breathe_triage.triage import Record
+    assert [f.name for f in dataclasses.fields(Record)] == [
+        "age_months", "respiratory_rate", "danger_signs", "classification", "recorded_at",
+    ]
+
+
+@pytest.mark.verifies("RC-010")
+def test_start_screen_states_intended_users():
+    from breathe_triage.triage import START_SCREEN
+    assert "For trained community health workers only." in START_SCREEN

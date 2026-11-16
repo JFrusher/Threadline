@@ -1,0 +1,6 @@
+id: RC-010
+type: risk_control
+title: Intended-user statement on start screen
+kind: information_for_safety
+text: 'The start screen states: "For trained community health workers only."'
+new_risk_review: 'Reviewed: no new hazards introduced.'

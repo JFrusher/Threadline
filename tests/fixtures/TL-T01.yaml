@@ -1,0 +1,4 @@
+pass:
+  dhf/THR-001.yaml: {id: THR-001, type: threat, title: T, stride: information_disclosure, asset: assessment record, entry_point: shared phone, assessment: Records hold no identifiers}
+fail:
+  dhf/THR-001.yaml: {id: THR-001, type: threat, title: T, stride: information_disclosure, asset: assessment record, entry_point: shared phone}

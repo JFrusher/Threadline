@@ -1,0 +1,6 @@
+id: RC-009
+type: risk_control
+title: No direct identifiers in records
+kind: inherent_safety_by_design
+text: Assessment records contain only age in months, rate, danger-sign answers, classification and time.
+new_risk_review: 'Reviewed: follow-up visits must use the paper register to identify the child; no new hazard.'
