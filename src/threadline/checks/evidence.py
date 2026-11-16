@@ -3,11 +3,11 @@
 from threadline.rules import Context, Finding, rule
 
 
-@rule("TL-E01", "IEC 62304 5.7", "Every software requirement is verified by at least one passing test", "evidence")
+@rule("TL-E01", "IEC 62304 5.7", "Every software requirement has tests and all of them pass", "evidence")
 def srs_verified(ctx: Context):
     for i in ctx.project.of_type("software_requirement"):
-        if i.status != "obsolete" and not ctx.passing(i.id):
-            yield Finding("TL-E01", i.id, "no passing test verifies this requirement")
+        if i.status != "obsolete" and (problem := ctx.verification(i.id)):
+            yield Finding("TL-E01", i.id, problem)
 
 
 @rule("TL-E02", "IEC 62304 5.7.5", "No test claims to verify an unknown item", "evidence")

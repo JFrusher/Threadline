@@ -1,0 +1,6 @@
+pass:
+  dhf/UN-001.yaml: {id: UN-001, type: user_need, title: N, text: x, status: obsolete}
+  dhf/SYS-001.yaml: {id: SYS-001, type: system_requirement, title: S, text: x, derives_from: [UN-001], status: obsolete}
+fail:
+  dhf/UN-001.yaml: {id: UN-001, type: user_need, title: N, text: x, status: obsolete}
+  dhf/SYS-001.yaml: {id: SYS-001, type: system_requirement, title: S, text: x, derives_from: [UN-001]}

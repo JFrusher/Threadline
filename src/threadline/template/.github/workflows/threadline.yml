@@ -3,19 +3,21 @@ on:
   pull_request:
   push:
     branches: [main]
+permissions:
+  contents: read
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
         with:
           fetch-depth: 0  # TL-D02 diffs against the base branch; TL-D03 reads signatures from history
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5
         with:
           python-version: "3.12"
-      - run: pip install threadline pytest
+      - run: pip install "threadline==__THREADLINE_VERSION__" pytest
       - run: pytest --junitxml=junit.xml
-      - uses: JFrusher/threadline@v1
+      - uses: JFrusher/threadline@v__THREADLINE_VERSION__
         with:
           junit: junit.xml
           base: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || '' }}
