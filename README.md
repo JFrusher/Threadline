@@ -29,9 +29,9 @@ but requirement SRS-004 and risk control RC-004 are left with no evidence.
 ![Terminal recording: removing a verifies marker makes threadline check report TL-E01 and TL-R04; restoring it returns to 0 findings](docs/assets/check.gif)
 
 ```text
-TL-E01 [IEC 62304 5.7] SRS-004: no passing test verifies this requirement
-TL-R04 [ISO 14971 7.2] RC-004: no passing test verifies this risk control
-2 finding(s), 4 rule(s) skipped, 168 items
+TL-E01 [IEC 62304 5.7] SRS-004: no test verifies this item
+TL-R04 [ISO 14971 7.2] RC-004: no test verifies this item
+2 finding(s), 5 rule(s) skipped, 200 items
 ```
 
 This is real output from the worked example in [`examples/breathe-triage`](examples/breathe-triage). The
@@ -47,7 +47,11 @@ pip install git+https://github.com/JFrusher/threadline
 ```
 
 ```bash
-threadline init my-qms && cd my-qms && git init
+threadline init my-qms && cd my-qms
+```
+
+```bash
+git init && git add -A && git commit -m "QMS scaffold"
 ```
 
 ```bash
@@ -63,25 +67,6 @@ editor schema, but no design file, so `check` lists every deliverable your softw
 require:
 
 ![Terminal recording: threadline init creates a repository, and threadline check reports findings grouped by rule](docs/assets/init.gif)
-| Command | What it does |
-|---|---|
-| `threadline init <dir>` | New QMS repo: SOPs, workflows, PR template, CODEOWNERS, editor schema |
-| `threadline check [root] --junit J --sbom S --osv --base REF --trust-root C [--release V] [--format github]` | Run every rule; exit 1 on any finding; per-rule summary; inline PR annotations |
-| `threadline rtm [root] --junit J` | Print the requirements traceability matrix |
-| `threadline build [root] --junit J --sbom S --osv --tool-validation T --release V` | Technical file PDF + DCB0129 hazard log (refuses on findings; `--release` also refuses skipped rules) |
-| `threadline approve ID... --meaning M --signer S` | Write approval records and commit them in one SSH-signed commit |
-| `threadline baseline V` | Freeze the design file for release V (then `approve BL-V --meaning released`) |
-| `threadline preset add <name>` | Add `power-loss`, `offline-queue`, `low-bandwidth-telemetry` or `ml-34971` |
-| `threadline hash <file>` | Content hash to sign a document, or SHA-256 of a dataset / weights file |
-
-Releasing: `threadline baseline v1.2.0`, commit, `threadline approve BL-v1.2.0 --meaning released --signer <you>`,
-then tag `v1.2.0`. The release workflow rebuilds the evidence on the tag and refuses if anything changed.
-
-Trust: set the repository variable `THREADLINE_TRUST_ROOT` to the commit that created your signer registry. Signer
-changes after it must be SSH-signed by an existing QA signer; releases refuse to build without it.
-
-Link tests to items with `@pytest.mark.verifies("SRS-001", "RC-002")` and set `junit_family = xunit1`
-(ADR-002). Sign approvals with SSH-signed commits (ADR-003, `docs/guides/branch-protection.md`).
 
 [Getting started](docs/getting-started.md) takes one requirement from red to green.
 
@@ -98,8 +83,9 @@ flowchart LR
   SRS -->|TL-E01| TEST[Passing test]
   RC -->|TL-R04| TEST
   DOC[Document] -->|TL-D01, TL-D03| APR[Signed approval]
-  TEST --> REL[Release: technical file]
-  APR --> REL
+  TEST --> BL[Release baseline]
+  APR --> BL
+  BL -->|TL-D05| REL[Release: technical file]
 ```
 
 A link to a test is one line in the test itself:
@@ -114,7 +100,8 @@ def test_danger_sign_overrides(sign):
 The marker writes a `verifies` property into JUnit XML, so any test framework that emits JUnit can do the
 same ([ADR-002](docs/adr/ADR-002-junit-property-test-link.md)). Approvals are YAML records committed in
 SSH-signed commits and verified against a signer registry in the repository
-([ADR-003](docs/adr/ADR-003-signed-approval-records.md)).
+([ADR-003](docs/adr/ADR-003-signed-approval-records.md)). Changes to that registry must themselves be signed by
+an existing QA signer (TL-D04), counted from a trust root commit that CI supplies from outside the repository.
 
 ## What it checks
 
@@ -123,10 +110,10 @@ Every rule cites the clause it enforces and has a passing and a failing fixture 
 
 | Family | Rules | Source | Fails when |
 |---|---|---|---|
-| Structure and links | TL-S01, TL-L01 to L04 | ISO 13485 4.2.4, 7.3; IEC 62304 5.1, 5.2 | A file is invalid, a link dangles or points at the wrong type, a requirement traces to nothing, the graph has a cycle |
-| Verification evidence | TL-E01, TL-E02 | IEC 62304 5.7 | A software requirement has no passing test, or a test claims an unknown item |
+| Structure and links | TL-S01, TL-L01 to L05 | ISO 13485 4.2.4, 7.3; IEC 62304 5.1, 5.2 | A file is invalid, a link dangles or points at the wrong type, a requirement traces to nothing, the graph has a cycle, a live item links to an obsolete one |
+| Verification evidence | TL-E01, TL-E02 | IEC 62304 5.7 | A software requirement has no tests or one of its tests fails, or a test claims an unknown item |
 | Risk management | TL-R01 to R06 | ISO 14971 5.4 to 7.5 | A hazard is not estimated, an unacceptable risk has no control, a control is unimplemented, unverified or not reviewed for new hazards |
-| Document control | TL-D01 to D03 | ISO 13485 4.2.4; 21 CFR 11.50, 11.70, 11.100 | An effective document lacks an approval, the approver is the author, the hash does not match, the content changed without a revision bump, or the approval commit is not signed by its signer |
+| Document control and release | TL-D01 to D05 | ISO 13485 4.2.4, 7.3.4; 21 CFR 11.50, 11.70, 11.100; IEC 62304 5.8 | An approval is missing, self-signed, bound to other content or not SSH-signed by its signer; content changed without a revision bump; the signer registry changed without a QA signature; a release has no approved baseline matching the design file |
 | Lifecycle | TL-C01 | IEC 62304 (Ed1 classes A/B/C, or the Ed2 draft PRL I/II) | A deliverable the software class requires does not exist |
 | SOUP | TL-P01 to P03 | IEC 62304 7.1.2, 8.1.2; IEC 81001-5-1 | The SBOM and the SOUP register disagree, or an OSV advisory has no triage record |
 | Usability | TL-U01 to U03 | IEC 62366-1 5.4 to 5.7 | A hazard-related use scenario is untested in the summative evaluation |
@@ -139,9 +126,13 @@ Full table with clause numbers: [docs/rules.md](docs/rules.md).
 ## The technical file
 
 `threadline build` refuses to run while any rule fails. When it runs, it produces a PDF and a DCB0129 hazard
-log with the version and commit in every page footer. In the release workflow the test suite is re-run on
-the tagged commit, and the PDF, JUnit XML and SBOM are attached to the GitHub Release with a build-provenance
-attestation.
+log with the version and commit in every page footer.
+
+A release starts with `threadline baseline v1.2.0`, which records a hash of the whole design file, and a
+`released` approval of that baseline by a release manager. On the tag, the release workflow re-runs the test
+suite, and `threadline build --release` refuses if the design file no longer matches the baseline or if any
+rule was skipped. The PDF, JUnit XML and SBOM are attached to the GitHub Release with a build-provenance
+attestation. The steps are in [CI and releases](docs/ci-and-releases.md).
 
 ![Three pages of the generated technical file for the example device: contents, hazard table and signature table](docs/assets/technical-file.png)
 
@@ -179,7 +170,8 @@ requests, it is the wrong tool.
 [`examples/breathe-triage`](examples/breathe-triage) is a fictional IEC 62304 class C device: an offline
 respiratory-rate triage aid for community health workers. It holds requirements,
 hazards and risk controls, a usability file, a threat model, an ML model with dataset hashes, clause maps
-for ISO 13485, UK MDR 2002 and the AU Model Law, and SOPs with signed approvals. Its test suite carries the
+for ISO 13485, UK MDR 2002 and the AU Model Law, SOPs with signed approvals, and an approved release
+baseline. Its test suite carries the
 evidence. This repository's CI runs `threadline check` on it for every change.
 
 ## Status and limits

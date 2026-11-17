@@ -39,7 +39,8 @@ Item IDs in the PDF are links to the item's entry.
 
 The file cannot be built while any rule reports a finding. So for the commit in the footer, and for the
 rules listed as run in the rule results section, the conditions in the [rule reference](rules.md) held.
-Rules listed as skipped were not evaluated.
+Rules listed as skipped were not evaluated. A release build refuses to run if any rule other than TL-D02
+would be skipped, and requires an approved baseline of the design file for that version.
 
 Those rules check that records exist, are linked, are signed, and are backed by a passing test. They do not
 check that a requirement is correct, that a hazard analysis is complete, that a risk estimate is
@@ -67,15 +68,30 @@ verification evidence section:
 sha256sum junit.xml
 ```
 
-Confirm a signature. Each row of the signature table names a commit. Run this from the directory holding
-`threadline.yaml`; it prints the commit's signature status and signer, checked against the repository's own
-signer registry:
+Confirm a signature. Each row of the signature table names a commit. A signature is valid if the key was in
+the signer registry just before that commit, so first recover the registry from the commit's parent. Run
+these from the repository root, with the path to the registry in that repository:
 
 ```bash
-git -c gpg.ssh.program=ssh-keygen -c gpg.ssh.allowedSignersFile="$PWD/qms/signers/allowed_signers" log -1 --format='%G? %GS' COMMIT
+git show COMMIT^:qms/signers/allowed_signers > signers-then
+```
+
+```bash
+git -c gpg.ssh.program=ssh-keygen -c gpg.ssh.allowedSignersFile="$PWD/signers-then" log -1 --format='%G? %GS' COMMIT
 ```
 
 `G` followed by the signer's ID is a good signature. The signer's name and roles are in `threadline.yaml`.
+Checking against today's registry can show an older signature as unverified if the registry was re-rooted
+or the key was revoked since.
+
+Confirm the signer registry itself. The technical file does not print the trust root it was built with; ask
+the manufacturer for the value of their `THREADLINE_TRUST_ROOT` repository variable and for the record of
+who set it. Every later change to `qms/signers/allowed_signers` must be in a commit signed by a QA signer
+(TL-D04). This lists those commits for you to check the same way:
+
+```bash
+git log --format='%h %G? %GS %s' TRUST_ROOT..COMMIT -- qms/signers/allowed_signers threadline.yaml
+```
 
 Confirm an approval is bound to the document as it stands. The output should equal `subject_sha256` in the
 approval record:
@@ -84,16 +100,17 @@ approval record:
 threadline hash qms/SOP-01.md
 ```
 
-Re-run the rules:
+Re-run the rules, including the release baseline check:
 
 ```bash
-threadline check --junit junit.xml --sbom sbom.cdx.json
+threadline check --junit junit.xml --sbom sbom.cdx.json --trust-root TRUST_ROOT --release VERSION
 ```
 
 ## Electronic signatures
 
-An approval is a YAML record naming the document, its revision, the hash of its content, the meaning of the
-signature and the signer, committed in an SSH-signed commit. The design is in
+An approval is a YAML record naming the document or baseline, its revision, a hash binding it to the
+document's identity, revision and content, the meaning of the signature and the signer, committed in an
+SSH-signed commit. The design is in
 [ADR-003](adr/ADR-003-signed-approval-records.md). How it maps to 21 CFR Part 11, what the manufacturer must
 add, and the known gaps are in the [Part 11 gap analysis](guides/part11-gap-analysis.md). One gap matters
 when reading the signature table: `signed_at` is written by the signer, and the tool does not compare it

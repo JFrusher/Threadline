@@ -81,7 +81,7 @@ function terminalHtml(title, cwd, rows) {
     .map((r) =>
       r.out !== undefined
         ? `<pre>${esc(r.out)}</pre>`
-        : `<pre><span class="p">${esc(cwd)} $</span> <span class="${r.cmd.startsWith("#") ? "note" : "cmd"}">${esc(r.cmd)}</span>${r.cursor ? '<span class="cur"></span>' : ""}</pre>`,
+        : `<pre><span class="p">${esc(r.at)} $</span> <span class="${r.cmd.startsWith("#") ? "note" : "cmd"}">${esc(r.cmd)}</span>${r.cursor ? '<span class="cur"></span>' : ""}</pre>`,
     )
     .join("")}</main>`;
 }
@@ -104,7 +104,7 @@ async function gif(browser, name, title, cwd, runIn, commands) {
     frames.push(`file '${file}'\nduration ${seconds}`);
   };
   for (const cmd of commands) {
-    const row = { cmd: "", cursor: true };
+    const row = { cmd: "", cursor: true, at: cwd };
     rows.push(row);
     for (let i = 3; i < cmd.length; i += 3) {
       row.cmd = cmd.slice(0, i);
@@ -120,7 +120,7 @@ async function gif(browser, name, title, cwd, runIn, commands) {
       continue;
     }
     if (!cmd.startsWith("#")) {
-      const r = spawnSync("bash", ["-c", cmd], { cwd: runIn, encoding: "utf8", env: { ...process.env, PATH: `${repo}/.venv/bin:${process.env.PATH}` } });
+      const r = spawnSync("bash", ["-c", cmd], { cwd: runIn, encoding: "utf8", env: SHELL_ENV });
       const out = (r.stdout + r.stderr).trimEnd();
       if (out) rows.push({ out });
     }
@@ -134,6 +134,16 @@ async function gif(browser, name, title, cwd, runIn, commands) {
   execSync(`ffmpeg -y -loglevel error -f concat -safe 0 -i ${list} -vf "split[a][b];[a]palettegen=max_colors=48[p];[b][p]paletteuse=dither=none" -fps_mode vfr ${raw}`);
   execSync(`gifsicle -O3 ${raw} -o ${join(here, `${name}.gif`)}`);
 }
+
+// Commits in the recordings: a fixed identity, unsigned. The example's trust root, as CI passes it.
+const SHELL_ENV = {
+  ...process.env,
+  PATH: `${repo}/.venv/bin:${process.env.PATH}`,
+  GIT_AUTHOR_NAME: "demo", GIT_AUTHOR_EMAIL: "demo@example.invalid",
+  GIT_COMMITTER_NAME: "demo", GIT_COMMITTER_EMAIL: "demo@example.invalid",
+  GIT_CONFIG_COUNT: "1", GIT_CONFIG_KEY_0: "commit.gpgsign", GIT_CONFIG_VALUE_0: "false",
+  THREADLINE_TRUST_ROOT: "87785d9a6e5fd9fa56d7f36ca3256c91d349238a",
+};
 
 const out_pause = (cmd) => (cmd.startsWith("#") ? 0.9 : cmd.startsWith("threadline") ? 3.2 : 1.2);
 
@@ -153,11 +163,11 @@ await gif(browser, "check", "breathe-triage: threadline check", "breathe-triage"
   "# a refactor drops the marker that links a test to SRS-004 and RC-004",
   `sed -i '/verifies("SRS-004", "RC-004")/d' tests/test_triage.py`,
   "pytest -q --junitxml=junit.xml | tail -n 1",
-  "threadline check --junit junit.xml | grep -v -e ^NOTE -e ^skipped",
+  "threadline check --junit junit.xml --trust-root $THREADLINE_TRUST_ROOT | grep -e ^TL- -e 'finding(s)'",
   "# tests still pass, but the danger-sign control has no evidence. put it back:",
   "git checkout tests/test_triage.py",
   "pytest -q --junitxml=junit.xml | tail -n 1",
-  "threadline check --junit junit.xml | grep -v -e ^NOTE -e ^skipped",
+  "threadline check --junit junit.xml --trust-root $THREADLINE_TRUST_ROOT | grep -e ^TL- -e 'finding(s)'",
 ]);
 execSync(`git -C ${repo} worktree remove --force ${wt}`);
 
@@ -167,7 +177,7 @@ mkdirSync(scratch);
 await gif(browser, "init", "threadline init", "~", scratch, [
   "threadline init my-qms",
   "cd my-qms",
-  "git init -q && ls -Am",
+  "git init -q && git add -A && git commit -qm scaffold && ls -Am",
   "pytest -q --junitxml=junit.xml | tail -n 1",
   "threadline check --junit junit.xml | grep ^TL- | cut -d' ' -f1 | sort | uniq -c",
   "threadline check --junit junit.xml | grep ^TL-C01 | head -n 4",

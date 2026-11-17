@@ -13,8 +13,9 @@ uv sync
 uv run ruff check && uv run pytest
 ```
 
-TL-D03 tests verify SSH signatures, so `ssh-keygen` must be on your PATH. `tests/test_build.py` builds a PDF
-and needs the toolchain listed in the [CLI reference](docs/cli.md#threadline-build).
+The signature tests need `ssh-keygen` on your PATH, and the security tests need `pandoc`.
+`tests/test_build.py` also builds a PDF, which needs the full toolchain listed in the
+[CLI reference](docs/cli.md#threadline-build).
 
 ## Pull requests
 

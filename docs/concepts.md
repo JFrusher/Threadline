@@ -46,7 +46,8 @@ wrong type, is a TL-L01 finding. Clause numbers are in the [rule reference](rule
 | `pccp` | `models` (model) | Predetermined change control plan |
 | `capa` | `sources` (complaint, management_review, vulnerability) | ISO 13485 |
 | `complaint`, `management_review`, `training_record` | | ISO 13485 |
-| `approval` | `subject` names a document | ISO 13485 |
+| `approval` | `subject` names a document or baseline | ISO 13485 |
+| `baseline` | | ISO 13485; IEC 62304 release |
 | `classification` | | IEC 62304; market rules |
 | `requirement` | `evidence` (any item) | A clause of a standard or regulation mapped to evidence |
 | `document` | | Markdown with frontmatter; has a `doc_type` |
@@ -86,36 +87,72 @@ status: effective
 # SOP-01 Document Control
 ```
 
-An approval is its own item, committed on its own:
+An approval is its own item. `threadline approve` writes it and commits it in an SSH-signed commit:
 
 ```yaml
-id: APR-SOP-01-r1-qa
+id: APR-SOP-01-r2-approved-as-qa-quinn
 type: approval
-title: SOP-01 rev 1 approved_as_qa
+title: SOP-01 rev 2 approved_as_qa
 subject: SOP-01
-subject_rev: 1
-subject_sha256: 99f99fe1c534b980d34f13c99816e027c2d3db14a6dbfea0282e3481db8914f7
+subject_rev: 2
+subject_sha256: 02d2f08af03d4dafa2fccf90e39c1d04ab271b6070d866d71a7a34610f29de8e
 meaning: approved_as_qa        # authored | reviewed | approved_as_qa | released
 signer: quinn
-signed_at: '2026-11-16T12:17:36Z'
+signed_at: '2026-11-16T12:34:37Z'
 ```
 
-Three rules make that record a signature ([ADR-003](adr/ADR-003-signed-approval-records.md)):
+`subject_sha256` covers the document's ID, `doc_type`, title and revision as well as its body, so an
+approval cannot be moved to another document or revision. `threadline hash <file.md>` prints it.
+
+These rules make that record a signature ([ADR-003](adr/ADR-003-signed-approval-records.md)):
 
 | Rule | Checks |
 |---|---|
-| TL-D01 | An `effective` document has every approval its `doc_type` requires; each signer is registered in `threadline.yaml` with the role the meaning needs; whoever signed `authored` signed no other approval of that revision; `subject_sha256` matches the document body |
+| TL-D01 | An `effective` document has every approval its `doc_type` requires, and an effective baseline has a `released` approval; each signer is registered in `threadline.yaml` with the role the meaning needs; whoever signed `authored` signed no other approval of that revision; `subject_sha256` matches |
 | TL-D02 | If the body of an effective document changed since the base ref, `rev` went up |
-| TL-D03 | The approval file was committed exactly once, in a commit carrying a valid SSH signature from the named signer, and has not been edited since |
+| TL-D03 | The approval file was committed exactly once, in a commit SSH-signed by the named signer with a key that was in the registry before that commit, and has not been edited since |
+| TL-D04 | After the trust root, every change to `qms/signers/allowed_signers` or to `signers:` in `threadline.yaml` is in a commit SSH-signed by a QA signer the previous registry trusted |
 
-Signatures are verified with `ssh-keygen` against `qms/signers/allowed_signers` in the repository, whatever
-the local git configuration says. `threadline hash <file.md>` prints the value to put in `subject_sha256`.
+Signatures are verified with `ssh-keygen` against the registry as it stood before each commit, whatever the
+local git configuration says. A signer removed later does not invalidate what they signed while registered.
 
 Meanings map to roles: `authored` needs `author`, `reviewed` needs `reviewer`, `approved_as_qa` needs `qa`,
 `released` needs `release_manager`.
 
 Squash merges break this, because they replace the signed commit with an unsigned one. See
-[branch protection](guides/branch-protection.md).
+[branch protection](guides/branch-protection.md), which also covers adding and revoking signers and
+recovering from a lost QA key.
+
+### Trust root
+
+TL-D04 has to start trusting the registry somewhere. With `--trust-root <commit>`, it trusts the registry at
+that commit and checks every change after it. Without one, it trusts the registry's first commit. In CI the
+trust root comes from the repository variable `THREADLINE_TRUST_ROOT`, which only admins can set, so a pull
+request cannot replace the registry and approve its own changes. `build --release` refuses to run without a
+trust root.
+
+## Release baselines
+
+A `baseline` item freezes the design file for a release. It holds the SHA-256 of every item file except
+approvals and baselines.
+
+```yaml
+id: BL-example-v1.0.0
+type: baseline
+title: Release baseline example-v1.0.0
+status: effective
+version: example-v1.0.0
+dhf_sha256: 54f364f4f769fda241a7994b49843151dd49026007e8b9f9439a50474bd54f42
+```
+
+`threadline baseline <version>` writes it. A release manager signs it with
+`threadline approve BL-<version> --meaning released`. With `--release <version>`, TL-D05 fails if that
+baseline is missing, not effective, or no longer matches the design file.
+
+## Obsolete items
+
+Setting `status: obsolete` retires an item. TL-L05 fails while any live item still links to it, so retiring
+a requirement or control forces you to deal with everything that depends on it.
 
 ## Risk policy
 
@@ -184,7 +221,7 @@ severity, P1 and P2 for each hazard, review each control for new risks, and impl
 | `software_class` | `A`, `B`, `C`, or `PRL-I`, `PRL-II` with the Ed2 draft profile |
 | `regulatory_profiles` | Any of `uk-mhra`, `au-model-law` |
 | `risk` | Risk policy, above |
-| `signers` | `id: {name, roles}` for each person who may sign |
+| `signers` | `id: {name, roles}` for each person who may sign. Changes are checked by TL-D04 |
 | `approvals_required` | `doc_type: [meanings]`; `'*'` is the default. Default `[authored, approved_as_qa]` |
 
 Unknown keys are rejected.

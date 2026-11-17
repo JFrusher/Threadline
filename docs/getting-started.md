@@ -12,7 +12,15 @@ pip install git+https://github.com/JFrusher/threadline
 ## 2. Scaffold
 
 ```bash
-threadline init my-qms && cd my-qms && git init
+threadline init my-qms && cd my-qms
+```
+
+Commit the scaffold before running any check. The commit that first adds `qms/signers/allowed_signers` is
+the root of trust for your signer registry, and `threadline check` needs at least one commit to read history
+from.
+
+```bash
+git init && git add -A && git commit -m "QMS scaffold"
 ```
 
 You get:
@@ -29,8 +37,9 @@ tests/test_example.py      one placeholder test
 ```
 
 > [!NOTE]
-> The scaffolded workflows run `pip install threadline` and `uses: JFrusher/threadline@v1`. Until the first
-> release is published, change those to the git URL above and to `@main`.
+> The scaffolded workflows pin Threadline to the version that ran `init`, with
+> `pip install "threadline==<version>"` and `uses: JFrusher/threadline@v<version>`. Until that version is
+> published to PyPI and tagged, change them to the git URL above and to `@main`.
 
 ## 3. Run the first check
 
