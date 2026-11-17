@@ -112,7 +112,7 @@ def _shallow_hint(ctx) -> str:
 def signatures(ctx: Context):
     registry = ctx.project.root / git.ALLOWED_SIGNERS
     for a in ctx.project.of_type("approval"):
-        commits = git.commits_touching(ctx.git_root, a.path)
+        commits = git.commits(ctx.git_root, a.path)
         if not commits:
             yield Finding("TL-D03", a.id, "approval record is not committed")
             continue
@@ -155,8 +155,8 @@ def registry_chain(ctx: Context):
     keys_path, cfg_path = root / git.ALLOWED_SIGNERS, root / CONFIG_FILE
     if not keys_path.is_file():
         return
-    shas = set(git.commits_touching(ctx.git_root, keys_path)) | set(git.commits_touching(ctx.git_root, cfg_path))
-    ordered = [s for s in git._git(ctx.git_root, "log", "--format=%H").split() if s in shas][::-1]
+    shas = set(git.commits(ctx.git_root, keys_path)) | set(git.commits(ctx.git_root, cfg_path))
+    ordered = [s for s in git.commits(ctx.git_root) if s in shas][::-1]
     seen_root = False
     if ctx.trust_root:
         # an admin-set anchor outside the repo: the registry at that commit is trusted, later changes are checked

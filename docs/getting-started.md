@@ -16,8 +16,7 @@ threadline init my-qms && cd my-qms
 ```
 
 Commit the scaffold before running any check. The commit that first adds `qms/signers/allowed_signers` is
-the root of trust for your signer registry, and `threadline check` needs at least one commit to read history
-from.
+the root of trust for your signer registry; until it exists, TL-D04 reports the registry as uncommitted.
 
 ```bash
 git init && git add -A && git commit -m "QMS scaffold"
