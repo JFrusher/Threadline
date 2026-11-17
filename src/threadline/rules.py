@@ -82,7 +82,7 @@ def relpath(ctx: Context, path: Path | None) -> str:
 
 
 def rule_table() -> str:
-    """Markdown table of every rule, for the README (kept in sync by tests/test_readme.py)."""
+    """Markdown table of every rule, for docs/rules.md (kept in sync by tests/test_readme.py)."""
     import threadline.checks  # noqa: F401
 
     rows = [
