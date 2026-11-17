@@ -1,3 +1,5 @@
-# Demo signer keys for the fictional example. Private keys were discarded after signing.
-ann ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOe806KMuGKIUNu8WWxrYX6FuEh78BXQwB5pbZx9qNa2
-quinn ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHUsS+JrABOJk+zCBQQRoC1wBxs2TuMryVbZol46ljC4
+# Demo signer keys for the fictional example. Re-rooted (see trust root in CI) after the v1 demo keys
+# were discarded and the approval hash changed. Private keys were discarded after signing.
+ann ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF6sQ6c7x5urOtp4//mGeouJMDEOJo7rlNm73voxAJEr
+quinn ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHEBlDQ7hfiChk2GYR5m3KGgYn2XEm0XkGxxNSqJUN8L
+rita ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHDYuklkftcu0DcNaCka8Zu5XjanYP1VrTfG9w3aATT9

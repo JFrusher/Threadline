@@ -10,6 +10,9 @@ inputs:
   base:
     description: Git ref to diff documents against (empty = TL-D02 skipped)
     default: ""
+  trust-root:
+    description: Commit whose signer registry is trusted; pass an admin-set variable, never a PR-controlled value
+    default: ""
 runs:
   using: composite
   steps:
@@ -20,8 +23,10 @@ runs:
         TL_PATH: ${{ inputs.path }}
         TL_JUNIT: ${{ inputs.junit }}
         TL_BASE: ${{ inputs.base }}
+        TL_TRUST_ROOT: ${{ inputs.trust-root }}
       run: |
         args=("$TL_PATH")
         [ -n "$TL_JUNIT" ] && args+=(--junit "$TL_JUNIT")
         [ -n "$TL_BASE" ] && args+=(--base "$TL_BASE")
-        threadline check "${args[@]}"
+        [ -n "$TL_TRUST_ROOT" ] && args+=(--trust-root "$TL_TRUST_ROOT")
+        threadline check --format github "${args[@]}"

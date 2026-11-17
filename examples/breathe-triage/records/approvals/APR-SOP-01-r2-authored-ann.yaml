@@ -1,0 +1,9 @@
+id: APR-SOP-01-r2-authored-ann
+type: approval
+title: SOP-01 rev 2 authored
+subject: SOP-01
+subject_rev: 2
+subject_sha256: 02d2f08af03d4dafa2fccf90e39c1d04ab271b6070d866d71a7a34610f29de8e
+meaning: authored
+signer: ann
+signed_at: '2026-11-16T12:34:37Z'

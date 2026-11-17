@@ -24,9 +24,16 @@ class Context:
     advisories: dict[str, list[str]] | None = None  # "name@version" -> advisory IDs
     base_ref: str | None = None  # git ref to diff documents against
     git_root: Path | None = None  # set when the project is in a git work tree
+    release: str | None = None  # version being released; enables the baseline rule
+    trust_root: str | None = None  # commit whose signer registry is trusted; set outside the repo (CI variable)
 
-    def passing(self, item_id: str) -> list[TestCase]:
-        return [t for t in (self.evidence or {}).get(item_id, []) if t.passed]
+    def verification(self, item_id: str) -> str | None:
+        """None if verified: at least one test, and every test verifying the item passed."""
+        cases = (self.evidence or {}).get(item_id, [])
+        failed = [t.name for t in cases if not t.passed]
+        if failed:
+            return "failing verification: " + ", ".join(failed)
+        return None if cases else "no test verifies this item"
 
 
 @dataclass(frozen=True)

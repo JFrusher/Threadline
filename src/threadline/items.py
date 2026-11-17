@@ -294,6 +294,14 @@ class TrainingRecord(Item):
     effectiveness: str
 
 
+class Baseline(Item):
+    """Frozen design file for a release: what a `released` approval signs (ISO 13485 7.3.4, IEC 62304 5.8)."""
+
+    type: Literal["baseline"]
+    version: str
+    dhf_sha256: str
+
+
 class Approval(Item):
     type: Literal["approval"]
     subject: str

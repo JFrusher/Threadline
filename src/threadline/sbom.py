@@ -21,6 +21,8 @@ def key(c: dict) -> str:
 
 def advisories(comps: list[dict], url: str = OSV_BATCH) -> dict[str, list[str]]:
     """Advisory IDs per component, from OSV.dev. Components without a purl cannot be queried and raise."""
+    if not comps:
+        return {}  # OSV answers an empty batch with {} (no "results")
     missing = [key(c) for c in comps if not c.get("purl")]
     if missing:
         raise ValueError(f"components without purl cannot be checked for advisories: {missing}")

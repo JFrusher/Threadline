@@ -22,3 +22,14 @@ def test_init_refuses_non_empty(tmp_path):
         assert "not empty" in str(e)
     else:
         raise AssertionError("init overwrote a non-empty directory")
+
+
+def test_init_pins_version_and_scaffolds_checklists(tmp_path):
+    from importlib.metadata import version
+
+    target = tmp_path / "qms"
+    main(["init", str(target)])
+    wf = (target / ".github" / "workflows" / "threadline.yml").read_text()
+    assert f"threadline=={version('threadline')}" in wf and "__THREADLINE_VERSION__" not in wf
+    p = project.load(target)
+    assert "UKER-12.1a" in p.items and "ISO13485-4.2.4" in p.items and "AUEP-SW" in p.items

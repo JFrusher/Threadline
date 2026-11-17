@@ -3,7 +3,7 @@ id: SOP-10
 type: document
 doc_type: sop
 title: Tool Validation
-rev: 1
+rev: 2
 status: effective
 ---
 # SOP-10 Tool Validation

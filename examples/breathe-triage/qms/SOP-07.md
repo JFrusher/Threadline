@@ -3,7 +3,7 @@ id: SOP-07
 type: document
 doc_type: sop
 title: Supplier and SOUP Control
-rev: 1
+rev: 2
 status: effective
 ---
 # SOP-07 Supplier and SOUP Control

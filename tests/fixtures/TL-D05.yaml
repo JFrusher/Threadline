@@ -1,0 +1,22 @@
+pass:
+  release: v1
+  dhf/UN-001.yaml:
+    id: UN-001
+    type: user_need
+    title: N
+    text: x
+  records/BL-1.yaml: &id001
+    id: BL-1
+    type: baseline
+    title: B
+    status: effective
+    version: v1
+    dhf_sha256: 6abafd73e4825b25bd26d27fff8b05e60f2896dd95ba503060e59376ccdc6eae
+fail:
+  release: v1
+  dhf/UN-001.yaml:
+    id: UN-001
+    type: user_need
+    title: N
+    text: changed after baseline
+  records/BL-1.yaml: *id001

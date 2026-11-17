@@ -1,0 +1,9 @@
+id: APR-DOC-SAD-r2-approved-as-qa-quinn
+type: approval
+title: DOC-SAD rev 2 approved_as_qa
+subject: DOC-SAD
+subject_rev: 2
+subject_sha256: 892d76e1b2122c6daab4ce2bfd4a33748af8388c1dcaeb71a769f4e6cc457df5
+meaning: approved_as_qa
+signer: quinn
+signed_at: '2026-11-16T12:34:37Z'

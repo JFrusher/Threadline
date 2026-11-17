@@ -3,7 +3,7 @@ id: SOP-08
 type: document
 doc_type: sop
 title: Management Review
-rev: 1
+rev: 2
 status: effective
 ---
 # SOP-08 Management Review

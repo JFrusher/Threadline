@@ -28,5 +28,8 @@ adopting manufacturer must still do, and what is out of scope. Mechanism: ADR-00
 ## Known gaps
 1. `signed_at` is written by the signer. The commit time and the signature's timestamp are the trustworthy times;
    reviewers should compare them. Threadline does not yet check that they agree.
-2. Revoking a key: `allowed_signers` supports `valid-after`/`valid-before` options. Threadline relies on ssh-keygen to
-   honour them; it does not check key validity windows itself.
+2. Revoking a key: remove it in a QA-signed registry commit (TL-D04). Earlier approvals stay valid because each is
+   verified against the registry of its own time; `valid-after`/`valid-before` options are honoured by ssh-keygen
+   but not checked separately by Threadline.
+3. The root of trust (`THREADLINE_TRUST_ROOT`) is a procedural control: Threadline verifies everything after it,
+   not the admin decision that set it. GitHub's organisation audit log records who changed the variable.

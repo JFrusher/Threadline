@@ -21,7 +21,7 @@ def build_project(tmp: Path, files: dict) -> rules.Context:
     with open(tmp / "threadline.yaml", "w") as f:
         _dump.dump(cfg, f)
     for rel, content in files.items():
-        if rel in ("threadline.yaml", "junit.xml", "sbom", "advisories", "git"):
+        if rel in ("threadline.yaml", "junit.xml", "sbom", "advisories", "git", "release"):
             continue
         path = tmp / rel
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -38,6 +38,7 @@ def build_project(tmp: Path, files: dict) -> rules.Context:
         ctx.tests = junit.parse(tmp / "junit.xml")
         ctx.evidence = junit.by_item(ctx.tests)
     ctx.sbom = files.get("sbom")
+    ctx.release = files.get("release")
     ctx.advisories = files.get("advisories")
     if "git" in files:
         ctx.git_root = tmp

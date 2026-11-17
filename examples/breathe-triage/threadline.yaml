@@ -84,5 +84,6 @@ risk:
 signers:
   ann: {name: Ann Author (demo), roles: [author]}
   quinn: {name: Quinn QA (demo), roles: [qa, reviewer]}
+  rita: {name: Rita Release (demo), roles: [release_manager]}
 approvals_required:
   '*': [authored, approved_as_qa]

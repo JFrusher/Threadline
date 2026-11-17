@@ -3,7 +3,7 @@ id: DOC-IU
 type: document
 doc_type: intended_use
 title: Intended Use
-rev: 1
+rev: 2
 status: effective
 ---
 # Intended use — Breathe-Triage (FICTIONAL)
