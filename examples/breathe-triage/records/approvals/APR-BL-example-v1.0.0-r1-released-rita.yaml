@@ -1,0 +1,9 @@
+id: APR-BL-example-v1.0.0-r1-released-rita
+type: approval
+title: BL-example-v1.0.0 rev 1 released
+subject: BL-example-v1.0.0
+subject_rev: 1
+subject_sha256: 54f364f4f769fda241a7994b49843151dd49026007e8b9f9439a50474bd54f42
+meaning: released
+signer: rita
+signed_at: '2026-11-16T12:34:39Z'

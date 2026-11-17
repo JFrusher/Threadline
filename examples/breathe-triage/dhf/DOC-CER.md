@@ -3,7 +3,7 @@ id: DOC-CER
 type: document
 doc_type: clinical_evaluation
 title: Clinical Evaluation (ILLUSTRATIVE)
-rev: 1
+rev: 2
 status: effective
 ---
 # Clinical evaluation — Breathe-Triage (ILLUSTRATIVE, fictional device)

@@ -1,6 +1,8 @@
 """Thin git helpers. Signatures are verified with ssh-keygen whatever the user's git config says."""
 
 import subprocess
+import tempfile
+from functools import cache
 from pathlib import Path
 
 ALLOWED_SIGNERS = Path("qms/signers/allowed_signers")
@@ -17,17 +19,63 @@ def work_tree(path: Path) -> Path | None:
         return None
 
 
-def signed_commits(git_root: Path, project_root: Path, path: Path) -> list[tuple[str, str, str]]:
-    """(commit, status, principal) for every commit touching path. status 'G' = good signature."""
-    signers = (project_root / ALLOWED_SIGNERS).resolve()
-    out = _git(git_root, "-c", "gpg.ssh.program=ssh-keygen", "-c", f"gpg.ssh.allowedSignersFile={signers}",
-               "log", "--format=%H%x1f%G?%x1f%GS", "--", str(path.resolve()))
-    return [tuple(line.split("\x1f")) for line in out.splitlines()]
+def is_shallow(git_root: Path) -> bool:
+    return _git(git_root, "rev-parse", "--is-shallow-repository").strip() == "true"
 
 
-def show(git_root: Path, ref: str, path: Path) -> str | None:
-    rel = path.resolve().relative_to(git_root.resolve())
+def rel(git_root: Path, path: Path) -> str:
+    return path.resolve().relative_to(git_root.resolve()).as_posix()
+
+
+def commits_touching(git_root: Path, path: Path) -> list[str]:
+    """Commits that changed path, newest first."""
+    return _git(git_root, "log", "--format=%H", "--", rel(git_root, path)).split()
+
+
+def resolve(git_root: Path, ref: str) -> str | None:
     try:
-        return _git(git_root, "show", f"{ref}:{rel.as_posix()}")
+        return _git(git_root, "rev-parse", "--verify", f"{ref}^{{commit}}").strip()
     except subprocess.CalledProcessError:
-        return None  # file did not exist at ref
+        return None
+
+
+def is_ancestor(git_root: Path, a: str, b: str) -> bool:
+    return subprocess.run(["git", "-C", str(git_root), "merge-base", "--is-ancestor", a, b]).returncode == 0
+
+
+def parent(git_root: Path, sha: str) -> str | None:
+    try:
+        return _git(git_root, "rev-parse", f"{sha}^").strip()
+    except subprocess.CalledProcessError:
+        return None  # root commit
+
+
+def show(git_root: Path, ref: str | None, path: Path) -> str | None:
+    """File content at ref, or None if it did not exist there."""
+    if ref is None:
+        return None
+    try:
+        return _git(git_root, "show", f"{ref}:{rel(git_root, path)}")
+    except subprocess.CalledProcessError:
+        return None
+
+
+@cache
+def signature(git_root: Path, sha: str, allowed_signers: str) -> tuple[str, str]:
+    """(status, principal) of commit sha checked against the given allowed_signers content. 'G' = good."""
+    with tempfile.NamedTemporaryFile("w", suffix=".allowed_signers") as f:
+        f.write(allowed_signers)
+        f.flush()
+        out = _git(
+            git_root,
+            "-c",
+            "gpg.ssh.program=ssh-keygen",
+            "-c",
+            f"gpg.ssh.allowedSignersFile={f.name}",
+            "log",
+            "-1",
+            "--format=%G?%x1f%GS",
+            sha,
+        )
+    status, _, principal = out.strip().partition("\x1f")
+    return status, principal

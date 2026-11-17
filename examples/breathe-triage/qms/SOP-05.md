@@ -3,7 +3,7 @@ id: SOP-05
 type: document
 doc_type: sop
 title: Complaints and Vigilance
-rev: 1
+rev: 2
 status: effective
 ---
 # SOP-05 Complaints and Vigilance

@@ -3,7 +3,7 @@ id: SOP-04
 type: document
 doc_type: sop
 title: Corrective and Preventive Action
-rev: 1
+rev: 2
 status: effective
 ---
 # SOP-04 CAPA

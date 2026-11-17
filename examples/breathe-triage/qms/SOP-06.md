@@ -3,7 +3,7 @@ id: SOP-06
 type: document
 doc_type: sop
 title: Post-Market Surveillance
-rev: 1
+rev: 2
 status: effective
 ---
 # SOP-06 Post-Market Surveillance

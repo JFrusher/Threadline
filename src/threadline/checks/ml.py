@@ -28,8 +28,10 @@ def hashes_match(ctx: Context):
         for split, rel in d.splits.items():
             files.append((d.id, rel, d.sha256.get(split)))
     for item_id, rel, expected in files:
-        path = root / rel
-        if not path.is_file():
+        path = (root / rel).resolve()
+        if not path.is_relative_to(root.resolve()):
+            yield Finding("TL-M02", item_id, f"{rel} is outside the project")
+        elif not path.is_file():
             yield Finding("TL-M02", item_id, f"{rel} not found")
         elif _sha256(path) != expected:
             yield Finding("TL-M02", item_id, f"{rel} hash differs from the registered SHA-256")

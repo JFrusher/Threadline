@@ -3,7 +3,7 @@ id: SOP-01
 type: document
 doc_type: sop
 title: Document Control
-rev: 1
+rev: 2
 status: effective
 ---
 # SOP-01 Document Control

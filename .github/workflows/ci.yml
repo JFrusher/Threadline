@@ -1,23 +1,26 @@
 name: ci
 on: [push, pull_request]
+permissions:
+  contents: read
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
         with:
           fetch-depth: 0  # TL-D03 reads approval signatures from history
-      - uses: astral-sh/setup-uv@v6
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e  # v6
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends pandoc  # security tests parse with pandoc
       - run: uv sync
       - run: uv run ruff check
       - run: uv run pytest
   action:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
         with:
           fetch-depth: 0  # TL-D03 reads approval signatures from history
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5
         with:
           python-version: "3.12"
       - run: pip install . pytest
@@ -26,3 +29,4 @@ jobs:
         with:
           path: examples/breathe-triage
           junit: junit.xml
+          trust-root: 87785d9a6e5fd9fa56d7f36ca3256c91d349238a  # example registry anchor (see tests/test_example.py)

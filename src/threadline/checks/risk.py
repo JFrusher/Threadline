@@ -40,11 +40,11 @@ def control_implemented(ctx: Context):
             yield Finding("TL-R03", rc.id, "no software requirement implements this risk control")
 
 
-@rule("TL-R04", "ISO 14971 7.2", "Every risk control is verified by at least one passing test", "evidence")
+@rule("TL-R04", "ISO 14971 7.2", "Every risk control has tests and all of them pass", "evidence")
 def control_verified(ctx: Context):
     for rc in ctx.project.of_type("risk_control"):
-        if rc.status != "obsolete" and not ctx.passing(rc.id):
-            yield Finding("TL-R04", rc.id, "no passing test verifies this risk control")
+        if rc.status != "obsolete" and (problem := ctx.verification(rc.id)):
+            yield Finding("TL-R04", rc.id, problem)
 
 
 @rule("TL-R05", "ISO 14971 7.3, 7.4", "Residual risk is evaluated and acceptable, or benefit-risk is justified")

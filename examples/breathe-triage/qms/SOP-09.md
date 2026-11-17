@@ -3,7 +3,7 @@ id: SOP-09
 type: document
 doc_type: sop
 title: Training
-rev: 1
+rev: 2
 status: effective
 ---
 # SOP-09 Training

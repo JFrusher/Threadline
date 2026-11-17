@@ -18,6 +18,8 @@ not decide whether a device is safe, classify a device, or replace review by qua
 | Signature mis-verified | Unauthorised approval accepted | High | Verification always via ssh-keygen with the repo's allowed_signers, ignoring user git config; unsigned, wrong-key, uncommitted and edited-after-signing fixtures |
 | Wrong hash accepted | Approval or model weights not bound to content | High | Hash-mismatch fixtures for TL-D01 and TL-M02 |
 | Profile data wrong (clause mapping) | Missing deliverable not flagged | Medium | Profile data marked unverified where not checked against licensed text; parse-guard tests; QA review of profiles before use |
+| Untrusted item text reaches the PDF engine | Runner files leaked into a published PDF; content hidden | High | Raw LaTeX/HTML disabled in Pandoc; images must be project files (tests/test_attacks.py) |
+| Self-registered signer key | Forged approvals | High | Registry chain of trust (TL-D04); signatures checked against the registry before the signing commit |
 | PDF omits content | Auditor sees incomplete file | Medium | Section presence test; build refuses on any finding; JUnit and SBOM attached raw next to the PDF |
 
 ## Validation evidence
