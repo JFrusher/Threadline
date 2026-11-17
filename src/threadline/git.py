@@ -27,9 +27,11 @@ def rel(git_root: Path, path: Path) -> str:
     return path.resolve().relative_to(git_root.resolve()).as_posix()
 
 
-def commits_touching(git_root: Path, path: Path) -> list[str]:
-    """Commits that changed path, newest first."""
-    return _git(git_root, "log", "--format=%H", "--", rel(git_root, path)).split()
+def commits(git_root: Path, path: Path | None = None) -> list[str]:
+    """Commits newest first, only those that changed path if given. None before the first commit."""
+    if resolve(git_root, "HEAD") is None:
+        return []  # git log exits 128 on a branch with no commits
+    return _git(git_root, "log", "--format=%H", *(["--", rel(git_root, path)] if path else [])).split()
 
 
 def resolve(git_root: Path, ref: str) -> str | None:
