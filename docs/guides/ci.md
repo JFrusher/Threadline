@@ -103,10 +103,8 @@ Release with the PDF, hazard log, JUnit evidence and SBOM.
 
 Splitting the jobs means the code under test never holds a token that can publish a release.
 
-> [!WARNING]
-> The generated release workflows install TeX with `--no-install-recommends`. In a clean Ubuntu 24.04 container that
-> leaves out the `lmodern` and `texlive-fonts-recommended` packages, and the PDF build fails with
-> ``File `lmodern.sty' not found``. If you see that, add both packages to the `apt-get install` line.
+The evidence job installs `lmodern` and `texlive-fonts-recommended` explicitly. With `--no-install-recommends` they are
+otherwise left out, and XeLaTeX stops with ``File `lmodern.sty' not found``. Keep them if you edit the install line.
 
 How to cut a release is in [Releasing and signing](releasing.md).
 
