@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-labelledby="t d">
+<title id="t">Threadline</title>
+<desc id="d">QMS-as-code for Software as a Medical Device. A thread runs through user need, requirement, risk control, passing test and signed release.</desc>
+<rect width="1280" height="320" rx="16" fill="#0d1117"/>
+<g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+<text x="64" y="150" font-size="64" font-weight="700" fill="#f0f6fc" letter-spacing="-1.5">Threadline</text>
+<text x="66" y="196" font-size="21" fill="#9198a1">QMS-as-code for Software as a Medical Device</text>
+<text x="66" y="232" font-size="15" fill="#9198a1">Traceability, risk, signatures and the technical file, checked in CI.</text>
+<path d="M610,220 Q635,190 660,190 C727,190 727,140 795,140 C862,140 862,190 930,190 C997,190 997,140 1065,140 C1132,140 1132,190 1200,190" fill="none" stroke="#4493f8" stroke-width="3" stroke-linecap="round"/>
+<circle cx="660" cy="190" r="10" fill="#0d1117" stroke="#4493f8" stroke-width="3"/><text x="660" y="228" text-anchor="middle" font-size="15" fill="#9198a1">User need</text><circle cx="795" cy="140" r="10" fill="#0d1117" stroke="#4493f8" stroke-width="3"/><text x="795" y="116" text-anchor="middle" font-size="15" fill="#9198a1">Requirement</text><circle cx="930" cy="190" r="10" fill="#0d1117" stroke="#4493f8" stroke-width="3"/><text x="930" y="228" text-anchor="middle" font-size="15" fill="#9198a1">Risk control</text><circle cx="1065" cy="140" r="10" fill="#0d1117" stroke="#4493f8" stroke-width="3"/><text x="1065" y="116" text-anchor="middle" font-size="15" fill="#9198a1">Passing test</text><circle cx="1200" cy="190" r="13" fill="#3fb950" stroke="#3fb950" stroke-width="3"/><path d="M1195,190 l4,4 l7,-8" fill="none" stroke="#0d1117" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><text x="1200" y="228" text-anchor="middle" font-size="15" fill="#9198a1">Signed release</text>
+</g>
+</svg>
