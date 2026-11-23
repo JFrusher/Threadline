@@ -1,7 +1,8 @@
 # Contributing
 
 Questions and bug reports go in [issues](https://github.com/JFrusher/threadline/issues). A useful bug report
-has the command you ran, the output, and the smallest set of item files that reproduces it.
+has the command you ran, the output, and the smallest set of item files that reproduces it. A wrong clause or
+citation has its own issue form. Security problems go through [SECURITY.md](SECURITY.md), not issues.
 
 ## Setup
 

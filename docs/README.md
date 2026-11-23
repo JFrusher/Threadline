@@ -7,6 +7,7 @@
 | [CLI reference](cli.md) | Engineers | Every command, option and exit code |
 | [Rule reference](rules.md) | Engineers, QA/RA | Every rule with its clause and the input it needs |
 | [CI and releases](ci-and-releases.md) | Engineers, QA/RA | The GitHub Action, the scaffolded workflows, what counts as release evidence |
+| [Threadline for QA and regulatory leads](for-qa-ra.md) | QA/RA | What it checks and what it doesn't, your responsibilities, reading the technical file |
 | [Reading a Threadline technical file](for-auditors.md) | Auditors, reviewers | What the PDF contains, how to check it against the repository, what it does not claim |
 
 ## Guides
