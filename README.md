@@ -144,7 +144,7 @@ cover marks it illustrative because the device is fictional.
 | If you are | Read |
 |---|---|
 | An engineer adding this to a codebase | [Getting started](docs/getting-started.md), [CLI reference](docs/cli.md), [CI and releases](docs/ci-and-releases.md) |
-| QA/RA, deciding whether it fits your QMS | [Concepts](docs/concepts.md), [Rule reference](docs/rules.md), [Part 11 gap analysis](docs/guides/part11-gap-analysis.md), [tool risk assessment](docs/tool-validation/threadline-intended-use-and-risk.md) |
+| QA/RA, deciding whether it fits your QMS | [Threadline for QA/RA](docs/for-qa-ra.md), [Concepts](docs/concepts.md), [Rule reference](docs/rules.md), [Part 11 gap analysis](docs/guides/part11-gap-analysis.md), [tool risk assessment](docs/tool-validation/threadline-intended-use-and-risk.md) |
 | A founder or consultant scoping a submission | The [worked example](examples/breathe-triage) and [Status and limits](#status-and-limits) below |
 | An auditor handed a Threadline technical file | [Reading a Threadline technical file](docs/for-auditors.md) |
 
@@ -193,8 +193,8 @@ The plan for what comes next is [docs/PLAN.md](docs/PLAN.md).
 
 ## Contributing
 
-Bug reports and questions go in [issues](https://github.com/JFrusher/threadline/issues). For changes, see
-[CONTRIBUTING.md](CONTRIBUTING.md).
+Bug reports, questions and corrections to regulatory claims go in [issues](https://github.com/JFrusher/threadline/issues).
+For changes, see [CONTRIBUTING.md](CONTRIBUTING.md). Report vulnerabilities privately: [SECURITY.md](SECURITY.md).
 
 ## Licences
 

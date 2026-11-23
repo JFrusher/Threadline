@@ -1,0 +1,28 @@
+name: Feature request
+description: Propose a new rule, preset, profile, item type or command.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What can't you do today, or what does Threadline miss? Who runs into it?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: For a rule, give the check in one sentence and the clause it enforces.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Source
+      description: For a rule, preset or profile, the standard, regulation or published evidence it is based on. Presets ship only with a cited source.
+  - type: textarea
+    id: fixtures
+    attributes:
+      label: How it would pass and fail
+      description: A sketch of the passing and failing fixture. Every rule needs both.
