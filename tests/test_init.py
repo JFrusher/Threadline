@@ -33,3 +33,15 @@ def test_init_pins_version_and_scaffolds_checklists(tmp_path):
     assert f"threadline=={version('threadline')}" in wf and "__THREADLINE_VERSION__" not in wf
     p = project.load(target)
     assert "UKER-12.1a" in p.items and "ISO13485-4.2.4" in p.items and "AUEP-SW" in p.items
+
+
+def test_check_before_first_commit(tmp_path, capsys):
+    """A fresh `init` + `git init` with no commits reports findings instead of crashing on `git log`."""
+    import subprocess
+
+    target = tmp_path / "qms"
+    main(["init", str(target)])
+    subprocess.run(["git", "init", "-q", str(target)], check=True)
+    assert main(["check", str(target)]) == 1
+    assert "TL-D04 [21 CFR 11.100, 11.300; ADR-003] qms/signers/allowed_signers: signer registry has uncommitted" \
+        in capsys.readouterr().out

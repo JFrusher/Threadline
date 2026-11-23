@@ -26,7 +26,7 @@ git init && git add -A && git commit -m "Start the QMS"
 
 That first commit matters. Threadline reads approvals and the signer registry from git history, and the commit that
 first adds `qms/signers/allowed_signers` becomes your root of trust ([ADR-003](adr/ADR-003-signed-approval-records.md)).
-Running `check` in a repository with no commits fails with a git error.
+Until you commit, `check` reports the signer registry as uncommitted (TL-D04).
 
 Here's what `init` created:
 

@@ -58,10 +58,10 @@ A skipped test proved nothing. Counting it as verification would let a disabled 
 No. A skipped rule needs an input you didn't pass (here, `--base`). CI passes them. Only `build --release` insists on
 every rule running.
 
-### `check` crashed with a git error in a new repository.
+### `check` says the signer registry has uncommitted changes (TL-D04).
 
-Make one commit first. Threadline reads signatures and the signer registry from git history, which doesn't exist until
-the first commit.
+Commit it. Threadline reads signatures and the signer registry from git history, and in a new repository the first
+commit that adds `qms/signers/allowed_signers` becomes your root of trust.
 
 ### TL-D03 fails on CI but passes locally.
 

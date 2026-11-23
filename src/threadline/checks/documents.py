@@ -156,7 +156,7 @@ def registry_chain(ctx: Context):
     if not keys_path.is_file():
         return
     shas = set(git.commits_touching(ctx.git_root, keys_path)) | set(git.commits_touching(ctx.git_root, cfg_path))
-    ordered = [s for s in git._git(ctx.git_root, "log", "--format=%H").split() if s in shas][::-1]
+    ordered = [s for s in git.history(ctx.git_root) if s in shas][::-1]
     seen_root = False
     if ctx.trust_root:
         # an admin-set anchor outside the repo: the registry at that commit is trusted, later changes are checked
