@@ -7,7 +7,8 @@ def _tests(ctx: Context, item_id: str) -> str:
     if ctx.evidence is None:
         return "_no evidence_"
     cases = ctx.evidence.get(item_id, [])
-    return "<br>".join(f"{'PASS' if c.passed else 'FAIL'} `{c.name}`" for c in cases) or "**none**"
+    # "; " not <br>: the technical file is built with raw HTML disabled
+    return "; ".join(f"{'PASS' if c.passed else 'FAIL'} `{c.name}`" for c in cases) or "**none**"
 
 
 def render(ctx: Context) -> str:
