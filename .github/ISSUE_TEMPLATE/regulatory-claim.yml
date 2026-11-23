@@ -1,0 +1,45 @@
+name: Regulatory claim correction
+description: A clause, citation, threshold or requirement in Threadline is wrong, outdated or unsourced.
+labels: [regulatory]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Corrections like this are some of the most valuable contributions Threadline gets. Templates may only cite sources marked Verified in the [PRD evidence ledger](https://github.com/JFrusher/Threadline/blob/main/docs/PRD.md#11-evidence-ledger--what-is-verified-and-what-is-not), so a source we can check is what matters most.
+  - type: input
+    id: where
+    attributes:
+      label: Where is the claim?
+      description: File and line, rule ID, or technical file section.
+      placeholder: e.g. src/threadline/data/regulatory/uk-mhra.yaml, TL-G01, SOP-05
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: What it says now
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: What it should say
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: The regulation, standard (edition and clause), or official guidance, with a link if public. For licensed standards, the clause number and edition are enough.
+    validations:
+      required: true
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Could this affect a manufacturer's compliance?
+      options:
+        - "Yes: a rule could pass when it should fail, or cite the wrong requirement"
+        - "Possibly"
+        - "No: wording or reference only"
+    validations:
+      required: true

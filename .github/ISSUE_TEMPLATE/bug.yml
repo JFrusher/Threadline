@@ -1,0 +1,41 @@
+name: Bug report
+description: Threadline did something wrong, crashed, or reported a finding it shouldn't have.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting. A minimal project or command that shows the problem helps most. Please remove anything confidential first.
+  - type: input
+    id: version
+    attributes:
+      label: Threadline version or commit
+      placeholder: e.g. 0.0.1, or a commit SHA
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: What you ran
+      description: The exact command, and the relevant items or config if you can share them.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened
+      description: Paste the full output, including any traceback.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: e.g. Ubuntu 24.04, Python 3.12, GitHub Actions
