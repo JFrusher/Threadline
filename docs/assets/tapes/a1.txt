@@ -1,0 +1,7 @@
+diff --git a/examples/breathe-triage/src/breathe_triage/triage.py b/examples/breathe-triage/src/breathe_triage/triage.py
+index 0eab661..ba11126 100644
+--- a/examples/breathe-triage/src/breathe_triage/triage.py
++++ b/examples/breathe-triage/src/breathe_triage/triage.py
+@@ -48 +48 @@ def classify(age_months: int, respiratory_rate: int, danger_signs: dict[str, boo
+-    return "FAST_BREATHING" if respiratory_rate >= threshold else "NO_FAST_BREATHING"
++    return "FAST_BREATHING" if respiratory_rate > threshold else "NO_FAST_BREATHING"

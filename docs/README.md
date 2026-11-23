@@ -5,6 +5,8 @@
 | [Getting started](getting-started.md) | Engineers | Install, scaffold a repository, take one requirement from red to green |
 | [Concepts](concepts.md) | Everyone | Items, links, evidence, documents and approvals, risk policy, profiles, presets, `threadline.yaml` |
 | [CLI reference](cli.md) | Engineers | Every command, option and exit code |
+| [Configuration](configuration.md) | Engineers, QA/RA | `threadline.yaml`: profiles, risk policy, signers and roles, approval policy |
+| [Item types](items.md) | Engineers | Every field of all 29 item types, generated from the models |
 | [Rule reference](rules.md) | Engineers, QA/RA | Every rule with its clause and the input it needs |
 | [CI and releases](ci-and-releases.md) | Engineers, QA/RA | The GitHub Action, the scaffolded workflows, what counts as release evidence |
 | [Threadline for QA and regulatory leads](for-qa-ra.md) | QA/RA | What it checks and what it doesn't, your responsibilities, reading the technical file |

@@ -1,0 +1,7 @@
+NOTE: Clause-to-class applicability transcribed from IEC 62304 Annex A Table A.1 without access to the licensed text during authoring. Verify against your copy of the standard before relying on it. UK designates EN 62304:2006 (no A1).
+skipped TL-D02 (A content change to an effective document comes with a revision bump): needs base_ref
+skipped TL-D05 (The release has an effective baseline matching the current design file, approved as released): needs release
+skipped TL-P01 (Every SBOM component has an effective SOUP entry for that version): needs sbom
+skipped TL-P02 (Every SOUP entry matches a component in the SBOM): needs sbom
+skipped TL-P03 (Every known advisory against a SOUP has a vulnerability triage record): needs advisories
+0 finding(s), 5 rule(s) skipped, 200 items

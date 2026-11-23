@@ -1,0 +1,1 @@
+created my-qms. Next: git init; pytest --junitxml=junit.xml; threadline check --junit junit.xml

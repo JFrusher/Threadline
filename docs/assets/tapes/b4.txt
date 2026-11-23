@@ -1,0 +1,66 @@
+NOTE: Clause-to-class applicability transcribed from IEC 62304 Annex A Table A.1 without access to the licensed text during authoring. Verify against your copy of the standard before relying on it. UK designates EN 62304:2006 (no A1).
+NOTE: no --trust-root: the signer registry's first commit is trusted. Anchor it with a CI variable.
+TL-E02 [IEC 62304 5.7.5] SRS-001: tests.test_example::test_replace_me verifies unknown item
+TL-C01 [IEC 62304 (per lifecycle profile)] IEC 62304:2006+A1:2015 4.3: Software safety classification (class C) needs item_type classification
+TL-C01 [IEC 62304 (per lifecycle profile)] IEC 62304:2006+A1:2015 5.1: Software development planning (class C) needs doc_type sdp
+TL-C01 [IEC 62304 (per lifecycle profile)] IEC 62304:2006+A1:2015 5.2: Software requirements analysis (class C) needs item_type software_requirement
+TL-C01 [IEC 62304 (per lifecycle profile)] IEC 62304:2006+A1:2015 5.3: Software architectural design (class C) needs doc_type sad
+TL-C01 [IEC 62304 (per lifecycle profile)] IEC 62304:2006+A1:2015 5.3.1: Architecture items identified (class C) needs item_type architecture_item
+TL-C01 [IEC 62304 (per lifecycle profile)] IEC 62304:2006+A1:2015 5.4: Software detailed design (class C) needs doc_type detailed_design
+TL-C01 [IEC 62304 (per lifecycle profile)] IEC 62304:2006+A1:2015 7: Software risk management process (class C) needs item_type hazard
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-4.1: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-4.1.6: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-4.2.3: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-4.2.4: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-4.2.5: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-5.6: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-6.2: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-7.1: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-7.3.2: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-7.3.3: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-7.3.4: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-7.3.6: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-7.3.7: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-7.3.9: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-7.3.10: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-7.4: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-7.5.6: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-8.2.1: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-8.2.2: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-8.2.3: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-8.5.2: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] ISO13485-8.5.3: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] UKER-1: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] UKER-2: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] UKER-3: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] UKER-4: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] UKER-5: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] UKER-6: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] UKER-6a: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] UKER-7: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] UKER-8: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] UKER-9: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] UKER-10: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] UKER-11: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] UKER-12.1a: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] UKER-12: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] UKER-13: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] UK-PMS: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] AUEP-GEN: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] AUEP-CLIN: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] AUEP-SW: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] AUEP-USE: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] AUEP-LABEL: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] AUEP-QMS: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] AUEP-VIG: applicable but linked to no evidence
+TL-G01 [ISO 13485 4.2.3; UK MDR 2002 Part II; AU Model Law] AUEP-REG: applicable but linked to no evidence
+TL-G02 [UK MDR 2002 reg. 7 / Annex IX; WHO GMRF classification] uk-mhra: UK MHRA (Great Britain) — UK MDR 2002: no classification item for scheme uk-mhra
+TL-G02 [UK MDR 2002 reg. 7 / Annex IX; WHO GMRF classification] who-gmrf: African Union Model Law on Medical Products Regulation — WHO GMRF baseline: no classification item for scheme who-gmrf
+skipped TL-D02 (A content change to an effective document comes with a revision bump): needs base_ref
+skipped TL-D05 (The release has an effective baseline matching the current design file, approved as released): needs release
+skipped TL-P01 (Every SBOM component has an effective SOUP entry for that version): needs sbom
+skipped TL-P02 (Every SOUP entry matches a component in the SBOM): needs sbom
+skipped TL-P03 (Every known advisory against a SOUP has a vulnerability triage record): needs advisories
+
+by rule: TL-C01 7 (Every activity the software class requires has its deliverable), TL-E02 1 (No test claims to verify an unknown item), TL-G01 46 (Every checklist clause of the active profiles is mapped to evidence or justified as not applicable), TL-G02 2 (Every classification scheme the active profiles need has a classification item)
+56 finding(s), 5 rule(s) skipped, 56 items

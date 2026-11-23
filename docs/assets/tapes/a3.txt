@@ -1,0 +1,12 @@
+NOTE: Clause-to-class applicability transcribed from IEC 62304 Annex A Table A.1 without access to the licensed text during authoring. Verify against your copy of the standard before relying on it. UK designates EN 62304:2006 (no A1).
+TL-E01 [IEC 62304 5.7] SRS-002: failing verification: tests.test_triage::test_infant_threshold[2-50-FAST_BREATHING], tests.test_triage::test_infant_threshold[11-50-FAST_BREATHING]
+TL-E01 [IEC 62304 5.7] SRS-003: failing verification: tests.test_triage::test_child_threshold[12-40-FAST_BREATHING], tests.test_triage::test_child_threshold[59-40-FAST_BREATHING]
+TL-R04 [ISO 14971 7.2] RC-001: failing verification: tests.test_triage::test_infant_threshold[2-50-FAST_BREATHING], tests.test_triage::test_infant_threshold[11-50-FAST_BREATHING], tests.test_triage::test_child_threshold[12-40-FAST_BREATHING], tests.test_triage::test_child_threshold[59-40-FAST_BREATHING]
+skipped TL-D02 (A content change to an effective document comes with a revision bump): needs base_ref
+skipped TL-D05 (The release has an effective baseline matching the current design file, approved as released): needs release
+skipped TL-P01 (Every SBOM component has an effective SOUP entry for that version): needs sbom
+skipped TL-P02 (Every SOUP entry matches a component in the SBOM): needs sbom
+skipped TL-P03 (Every known advisory against a SOUP has a vulnerability triage record): needs advisories
+
+by rule: TL-E01 2 (Every software requirement has tests and all of them pass), TL-R04 1 (Every risk control has tests and all of them pass)
+3 finding(s), 5 rule(s) skipped, 200 items
